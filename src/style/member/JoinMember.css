@@ -1,0 +1,156 @@
+/* 전체 컨테이너 */
+.join-member-container {
+  max-width: 500px;
+  margin: 50px auto;
+  font-family: sans-serif;
+}
+
+.join-section {
+  padding: 15px 0;
+}
+
+.section-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* 입력 그룹 컨테이너 (에러 문구 배치를 위해 추가) */
+.input-group-container {
+  margin-bottom: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 입력 행 - 원본 flex-direction: column 유지 */
+.input-row {
+  display: flex;
+  flex-direction: column;
+}
+
+.input-row label {
+  font-size: 14px;
+  margin-bottom: 6px;
+  color: #666;
+}
+
+.input-field {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 15px;
+  outline: none;
+}
+
+/* 에러 발생 시 스타일 (추가) */
+.input-field.error-border {
+  border-color: #ff4d4f;
+}
+
+.error-text {
+  color: #ff4d4f;
+  font-size: 12px;
+  margin-top: 5px; /* 입력창 바로 아래에 출력 */
+  text-align: left;
+}
+
+.input-field:read-only {
+  background-color: #f0f0f0;
+  color: #999;
+}
+
+/* 주민번호 레이아웃 */
+.ssn-input-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.ssn-front { width: 100px; }
+.ssn-back-container { display: flex; align-items: center; gap: 5px; }
+.ssn-back-first { width: 35px; text-align: center; }
+.ssn-stars { letter-spacing: 2px; font-weight: bold; color: #777; }
+
+.verify-btn-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.next-step-placeholder {
+  padding: 40px;
+  text-align: center;
+  border: 2px dashed #eee;
+  color: #bbb;
+  border-radius: 8px;
+}
+
+/* 모달 내부 스타일 (원본) */
+.info-summary {
+  background: #f8f9fa;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  line-height: 1.8;
+  font-size: 14px;
+  color: #444;
+}
+
+.info-summary strong {
+  display: inline-block;
+  width: 100px;
+  color: #222;
+}
+
+.confirm-msg {
+  text-align: center;
+  font-size: 14px;
+  color: #d35400;
+  font-weight: 600;
+}
+
+.modal-action-btns {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+/* 구분선 */
+.line-hr {
+  border: 0;
+  border-top: 1px solid #eee;
+  margin: 20px 0;
+}
+
+.id-input-wrapper {
+  display: flex;
+  gap: 10px;
+  flex: 1;
+}
+
+.inner-btn {
+  padding: 0 15px;
+  background-color: #666;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.inner-btn:hover {
+  background-color: #444;
+}
+
+.error-text.success-color {
+  color: #007bff; /* 파란색 계열 */
+  font-weight: 500;
+}
+
+
+.input-field.error-border {
+  border-color: #ff4d4f;
+}
+

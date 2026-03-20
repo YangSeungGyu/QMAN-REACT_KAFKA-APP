@@ -1,0 +1,279 @@
+/* src/App.css */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+#root {
+  width: 100%;
+}
+
+.layout-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-height: 100vh;
+}
+
+header {
+  width: 100%;
+  background-color: #2c3e50;
+  color: white;
+  padding: 1.5rem 2rem;
+}
+
+.main-wrapper {
+  display: flex;
+  flex: 1;
+  width: 100%;
+}
+
+.side-menu {
+  width: 240px;
+  min-width: 240px;
+  background-color: white;
+  border-right: 1px solid #e9ecef;
+  padding: 2rem 1rem;
+}
+
+.page-content {
+  flex-grow: 1;
+  padding: 2rem;
+  background-color: #f8f9fa;
+}
+
+.board-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+.board-table th {
+  background-color: #f1f3f5;
+  padding: 1rem;
+  font-weight: 600;
+  border-bottom: 2px solid #dee2e6;
+}
+
+.board-table td {
+  padding: 1rem;
+  border-bottom: 1px solid #eee;
+  text-align: center;
+}
+
+.board-table tr:hover {
+  background-color: #f8f9fa;
+}
+
+footer {
+  padding: 1rem;
+  background: #eee;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #888;
+}
+
+.stat-card {
+  flex: 1;
+  background: white;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+  text-align: center;
+}
+
+.stat-card h4 {
+  color: #888;
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+
+.stat-value {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+
+.line-hr {
+  display: block;
+  border: none !important;
+  border-top: 1px solid #ddd !important;
+  margin: 10px 0 !important;
+  width: 100%;
+}
+
+.top-auth-btn {
+  background-color: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  color: white;
+  padding: 5px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.top-auth-btn:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-color: white;
+}
+
+.auth-zone span {
+  color: #bdc3c7;
+}
+
+.auth-zone strong {
+  color: #fff;
+}
+
+.top-nav {
+  display: flex;
+  align-items: center;
+}
+
+.user-info-area {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.95rem;
+  color: #ecf0f1;
+}
+
+.auth-link {
+  color: #fff;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.2s;
+}
+
+.auth-link:hover {
+  color: #3498db; /* 마우스 올렸을 때 강조색 */
+  text-decoration: underline;
+}
+
+.divider {
+  color: rgba(255, 255, 255, 0.3);
+  margin: 0 5px;
+}
+
+.user-info-area {
+  display: flex;
+  align-items: center;
+  gap: 12px; /* 간격을 살짝 넓혔습니다 */
+  font-size: 0.9rem;
+  color: #ecf0f1;
+}
+
+.auth-link {
+  color: #fff;
+  text-decoration: none;
+  transition: all 0.2s;
+  white-space: nowrap; /* 글자가 줄바꿈되지 않도록 설정 */
+}
+
+.auth-link:hover {
+  color: #3498db;
+  text-decoration: underline;
+}
+
+.divider {
+  color: rgba(255, 255, 255, 0.3);
+  font-size: 0.8rem;
+}
+
+a {
+  text-decoration: none; /* 밑줄 제거 */
+  color: inherit;       /* 부모 요소의 글자색 상속 (보통 검정색) */
+}
+
+/* 사이드바 메뉴 전용 스타일 */
+.side-menu ul li {
+  margin-bottom: 12px;
+}
+
+.side-menu ul li a {
+  color: #333; /* 원하는 검정색 계열 */
+  transition: color 0.2s;
+}
+
+.side-menu ul li a:hover {
+  color: #3498db; /* 마우스 올렸을 때만 포인트 컬러 */
+}
+
+.side-menu {
+  width: 240px;
+  min-width: 240px;
+  background-color: #ffffff;
+  border-right: 1px solid #e9ecef;
+  padding: 2rem 1.5rem; /* 안쪽 여백을 넉넉히 */
+}
+
+/* "메뉴" 타이틀 스타일 */
+.side-menu h3 {
+  font-size: 1.2rem;
+  color: #2c3e50;
+  margin-bottom: 1.5rem;
+  padding-left: 10px;
+  border-left: 4px solid #2c3e50; /* 포인트 줄 추가 */
+}
+
+.side-menu {
+  width: 240px;
+  min-width: 240px;
+  background-color: #ffffff;
+  border-right: 1px solid #e9ecef;
+  padding: 40px 15px; /* 상단 여백을 좀 더 주어 시원하게 */
+}
+
+/* "메뉴" 타이틀 */
+.side-menu h3 {
+  font-size: 0.85rem;
+  color: #999; /* 은은한 회색 */
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-bottom: 25px;
+  padding-left: 15px;
+}
+
+/* 메뉴 리스트 */
+.side-menu ul {
+  list-style: none;
+  padding: 0;
+}
+
+/* 메뉴 링크 - 움직임 제거 버전 */
+.side-menu ul li a {
+  display: block;
+  padding: 14px 20px;
+  font-size: 1.05rem; 
+  color: #444; /* 너무 진하지 않은 검정 */
+  text-decoration: none;
+  border-radius: 6px; /* 살짝만 둥글게 */
+  font-weight: 500;
+  /* 움직임(transition)은 배경색에만 적용 */
+  transition: background-color 0.15s ease; 
+}
+
+/* 마우스 올렸을 때 - 위치 변화 없음 */
+.side-menu ul li a:hover {
+  background-color: #f1f3f5; /* 연한 회색 배경만 채워짐 */
+  color: #2c3e50; /* 글자색만 살짝 진해짐 */
+  /* padding이나 font-weight를 건드리지 않아 들썩거리지 않습니다 */
+}
+
+/* 현재 선택된 메뉴 강조용 (나중에 사용) */
+.side-menu ul li a.active {
+  background-color: #e8f0fe;
+  color: #1a73e8;
+}
+
+.test-section {
+  background-color: #bbbaba; /* 옅은 회색 */
+  padding: 10px;             /* 내부 여백 */
+  margin-bottom: 10px;       /* 아래 섹션과의 간격 */
+  border: 1px solid #eee;    /* 영역 구분을 위한 아주 연한 테두리 */
+  color: #333;               /* 글자색 */
+}

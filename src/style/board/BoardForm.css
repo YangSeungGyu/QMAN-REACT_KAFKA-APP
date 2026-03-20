@@ -1,0 +1,113 @@
+.board-form-container {
+  max-width: 1400px;
+  width: 95%;
+  margin: 20px auto;
+  padding: 40px;
+  background-color: #fff;
+  border-radius: 8px;
+  border: 1px solid #e9ecef;
+}
+
+/* 제목 스타일 */
+.board-form-title {
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-bottom: 25px;
+  color: #2c3e50;
+  padding-bottom: 15px;
+  border-bottom: 2px solid #2c3e50;
+}
+
+/* 테이블 공통 스타일 */
+.form-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 30px;
+  border-top: 1px solid #2c3e50; /* 상단 포인트 선 */
+}
+
+.form-table th {
+  width: 15%;
+  padding: 20px;
+  background-color: #f8f9fa;
+  border-bottom: 1px solid #eee;
+  text-align: left;
+  color: #555;
+  font-weight: 600;
+}
+
+.form-table td {
+  padding: 20px;
+  border-bottom: 1px solid #eee;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* 작성 페이지용 Input/Textarea 스타일 */
+.write-input, .write-textarea {
+  width: 100%;
+  padding: 12px 15px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 16px;
+  outline: none;
+  box-sizing: border-box;
+  transition: border-color 0.2s;
+  font-family: inherit; /* 폰트 일관성 유지 */
+}
+
+/* 내용(textarea) 전용 스타일: 공통 스타일을 상속받고 높이만 확장 */
+.write-textarea {
+  min-height: 400px;  /* 높이를 시원하게 600px 정도로 확대 */
+  line-height: 1.8;   /* 줄 간격을 넓혀서 가독성 확보 */
+  resize: vertical;   /* 사용자가 세로로 조절 가능하게 */
+  display: block;     /* 레이아웃 깨짐 방지 */
+}
+
+/* 포커스 효과는 둘 다 공통으로 */
+.write-input:focus, .write-textarea:focus {
+  border-color: #2c3e50;
+  background-color: #fafafa;
+}
+
+/* 내용 영역 (상세 & 작성 공통) */
+.content-cell {
+  min-height: 500px; /* 기존 400px에서 500px로 확대 */
+  padding: 30px !important;
+  vertical-align: top;
+  background-color: #ffffff;
+  border-bottom: 1px solid #dee2e6;
+  line-height: 1.8; /* 줄 간격을 조금 더 넓혀서 가독성 향상 */
+}
+
+/* 상세페이지 글자 굵기 등 미세조정 */
+.form-table td strong {
+  font-size: 1.1rem;
+  color: #000;
+}
+
+/* 버튼 영역 */
+.form-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  padding-top: 30px;
+  border-top: 1px solid #f0f0f0;
+}
+
+.btn-common {
+  padding: 12px 30px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  transition: background-color 0.2s;
+  color: white;
+}
+
+.btn-gray { background-color: #6c757d; }
+.btn-gray:hover { background-color: #5a6268; }
+
+.btn-navy { background-color: #2c3e50; }
+.btn-navy:hover { background-color: #1a252f; }

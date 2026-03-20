@@ -1,0 +1,28 @@
+
+=================루트경로 설정 + json을 자동배열로 인식하게
+루트 경로 jsconfig.json 생성해서 환경 설정 파일 만들기
+[jsconfig.json] 생성
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"] 
+    }
+  },
+  "include": ["src"]
+}
+
+[vite.config.js] 수정
+import path from 'path'
+
+ resolve: {
+    alias: {
+      // 현재 경로의 src를 'src'라는 이름으로 매핑
+      "src": path.resolve(__dirname, "./src"),
+    },
+  },
+
+  ==============
+
+
+  npm install react-router-dom

@@ -1,0 +1,31 @@
+===========[라이브러리 추가한 것]===========
+npm install react-router-dom
+
+달력
+npm install react-datepicker
+
+샘플아이콘?
+npm install react-icons
+
+[axios]
+npm install axios
+
+[zustand] 이거 [Redux-Saga]쓰면 안씀...
+npm install zustand
+
+[react-query]
+npm install @tanstack/react-query
+
+
+
+[Redux-Saga]
+npm install @reduxjs/toolkit react-redux redux-saga
+
+[history] - useNavigate를 js에서 쓸 수 있게 하는것.
+npm install history
+
+==========[나중에 설치하고 추가 공부할꺼]===========
+Immer 라이브러리
+
+
+API 호출시?  Redux-Saga

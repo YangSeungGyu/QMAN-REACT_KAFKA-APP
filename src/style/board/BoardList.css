@@ -1,0 +1,102 @@
+.board-container {
+  padding: 40px;
+  max-width: 1400px;
+  width: 95%;
+  margin: 20px auto;
+  background-color: #fff;
+  /* 그림자를 사이드바와 비슷하게 은은하게 변경 */
+  border-radius: 8px;
+  border: 1px solid #e9ecef;
+}
+
+.board-title {
+  font-size: 1.5rem;
+  color: #2c3e50;
+  margin-bottom: 25px;
+  font-weight: 700;
+}
+
+.board-table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+.board-table th {
+  padding: 15px 12px;
+  background-color: #f8f9fa;
+  border-top: 2px solid #2c3e50; /* 헤더 색상과 통일 */
+  border-bottom: 1px solid #dee2e6;
+  text-align: center;
+  font-weight: 600;
+  color: #333;
+}
+
+.board-table td {
+  padding: 16px 12px;
+  border-bottom: 1px solid #f0f0f0;
+  text-align: center;
+  color: #555;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* 제목 셀: 파란색 제거 및 사이드바와 통일감 */
+.board-table .title-cell {
+  text-align: left !important;
+  padding-left: 20px !important;
+  color: #333;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+}
+
+.board-table .title-cell:hover {
+  text-decoration: none; /* 밑줄 제거 */
+  background-color: #f8f9fa; /* 사이드바와 같은 호버 효과 */
+  color: #2c3e50;
+}
+
+.board-table th:nth-child(1) { width: 70px; }
+.board-table th:nth-child(3) { width: 150px; }
+.board-table th:nth-child(4) { width: 150px; }
+
+.write-btn {
+  padding: 10px 24px;
+  background-color: #2c3e50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.write-btn:hover {
+  background-color: #1a252f;
+}
+
+.board-action-row {
+  display: flex;
+  justify-content: flex-end; /* 우측 정렬 */
+  margin-top: 30px;          /* 테이블과의 간격을 넉넉히 (기존 20px에서 확대) */
+  margin-bottom: 20px;       /* 아래 페이징과의 간격 */
+  padding-right: 5px;        /* 테이블 끝선과 맞추기 위한 미세 조정 */
+}
+
+/* 글쓰기 버튼 스타일 유지 및 미세 조정 */
+.write-btn {
+  padding: 12px 28px;        /* 버튼을 조금 더 시원하게 */
+  background-color: #2c3e50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.write-btn:hover {
+  background-color: #1a252f;
+}

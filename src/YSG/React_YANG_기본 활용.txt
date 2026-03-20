@@ -1,0 +1,117 @@
+==============================반복문=================================================
+------------매칭 대상 1개 찾기[find]--------------------
+let check = 'test';
+let matchedObj = array.find((obj)=>{
+	return obj.test == check
+});
+------------매칭 여러개 찾기[filter]--------------------
+let check = 'test';
+let matchedArr = array.filter((obj)=>{
+	return obj.test == check
+});
+-------------반복 검증하면서 값 변경하기[map]-------------------
+const updatedList = members.map((member) => {
+  let updatedMember = { ...member }; //복사
+
+  if (updatedMember.score > 80) {
+    updatedMember.grade = 'Gold';
+  }
+
+  return updatedMember;
+});
+-------------조건이 있는지 확인하고 true/false 리턴[some]-------------------
+let check = 'test';
+let isMatched = array.some((obj)=>{
+	return obj.test == check
+});
+
+==============================선언문[typescript]=================================================
+객체 형태의 값을 만들고 싶으면 항상 inferface를 선언
+
+interface ChildMap{h11:string;h22:string;}
+
+interface TestMap {
+  aaa: number;
+  bbb: string;
+  ccc: boolean;
+  ddd : string[];
+  eee : any; /*이거 쓰면 힌트 안뜸 - 검증없이 막 사용가능...*/
+  fff : unknown; /* 사용할때 if(typeof TestMap.fff === 'string') { } else if(typeof TestMap.fff === 'number'){ } 로 여러가지 타입 사용 가능*/
+  ggg : {g11:string;g22:string;};
+  hhh : ChildMap;
+  iii : (i11:string) => void;
+  jjj : (j11:string) => boolean;
+  kkk : Dispatch<SetStateAction<string>> /*state의 set을 받을때*/
+}
+
+-------------------interface 사용---------
+[일반 변수 전체 사용] : 모든 변수를 넣어야함
+const data: TestMap = {
+  aaa: 1,
+  bbb: "hello"
+  ....
+};
+
+[일반 변수 일부 사용] : 선언된 변수를 넣어도 되고 안넣어도 됨.
+const data: Partial<TestMap> = {
+  aaa: 1
+};
+
+[일반 변수 사용할 특정값 지정] : 지정 값만
+const data: Pick<TestMap, 'aaa' | 'bbb'> = {
+  aaa: 1
+  ,bbb:'test'
+};
+
+
+[컴포넌트 인자값]
+const AAA = (map:TestMap) => {return();} /*사용법 {map.aaa}*/
+
+[함수 인자값]
+function AAA(map: TestMap) {
+	alert(map.aaa);
+}
+
+[State 변환]
+const [data, setData] = useState<Partial<TestMap>>({
+    aaa: 0,
+    bbb: "",
+    ccc: false
+  });
+
+setData(prev => ({ ...prev, aaa: 2 })); /*prev는 최근에 담았던 값. ...prev는 복사 */
+
+setData(prev => ({ ...prev, ccc: false })); !!!이게 가능함!!!! Partial은 초기값으로 없더라도 추가 셋팅 가능하다.
+
+======================객체 필드 복사=========================
+interface TestForm {
+  aa: string;
+  bb: int;
+  cc: string | null;
+}
+
+1) 타입만 복사해서 모드 string 으로 통일
+export type Test2 = Partial<Record<keyof TestForm, string>>;
+
+2) 특정 변수 제외하기
+export type JoinErrors = Partial<Record<keyof Omit<TestForm, 'bb' | 'cc'>, string>>;
+
+3) 특정 변수만 가져오기
+export type JoinErrors = Partial<Record<keyof Pick<TestForm, 'bb' | 'cc'>, string>>;
+
+** Partial : 해당 키값이 있거나 없어도됨 ?와 같음
+** keyof 키값을 빼옴
+** Record 객체 신규생성
+
+
+======================외부에서 setState 인자값 받기=========================
+const [test, setTest] = useState('초기값'); - 이미 Dispatch<SetStateAction<string>>라고 인식함.
+
+setTest('변경1');  //내부 함수 변경
+
+TestTs.fnStateUpdate(setTest); //외부 함수 변경
+-------[TestTs.ts]--------
+export const fnStateUpdate = (setTest: Dispatch<SetStateAction<string>>) => {  
+  setTest("변경2");
+};
+==================================================================

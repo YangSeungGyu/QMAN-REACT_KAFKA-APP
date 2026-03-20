@@ -4,7 +4,7 @@ import DatepickerCalendar from 'src/components/Atom/DatepickerCalendar';
 import CustomButton from 'src/components/Atom/CustomButton';
 import ModalLayout from 'src/components/Modal/ModalLayout';
 import BodyTestSample from 'src/components/Modal/BodyTestSample';
-import { comm } from 'src/context/CommonContext';
+import { comm } from 'src/context/comm.js';
 
 
 function TestPage01() {

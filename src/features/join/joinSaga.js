@@ -1,5 +1,5 @@
 import { call, put, takeLatest } from 'redux-saga/effects';
-import { comm } from 'src/context/CommonContext';
+import { comm } from 'src/context/comm.js';
 import { history } from 'src/history';
 import {
   AUTH_CHECK_REQUEST, AUTH_CHECK_SUCCESS, AUTH_CHECK_FAILURE,

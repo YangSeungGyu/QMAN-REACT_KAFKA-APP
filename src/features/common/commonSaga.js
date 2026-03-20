@@ -1,10 +1,10 @@
 import { call, put, takeLatest } from 'redux-saga/effects';
-import { comm } from 'src/context/CommonContext';
+import { comm } from 'src/context/comm.js';
 import { 
   COMMON_REQUEST, COMMON_SUCCESS, COMMON_FAILURE
 } from 'src/store/actionTypes';
 
-function* commonSaga(action) {
+function* commonSaga() {
   try {
     const data = yield call(comm.axiosPost,'/common/getCommonData', {});
     yield put({ type: COMMON_SUCCESS, payload: data });

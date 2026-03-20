@@ -1,7 +1,7 @@
 import React, { useState, useEffect} from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux'; // 1. useSelector 추가
-import { comm } from 'src/context/CommonContext';
+import { comm } from 'src/context/comm.js';
 import 'src/style/board/BoardForm.css'
 
 const BoardWrite = () => {

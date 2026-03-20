@@ -1,0 +1,49 @@
+==================================vs code 단축키=============================================
+[VS CODE 단축키]
+ctrl+shift+E : 메뉴창 포커스 이동
+ctrl+1 : 열린 문서로 포커스
+
+ctrl+ pageUp/pageDown : 탭으로 포커스 이동
+ctrl+W : 탭에서 포커스 상태에서 닫기
+
+ctrl+` 커멘트창 포커스
+
+ctrl+p : 파일명 찾기
+ctrl+f : 파일에서 단어 찾기
+ctrl+shift+f : 모든파일에서 단어 찾기
+
+f12 : 선언 위치로 이동
+
+ctrl+alt+위/아래 : 여러줄수정
+
+(여백2줄이상 선택) ctrl+/ :  여러줄 공백 주석
+
+ctrl+shift+k : 해당줄 삭제
+
+
+ctrl+\ : 화면 나누기
+
+ctrl+space or ctrl+space(x2) 자동완성
+
+
+
+
+---------단축키 커스터마이징--------
+단축키창 설정 열기 : Ctrl + K 누르고 바로 Ctrl + S
+workbench.view.extension - > Remove Keybinding
+workbench.debug.action.toggleRepl - > Remove Keybinding
+그리고 
+upper 검색 : ctrl+shift+x
+lower 검색 : ctrl+shift+y
+
+toggle tab key moves focus 포커싱 이동 삭제(이거 걸리면 엄청 짜증남..)
+
+[자동완성 끄기] ctrl+,  검색 :autoclosing
+Auto Closing Brackets 
+HTML: Auto Closing Tags
+JavaScript: Auto Closing Tags
+TypeScript: Auto Closing Tags
+
+
+----------기타 활용--------------------
+tree src /f : 현재 구조및 파일노출(커멘드)

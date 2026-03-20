@@ -1,8 +1,8 @@
-import { useState, useEffect } from 'react'; // useEffect 추가
+import { useState } from 'react'; // useEffect 추가
 import { useDispatch, useSelector } from 'react-redux'; // useDispatch, useSelector 추가
 import { loginRequest } from 'src/features/auth/authActions';
 import { useNavigate } from 'react-router-dom';
-import { comm } from 'src/context/CommonContext';
+import { comm } from 'src/context/comm.js';
 
 import 'src/style/pages/Login.css';
 

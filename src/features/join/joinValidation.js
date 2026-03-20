@@ -1,4 +1,4 @@
-import { comm } from 'src/context/CommonContext';
+import { comm } from 'src/context/comm.js';
 
 //입력창 검증 규칙
 export const FIELD_RULES = {

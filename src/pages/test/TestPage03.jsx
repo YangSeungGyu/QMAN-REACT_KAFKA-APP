@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import CustomButton from 'src/components/Atom/CustomButton'
-import {comm} from 'src/context/CommonContext'
+import { comm } from 'src/context/comm.js';
 import { useNavigate } from 'react-router-dom';
 
 function TestPage03() {

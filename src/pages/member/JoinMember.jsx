@@ -6,7 +6,7 @@ import ModalLayout from 'src/components/Modal/ModalLayout';
 import BodyMemberConfirm from 'src/components/Modal/BodyMemberConfirm';
 import BodyJoinFinalConfirm from 'src/components/Modal/BodyJoinFinalConfirm';
 import * as joinMember from 'src/features/join/joinValidation';
-import { comm } from 'src/context/CommonContext';
+import { comm } from 'src/context/comm.js';
 
 import 'src/style/member/JoinMember.css';
 
@@ -41,11 +41,11 @@ const  JoinMember = () => {
 
   const [errors, setErrors] = useState({});
 
-  const inputRefs = {
+const inputRefs = {
     name: useRef(null), ssnFront: useRef(null), ssnBackFirst: useRef(null), phone: useRef(null),
     userId: useRef(null), password: useRef(null), passwordConfirm: useRef(null), email: useRef(null),
   };
-
+  
   // ================================= [STEP 1] 본인 인증 Saga 감시 =================================
   useEffect(() => {
     if (authCheckState.data) {

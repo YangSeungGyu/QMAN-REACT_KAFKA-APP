@@ -1,5 +1,5 @@
 import { call, put, takeLatest } from 'redux-saga/effects';
-import { comm } from 'src/context/CommonContext';
+import { comm } from 'src/context/comm.js';
 import { 
   BOARD_LIST_REQUEST, BOARD_LIST_SUCCESS, BOARD_LIST_FAILURE 
   ,BOARD_DETAIL_REQUEST, BOARD_DETAIL_SUCCESS, BOARD_DETAIL_FAILURE 

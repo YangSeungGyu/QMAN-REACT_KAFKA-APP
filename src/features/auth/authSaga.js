@@ -1,6 +1,6 @@
 import { call, put, takeLatest } from 'redux-saga/effects';
 import { LOGIN_REQUEST, LOGIN_SUCCESS, LOGIN_FAILURE } from 'src/store/actionTypes';
-import { comm } from 'src/context/CommonContext';
+import { comm } from 'src/context/comm.js';
 import { history } from 'src/history';
 
 function* loginSaga(action) {

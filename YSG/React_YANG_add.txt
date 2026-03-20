@@ -10,13 +10,11 @@ npm install react-icons
 [axios]
 npm install axios
 
-[zustand] 이거 [Redux-Saga]쓰면 안씀...
-npm install zustand
+//[zustand] 이거 [Redux-Saga]쓰면 안씀...
+//npm install zustand
 
 [react-query]
 npm install @tanstack/react-query
-
-
 
 [Redux-Saga]
 npm install @reduxjs/toolkit react-redux redux-saga
@@ -24,8 +22,10 @@ npm install @reduxjs/toolkit react-redux redux-saga
 [history] - useNavigate를 js에서 쓸 수 있게 하는것.
 npm install history
 
+[AG grid]
+npm install ag-grid-react ag-grid-community
 ==========[나중에 설치하고 추가 공부할꺼]===========
-Immer 라이브러리
+Immer 라이브러리?
 
 
-API 호출시?  Redux-Saga
+

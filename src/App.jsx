@@ -18,7 +18,8 @@ import TitleTestPage from 'src/pages/test/TitleTestPage';
 import TestPage01 from 'src/pages/test/TestPage01';
 import TestPage02 from 'src/pages/test/TestPage02';
 import TestPage03 from 'src/pages/test/TestPage03';
-import TestPageGrid from 'src/pages/test/TestPageGrid';
+import TestBasicGrid from 'src/pages/test/BasicGrid';
+import PageGrid from 'src/pages/test/PageGrid';
 
 import {CommonProvider} from 'src/context/CommonContext';
 
@@ -66,7 +67,8 @@ function App() {
                   <Route path="test01" element={<TestPage01 />} />
                   <Route path="test02" element={<TestPage02 />} />
                   <Route path="test03" element={<TestPage03 />} />
-                  <Route path="grid" element={<TestPageGrid />} />
+                  <Route path="basicGrid" element={<TestBasicGrid />} />
+                  <Route path="pageGrid" element={<PageGrid/>} />
                 </Route>
             
               </Route>

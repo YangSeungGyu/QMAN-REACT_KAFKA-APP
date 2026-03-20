@@ -11,7 +11,8 @@ function SideLayout() {
         <li><Link to="/test/test01">테스트-Calendar</Link></li>
         <li><Link to="/test/titleTest">테스트-외부변경</Link></li>
         <li><Link to="/test/test03">테스트-로그인</Link></li>
-        <li><Link to="/test/grid">테스트-그리드</Link></li>
+        <li><Link to="/test/basicGrid">테스트-기본그리드</Link></li>
+        <li><Link to="/test/pageGrid">테스트-페이지그리드</Link></li>
       </ul>
     </aside>
   );

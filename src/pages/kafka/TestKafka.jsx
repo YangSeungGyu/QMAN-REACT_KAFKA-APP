@@ -1,16 +1,13 @@
 
 import { useEffect, useState } from 'react';
-import { useDispatch } from 'react-redux';
 import CustomButton from 'src/components/Atom/CustomButton'
-import { kafkaTestRequest} from 'src/features/kafka/kafkaTestActions';
 import { Client } from '@stomp/stompjs'; // stompjs 추가
 import SockJS from 'sockjs-client'; // SockJS 추가
-import axios from 'axios';
+import { comm } from 'src/context/comm.js';
 
 
 function TestKafka() {
   const [inputText, setInputText] = useState("");
- const dispatch = useDispatch();
  const [messages, setMessages] = useState([]);
 
 
@@ -26,18 +23,21 @@ function TestKafka() {
       timestamp: new Date().toLocaleTimeString() 
     };
 
-    dispatch(kafkaTestRequest(param));
+    await comm.axiosPost('/kafka/kafkaTestRequest',param);
+
     setInputText("");
   }
 
 
+//페이지 진입시 실행
 useEffect(() => {
-    // 2. 초기 데이터 가져오기 (Axios)
+    // 2. 초기 데이터 가져오기
     const fetchInitData = async () => {
       try {
-        const response = await axios.post('http://localhost:8199/kafka/kafkaTestInitData');
-        if (response.data.result === 'success') {
-          setMessages(response.data.data); // 서버의 messageStorage 배열을 그대로 셋팅
+        const response = await comm.axiosPost('/kafka/kafkaTestInitData',{});
+        console.log(response);
+        if (response.result === 'success') {
+          setMessages(response.data); // 서버의 messageStorage 배열을 그대로 셋팅
         }
       } catch (e) {
         console.error("초기 로딩 실패", e);
@@ -47,7 +47,6 @@ useEffect(() => {
   
 
 // 3. 웹소켓 연결 및 실시간 데이터 누적
-
     const client = new Client({
       webSocketFactory: () => new SockJS('http://localhost:8199/ws'),
       reconnectDelay: 5000,

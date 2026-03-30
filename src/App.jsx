@@ -1,9 +1,7 @@
-import React, { useEffect } from 'react';
-import { unstable_HistoryRouter as HistoryRouter, Routes, Route } from 'react-router-dom'
+import React from 'react';
+import { unstable_HistoryRouter as HistoryRouter, Routes, Route } from 'react-router-dom';
 import { history } from 'src/history';
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query'; // QueryClient추가
-import { Provider } from 'react-redux'; //Redux-Saga
-import { store } from 'src/store/index';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
 import MainLayout from 'src/layout/MainLayout';
 import Home from 'src/pages/Home';
@@ -23,68 +21,51 @@ import PageGrid from 'src/pages/test/PageGrid';
 
 import TestKafka from 'src/pages/kafka/TestKafka';
 
-import {CommonProvider} from 'src/context/CommonContext';
+import { CommonProvider } from 'src/context/CommonContext';
 
-import { useDispatch } from 'react-redux';
-import { commonRequest } from 'src/features/common/commonActions'; //공통데이터 호출
+import 'src/App.css';
 
-import 'src/App.css'
-
-const queryClient = new QueryClient(); // QueryClient추가
-
-
-//공통데이터 호출
-function AppInit() {
-  const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(commonRequest());
-  }, []);
-
-  return null;
-}
+const queryClient = new QueryClient();
 
 function App() {
   return (
-    <Provider store={store}>
-      <QueryClientProvider client={queryClient}> 
-        <CommonProvider>
-          <AppInit />
-          <HistoryRouter history={history}>
-            <Routes>
-              <Route path="/" element={<MainLayout />}>
-                <Route index element={<Home />} />     
-                <Route path="login" element={<Login />} />     
-                <Route path="member/joinMember" element={<JoinMember />} />  
+    <QueryClientProvider client={queryClient}>
+      <CommonProvider>
+        <HistoryRouter history={history}>
+          <Routes>
+            <Route path="/" element={<MainLayout />}>
+              <Route index element={<Home />} />
+              <Route path="login" element={<Login />} />
+              <Route path="member/joinMember" element={<JoinMember />} />
 
-                {/*board*/}
-                <Route path="board">
-                  <Route path="boardList" element={<BoardList />} />
-                  <Route path="boardDetail/:idx" element={<BoardDetail />} />
-                  <Route path="boardWrite" element={<BoardWrite />} />
-                </Route>
-
-                {/*test*/}
-                <Route path="test">
-                  <Route path="titleTest" element={<TitleTestPage />} />
-                  <Route path="test01" element={<TestPage01 />} />
-                  <Route path="test02" element={<TestPage02 />} />
-                  <Route path="test03" element={<TestPage03 />} />
-                  <Route path="basicGrid" element={<TestBasicGrid />} />
-                  <Route path="pageGrid" element={<PageGrid/>} />
-                </Route>
-
-                {/*kafka*/}
-                <Route path="kafka">
-                  <Route path="TestKafka" element={<TestKafka />} />
-                </Route>
-            
+              {/*board*/}
+              <Route path="board">
+                <Route path="boardList" element={<BoardList />} />
+                <Route path="boardDetail/:idx" element={<BoardDetail />} />
+                <Route path="boardWrite" element={<BoardWrite />} />
               </Route>
-            </Routes>
-          </HistoryRouter>
-        </CommonProvider>
-      </QueryClientProvider>
-    </Provider>
-  )
+
+              {/*test*/}
+              <Route path="test">
+                <Route path="titleTest" element={<TitleTestPage />} />
+                <Route path="test01" element={<TestPage01 />} />
+                <Route path="test02" element={<TestPage02 />} />
+                <Route path="test03" element={<TestPage03 />} />
+                <Route path="basicGrid" element={<TestBasicGrid />} />
+                <Route path="pageGrid" element={<PageGrid />} />
+              </Route>
+
+              {/*kafka*/}
+              <Route path="kafka">
+                <Route path="TestKafka" element={<TestKafka />} />
+              </Route>
+
+            </Route>
+          </Routes>
+        </HistoryRouter>
+      </CommonProvider>
+    </QueryClientProvider>
+  );
 }
 
-export default App
+export default App;

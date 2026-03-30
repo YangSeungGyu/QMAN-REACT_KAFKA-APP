@@ -1,37 +1,43 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
-import { boardListRequest } from 'src/features/board/boardActions';
+import { useAuthStore } from 'src/features/auth/useAuthStore';
+import { comm } from 'src/context/comm.js';
 import Pagination from 'src/components/Common/Pagination';
-
-import 'src/style/board/BoardList.css'
+import 'src/style/board/BoardList.css';
 
 function BoardList() {
-
   const movePage = useNavigate();
-  const dispatch = useDispatch(); // 리덕스 명령 전달자
+  const { isLoggedIn } = useAuthStore();
 
-  // 3. 리덕스 스토어에서 데이터 구독 (가져오기)
-  // boardSlice에서 정의한 initialState 구조를 그대로 가져옵니다.
-  const { list, totalCnt, loading } = useSelector((state) => state.boardList);
-  const { isLoggedIn} = useSelector((state) => state.auth);
+  const [list, setList]         = useState([]);
+  const [totalCnt, setTotalCnt] = useState(0);
+  const [loading, setLoading]   = useState(false);
 
-  
   const [currentPage, setCurrentPage] = useState(1);
-  const pageSize = 5;
+  const pageSize      = 5;
   const pageBlockSize = 5;
 
-  
+  const fetchList = async (page) => {
+    setLoading(true);
+    try {
+      const data = await comm.axiosPost('/board/getBoardList', { page, size: pageSize });
+      setList(data.list);
+      setTotalCnt(data.totalCount);
+    } catch (e) {
+      console.error(e.response?.data?.message || e.message || '목록을 불러오는데 실패했습니다.');
+    } finally {
+      setLoading(false);
+    }
+  };
 
   useEffect(() => {
-    dispatch(boardListRequest(currentPage, pageSize));
-  }, [currentPage, dispatch]);
+    fetchList(currentPage);
+  }, [currentPage]);
 
   return (
     <div className="board-container">
-      {/* totalCnt는 리덕스에서 온 값을 사용합니다. */}
       <h2 className="board-title">게시판 목록 (총 {totalCnt}건)</h2>
-      
+
       <table className="board-table">
         <thead>
           <tr>
@@ -42,15 +48,15 @@ function BoardList() {
           </tr>
         </thead>
         <tbody>
-          {/* loading 상태에 따라 UI 처리가 가능합니다. */}
           {loading ? (
             <tr><td colSpan={4} style={{ padding: '50px' }}>데이터 로드 중...</td></tr>
           ) : list.length > 0 ? (
             list.map((board) => (
               <tr key={board.idx}>
                 <td>{board.idx}</td>
-                <td className="title-cell"
-                  onClick={() => movePage('/board/boardDetail/'+board.idx)}
+                <td
+                  className="title-cell"
+                  onClick={() => movePage('/board/boardDetail/' + board.idx)}
                   style={{ cursor: 'pointer', color: '#222' }}
                 >{board.title}</td>
                 <td>{board.writer}</td>

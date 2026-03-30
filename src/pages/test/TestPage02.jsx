@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import {useSelector } from 'react-redux';
 // ======================= 테스트 데이터 (함수 밖) =======================
 const testOptions = [
   { value: "aaa", label: "AAA" },

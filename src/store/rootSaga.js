@@ -5,6 +5,7 @@ import { joinWatcher } from 'src/features/join/joinSaga';
 import { pageGridWatcher } from 'src/features/test/pageGridSaga';
 import { basicGridWatcher } from 'src/features/test/basicGridSaga';
 import { commonWatcher } from 'src/features/common/commonSaga';
+import { kafkaTestWatcher } from 'src/features/kafka/kafkaTestSaga';
 
 export function* rootSaga() {
   yield all([
@@ -14,5 +15,6 @@ export function* rootSaga() {
     joinWatcher(),
     pageGridWatcher(),
     basicGridWatcher(),
+    kafkaTestWatcher(),
   ]);
 }

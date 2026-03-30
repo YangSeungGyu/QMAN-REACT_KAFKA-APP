@@ -12,7 +12,7 @@ export let comm = {
     return Promise.resolve();
   }, 
   customConfirm: (msg, onConfirm) => { if(confirm(msg)) onConfirm(); }
-  ,API_URL : "http://localhost:8099"
+  ,API_URL : "http://localhost:8199"
   ,getTodayString : null
   ,formatDate : null
   ,initAuthCheck : null

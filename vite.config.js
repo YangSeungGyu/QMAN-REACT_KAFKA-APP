@@ -11,4 +11,8 @@ export default defineConfig({
       "src": path.resolve(__dirname, "./src"),
     },
   },
+  //soket통신하려니 해당 라이브러리는 global을 인지못함
+  define: {
+    global: 'window',
+  },
 })

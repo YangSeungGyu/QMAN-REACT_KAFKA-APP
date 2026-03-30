@@ -24,6 +24,13 @@ npm install history
 
 [AG grid]
 npm install ag-grid-react ag-grid-community
+
+
+[kafka]
+npm install kafkajs
+
+[soket]
+npm install @stomp/stompjs sockjs-client
 ==========[나중에 설치하고 추가 공부할꺼]===========
 Immer 라이브러리?
 

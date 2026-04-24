@@ -31,8 +31,14 @@ npm install kafkajs
 
 [soket]
 npm install @stomp/stompjs sockjs-client
+
+
+[flow]
+npm install reactflow
 ==========[나중에 설치하고 추가 공부할꺼]===========
 Immer 라이브러리?
+
+
 
 
 ======================[플러그인 설치]======================

@@ -19,6 +19,8 @@ import TestPage03 from 'src/pages/test/TestPage03';
 import TestBasicGrid from 'src/pages/test/BasicGrid';
 import PageGrid from 'src/pages/test/PageGrid';
 
+import TestFlow from 'src/pages/test/TestFlow';
+
 import TestKafka from 'src/pages/kafka/TestKafka';
 
 import { CommonProvider } from 'src/context/CommonContext';
@@ -53,6 +55,8 @@ function App() {
                 <Route path="test03" element={<TestPage03 />} />
                 <Route path="basicGrid" element={<TestBasicGrid />} />
                 <Route path="pageGrid" element={<PageGrid />} />
+                <Route path="testFlow" element={<TestFlow />} />
+                
               </Route>
 
               {/*kafka*/}

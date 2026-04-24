@@ -15,6 +15,8 @@ function SideLayout() {
         <li><Link to="/test/pageGrid">테스트-페이지그리드</Link></li>
 
        <li><Link to="/kafka/TestKafka">카프카테스트</Link></li>
+
+       <li><Link to="/test/testFlow">테스트-Flow</Link></li>
         
       </ul>
     </aside>

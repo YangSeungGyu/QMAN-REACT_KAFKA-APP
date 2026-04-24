@@ -19,9 +19,19 @@ React는...?
 * 개발 모드에서는 함수는 두번씩 실행됨.
 
 ===============================================================================
-npm run dev
+npm run dev : 실행
 
 npm run build  : dist 폴더 생기고 여기 내용을 웹서버나 springboot에 넣으면됨
+npm run preview : 서버반영전 최종확인(빌드완료된 버전으로 소스 수정해도 반영되지 않음 - build 후 사용가능)
+
+npm install : 라이브러리 설치
+npm uninstall
+
+npm update : 패키지들 최근버전으로 변경
+
+npm cache clean --force : npm캐쉬 청소
+
+
 
 ===============================================================================
 [개념-React화면 구성]
@@ -36,7 +46,14 @@ useState : 담긴 값에 변화가 있으면 페이지 함수를 재실행 하�
 useEffect : 두번째 인자값에 이전에 담긴 값과 현재 담긴 값을 비교해서 다르면 화면 랜더링을 하고 그렇지 않으면 해당 함수 안에 있었던 결과로는 랜더링 하지 않음.
             (여기는 배열과 객체도 '내부 값'으로 판단.)
 
-
+=============================================================================
+[기본설정파일]
+eslint.config.js : 문법,코드 스타일
+index.html : 소스가 적용될 메인html
+jsconfig.json : 에디트에서 javascript설정
+package.json : (**):프로젝트 정보,라이브러리 목록 관리
+package-lock.json : 라이브러리 버전,의존성 고정
+vite.config.js : (*)경로에대한 별칭관리, proxy설정, 포트 등
 ===============================================================================
 [자주쓰는 react 개체들]
 import React,{useState, useEffect, Ref} from 'react';
@@ -243,3 +260,4 @@ const fieldRules = {
 		testFn: (value: string, obj: any) => {value...}
 	}
 };
+

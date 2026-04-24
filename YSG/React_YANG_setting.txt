@@ -27,5 +27,21 @@ import path from 'path'
 
   npm install react-router-dom
 
-
+===========실행 명령어 확인============
+package.json
+기본
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "lint": "eslint .",
+    "preview": "vite preview"
+  }
+코드ui
+ "scripts": {
+    "build": "vite build",
+    "lint": "eslint",
+    "serve": "vite preview",
+    "start": "vite"
+  },
   
+  ** vite쪽이 test,start같은건 run 없이도 실행됨

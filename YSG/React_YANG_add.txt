@@ -35,4 +35,12 @@ npm install @stomp/stompjs sockjs-client
 Immer 라이브러리?
 
 
+======================[플러그인 설치]======================
+ESLint : 오타나 문법 교정 - 이게 표준이라고함.
+Oxc : 오타나 문법 교정 - 설치한 기억 없음(자동설치확률있음)
+Es7+React/Redux/... : 자동 완성 기능이라는데 - 설치한 기억 없음
 
+---내가 확실히 설치한거---
+Git Graph : git관리용으로 설치함
+React DeveloperTools : 리엑트 태그 보기용으로 설치함
+Vue(Official) : 뷰 문법 코드 색상구분(이거 아마 정상문법이 오류 표기나서 설치한듯)

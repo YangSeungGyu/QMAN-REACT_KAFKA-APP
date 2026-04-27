@@ -4,7 +4,7 @@ import { useAuthStore } from 'src/features/auth/useAuthStore';
 import { comm } from 'src/context/comm.js';
 import { history } from 'src/history';
 
-import 'src/style/pages/Login.css';
+import 'src/style/views/Login.css';
 
 import userData from 'src/sampleApiServer/sampleUserMock.json';
 

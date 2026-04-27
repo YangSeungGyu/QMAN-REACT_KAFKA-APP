@@ -37,7 +37,7 @@ const SmartNode = ({ data }) => {
         <div><strong>nodeId:</strong> {data.id} / <strong>targetId:</strong> {data.targetId || 'null'}</div>
         <hr style={hrStyle} />
         {/* 내가 내보낼 때 구멍(sourceHandle)과 내가 받을 때 구멍(targetHandle) 표시 */}
-        <div><strong>Out(source):</strong> {data.sourceHandle || 'none'}</div>
+        <div><strong>Out(this):</strong> {data.sourceHandle || 'none'}</div>
         <div><strong>In(target):</strong> {data.targetHandle || 'none'}</div>
       </div>
 
@@ -55,28 +55,34 @@ const nodeTypes = { smart: SmartNode };
 // 2. 평면 데이터 수정 (위치 관계에 맞춰 핸들 지정)
 const dbData = [
   { 
-    id: '1', label: '첫 번째 노드 (Root)', posX: 250, posY: 20, 
+    id: '1', label: '첫 번째 노드 (Root)', posX: 450, posY: 50, 
     targetId: null, animated: false, 
-    sourceHandle: 'sb', //(나) 아래로 내보냄
-    targetHandle: 'rb'  //(받는곳) 아래에서 받음 (2, 3번이 밑에 있으니까)
+    sourceHandle: null, //나 출발방향
+    targetHandle: null  //부모 받을곳 방향
   },
   { 
-    id: '2', label: '두 번째 노드', posX: 100, posY: 250, 
+    id: '2', label: '두 번째 노드', posX: 150, posY: 250, 
     targetId: '1', animated: true, 
-    sourceHandle: 'st', //(나) 위로 내보냄 (1번 방향)
-    targetHandle: 'rt'  //(받는곳) 위에서 받음 (4번이 위에 있으니까)
+    sourceHandle: 'st', //나 출발방향
+    targetHandle: 'rb'  //부모 받을곳 방향
   },
   { 
-    id: '3', label: '세 번째 노드', posX: 400, posY: 250, 
+    id: '3', label: '세 번째 노드', posX: 450, posY: 250, 
     targetId: '1', animated: false, 
-    sourceHandle: null, //(나)출발방향 없음
-    targetHandle: null  //(받는곳) 받을방향 없음
+    sourceHandle: 'st', //나 출발방향
+    targetHandle: 'rb'  //부모 받을곳 방향
   },
   { 
-    id: '4', label: '네 번째 노드', posX: 50, posY: 20, 
+    id: '4', label: '네 번째 노드', posX: 250, posY: 50, 
     targetId: '2', animated: false, 
-    sourceHandle: 'sb', //(나) 아래로 내보냄 (2번 방향)
-    targetHandle: null 
+    sourceHandle: 'sb',//나 출발방향
+    targetHandle: 'rt' //부모 받을곳 방향
+  },
+  { 
+    id: '5', label: '다섯 번째 노드', posX: 50, posY: 50, 
+    targetId: '4', animated: false, 
+    sourceHandle: 'sr',//나 출발방향
+    targetHandle: 'rl' //부모 받을곳 방향
   },
 ];
 
@@ -92,18 +98,16 @@ function TestFlow() {
     const edges = dbData
       .filter((item) => item.targetId)
       .map((item) => {
-        // 부모 노드를 찾음
-        const parentNode = dbData.find((d) => d.id === item.targetId);
 
+        //source : thisObj
+        //target : parentObj
         return {
           id: `e${item.id}-${item.targetId}`,
-          source: item.id,           // 나로부터 출발
-          target: item.targetId,     // 부모에게 도착
-          sourceHandle: item.sourceHandle, // 내 데이터의 '내보내는 구멍'
-          
-          // ⭐ 핵심: '상대방(부모)의 들어오는 구멍'을 적어야 함!
-          targetHandle: parentNode ? parentNode.targetHandle : null, 
-          
+          source: item.id,
+          target: item.targetId,
+          sourceHandle: item.sourceHandle,
+          targetHandle:  item.targetHandle,
+         
           animated: item.animated,
           style: { stroke: '#555', strokeWidth: 2 },
         };
@@ -120,11 +124,13 @@ function TestFlow() {
       <ReactFlow
         nodes={nodes}
         edges={edges}
+        nodesDraggable={false}
         onNodesChange={onNodesChange}
         onEdgesChange={onEdgesChange}
         nodeTypes={nodeTypes}
         connectionMode="loose"
-        fitView
+        
+        defaultViewport={{ x: 0, y: 0, zoom: 1.5 }}
       >
         <Background variant="lines" color="#ddd" />
         <Controls />

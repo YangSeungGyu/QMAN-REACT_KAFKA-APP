@@ -139,3 +139,55 @@ user?.list?.[0]
 
 
 
+
+
+================================================================
+========================[태그 기본]==============================
+================================================================
+
+======================= 01. Text =======================
+const [text, setText] = useState("");
+const [resText, setResText] = useState("");
+
+<input type="text" className="base-input" value={text} onChange={(e) => setText(e.target.value)} placeholder="입력..." />
+<button className="base-btn" onClick={() => setResText(text)}>확인</button>
+<span className="res-text">결과: {resText}</span>
+
+
+======================= 02. Select =======================
+const [select, setSelect] = useState(testOptions[0].value);
+const [resSelect, setResSelect] = useState("");
+
+<select className="base-select" value={select} onChange={(e) => setSelect(e.target.value)}>
+	{testOptions.map(opt => <option key={opt.value} value={opt.value}>{opt.label}</option>)}
+</select>
+<button className="base-btn" onClick={() => setResSelect(select)}>확인</button>
+<span className="res-text">결과: {resSelect}</span>
+
+
+======================= 03. Radio =======================
+const [radio, setRadio] = useState(testOptions[0].value);
+const [resRadio, setResRadio] = useState("");
+
+{testOptions.map(opt => (
+	<label key={opt.value} style={{ marginRight: '10px' }}>
+		<input type="radio" name="gender" value={opt.value} checked={radio === opt.value} onChange={(e) => setRadio(e.target.value)} /> {opt.label}
+	</label>
+))}
+<button className="base-btn" onClick={() => setResRadio(radio)}>확인</button>
+<span className="res-text">결과: {resRadio}</span>
+
+
+
+======================= 04. Checkbox =======================
+const [check, setCheck] = useState([]);
+const [resCheck, setResCheck] = useState("");
+
+
+{testOptions.map(opt => (
+	<label key={opt.value} style={{ marginRight: '10px' }}>
+		<input type="checkbox" checked={check.includes(opt.value)} onChange={() => handleCheck(opt.value)} /> {opt.label}
+	</label>
+))}
+<button className="base-btn" onClick={() => setResCheck(check.join(", "))}>확인</button>
+<span className="res-text">결과: {resCheck}</span>

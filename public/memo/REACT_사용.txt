@@ -12,12 +12,43 @@ import { useState } from "react";
 
 const [변수, set변수] = useState('초기값'); 
 
+================[useState 값 제어]================
+[객체]
+const [obj, setObj] = useState({ name: '초기', age: 19 });
+
+setObj(prev => ({
+  ...prev,
+  name: "변경"
+}));
+
+
+[배열]
+const [obj, setObj] = useState([{ name: '초기', age: 19 },{ name: '초기2', age: 10 }]);
+
+//특정값 유추 후 변경
+setObj(prev =>
+  prev.map(item =>
+    (item.id === targetId)
+      ? { ...item, name: "변경" }
+      : item
+  )
+);
+
+//전체값에 키:값 추가
+setObj(prev =>
+  prev.map(item => ({
+    ...item,
+    gender: "M"
+  }))
+);
+
 ================[useEffect]================
 import { useEffect} from "react";
 
 useEffect(() => {  
 }, []);
 
+*useEffect(() => {  }, 변수); < 변수값이 바뀌면 렌더링함(주소가 아닌 값으로확인함)
 ================[Link]================
 import { Link } from 'react-router-dom';
 
@@ -33,6 +64,19 @@ const navigate = useNavigate();
 localStorage.setItem('test', {'test':'111'});
 localStorage.getItem('test');
 
+
+================[html input 연결]================
+import { useState } from "react";
+
+const [test,setTest] = useState('');
+const testFn = function(){ alert(test); }
+
+<input
+	type="text"
+	onChange={(e) => setTest(e.target.value)}
+	value={test}
+/>
+<button onClick={testFn}>확인</button> 
 ================[html 변수 사용]================
 {} : 값,함수
  - onClick={testFn}
@@ -66,3 +110,16 @@ localStorage.getItem('test');
 }
 </div>
  
+
+ ================[초기값 api 호출]================
+ useEffect(() => {
+  const fetchData = async () => {
+    const res = await axios.get("/api");
+    setData(res.data);
+  };
+  fetchData();
+}, []);
+
+
+================[undefined 방지]================
+user?.name : user를 체크함 null리턴

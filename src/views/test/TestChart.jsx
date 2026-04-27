@@ -58,8 +58,6 @@ function TestChart() {
     }
   ]
 
-
-
   const colors = [
     "rgba(136, 250, 29, 0.95)",
     "rgba(255, 14, 14, 0.98)",

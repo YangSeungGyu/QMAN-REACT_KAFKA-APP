@@ -1,0 +1,74 @@
+=========[REACT 설치]=========
+[VS CODE 설치]
+https://code.visualstudio.com/
+
+[NODE JS 설치]
+https://nodejs.org/ko
+ -> 다운로드 
+ -> 하단 .mis 다운로드(버전은 LTS붙은게 안정화 버전)
+ -> 설치 후 cmd에서 node -v, npm -v 둘다 버전 잘 나오는지 확인.
+  * npm오류 시 window 보안정책 해제 필요 : cmd에서 명령어  Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+
+
+[workSapce 생성]
+작업할 폴더 생성 후  VS CODE에서 File->open folder로 열기
+->하단 터미널 창에서 프로젝트 생성
+1) npm create vite@latest : y
+2) [프로젝트명]
+3) select framwork에서 react 선택 엔터
+4) select variant에서 JavaScript
+5) rolldown_vite : n
+ - Install with npm and start now? -> y (이건 몇번째 뜨는건지 기억안남)
+
+-> 설치 후 npm run dev로 실행
+
+
+=========[필수 라이브러리]=========
+[라우터]
+-> npm install react-router-dom
+
+[axios]
+npm install axios
+
+
+=========[참조 라이브러리]=========
+[달력]
+npm install react-datepicker
+
+[샘플아이콘]
+npm install react-icons
+
+
+[zustand] 이거 [Redux-Saga]쓰면 안씀...
+npm install zustand
+
+[react-query] : api호출 시 유틸, 캐싱,에러 등 
+npm install @tanstack/react-query
+
+[Redux-Saga]
+npm install @reduxjs/toolkit react-redux redux-saga
+
+[history] - useNavigate를 js에서 쓸 수 있게 하는것.
+npm install history
+
+[AG grid]
+npm install ag-grid-react ag-grid-community
+
+[soket]
+npm install @stomp/stompjs sockjs-client
+
+[flow]
+npm install reactflow
+
+[kafka]
+npm install kafkajs
+
+
+=========[확장 플러그인 설치]=========
+Git Graph : git관리용으로 설치함
+---------깃 프로젝트 올리기------
+git init
+git add .
+git commit -m ["코멘트"]
+git remote add origin [프로젝트 GIT URL]
+git push -u origin main

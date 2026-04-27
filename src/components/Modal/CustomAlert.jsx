@@ -1,4 +1,4 @@
-import 'src/style/components/Modal/CustomModal.css';
+import '@/style/components/Modal/CustomModal.css';
 
 const CustomAlert = ({ isOpen, message, onConfirm }) => {
   if (!isOpen) return null;

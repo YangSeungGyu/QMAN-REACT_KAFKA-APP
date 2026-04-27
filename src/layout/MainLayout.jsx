@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Outlet} from 'react-router-dom';
-import SideLayout from 'src/layout/SideLayout';
-import TopLayout from 'src/layout/TopLayout';
+import SideLayout from '@/layout/SideLayout';
+import TopLayout from '@/layout/TopLayout';
 
 function MainLayout() {
 

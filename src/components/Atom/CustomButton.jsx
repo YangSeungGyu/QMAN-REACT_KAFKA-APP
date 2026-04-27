@@ -1,4 +1,4 @@
-import 'src/style/components/Atom/CustomButton.css';
+import '@/style/components/Atom/CustomButton.css';
 
 function CustomButton({ label, onClickFunc }) {
   return (

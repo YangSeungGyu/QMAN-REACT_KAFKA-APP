@@ -1,6 +1,6 @@
 import React from 'react';
 import { useOutletContext } from 'react-router-dom';
-import CustomButton from 'src/components/Atom/CustomButton';
+import CustomButton from '@/components/Atom/CustomButton';
 
 
 function TitleTestPage() {

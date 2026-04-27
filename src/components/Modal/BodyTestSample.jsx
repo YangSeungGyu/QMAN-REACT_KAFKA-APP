@@ -1,5 +1,5 @@
-import CustomButton from 'src/components/Atom/CustomButton'
-import 'src/style/components/Modal/BodyTestSample.css'
+import CustomButton from '@/components/Atom/CustomButton'
+import '@/style/components/Modal/BodyTestSample.css'
 
 const BodyTestSample = ({ onConfirm, onCancel }) => {
   return (

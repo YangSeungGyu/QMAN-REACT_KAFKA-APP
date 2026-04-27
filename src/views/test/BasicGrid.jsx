@@ -1,7 +1,7 @@
 import { AgGridReact } from 'ag-grid-react';
 import { AllCommunityModule, ModuleRegistry } from 'ag-grid-community';
 import { useState, useEffect } from 'react';
-import { comm } from 'src/context/comm.js';
+import { comm } from '@/js/comm.js';
 
 ModuleRegistry.registerModules([AllCommunityModule]);
 

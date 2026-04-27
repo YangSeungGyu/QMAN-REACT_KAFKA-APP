@@ -1,16 +1,16 @@
 import React, { useState, useRef } from 'react';
-import { comm } from 'src/context/comm.js';
-import { history } from 'src/history';
-import CustomButton from 'src/components/Atom/CustomButton';
-import ModalLayout from 'src/components/Modal/ModalLayout';
-import BodyMemberConfirm from 'src/components/Modal/BodyMemberConfirm';
-import BodyJoinFinalConfirm from 'src/components/Modal/BodyJoinFinalConfirm';
-import * as joinMember from 'src/features/join/joinValidation';
+import { comm } from '@/js/comm.js';
+import { history } from '@/history';
+import CustomButton from '@/components/Atom/CustomButton';
+import ModalLayout from '@/components/Modal/ModalLayout';
+import BodyMemberConfirm from '@/components/Modal/BodyMemberConfirm';
+import BodyJoinFinalConfirm from '@/components/Modal/BodyJoinFinalConfirm';
+import * as joinMember from '@/js/join/joinValidation';
 
-import 'src/style/member/JoinMember.css';
+import '@/style/member/JoinMember.css';
 
-import authData from 'src/sampleApiServer/sampleMobileAuthMock.json';
-import userData from 'src/sampleApiServer/sampleUserMock.json';
+import authData from '@/sampleApiServer/sampleMobileAuthMock.json';
+import userData from '@/sampleApiServer/sampleUserMock.json';
 
 const JoinMember = () => {
 

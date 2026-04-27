@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useAuthStore } from 'src/features/auth/useAuthStore';
-import { comm } from 'src/context/comm.js';
-import Pagination from 'src/components/Common/Pagination';
-import 'src/style/board/BoardList.css';
+import { useAuthStore } from '@/js/auth/useAuthStore';
+import { comm } from '@/js/comm.js';
+import Pagination from '@/components/Common/Pagination';
+import '@/style/board/BoardList.css';
 
 function BoardList() {
   const movePage = useNavigate();

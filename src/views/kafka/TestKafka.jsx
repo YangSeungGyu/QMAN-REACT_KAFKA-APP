@@ -1,9 +1,9 @@
 
 import { useEffect, useState } from 'react';
-import CustomButton from 'src/components/Atom/CustomButton'
+import CustomButton from '@/components/Atom/CustomButton'
 import { Client } from '@stomp/stompjs'; // stompjs 추가
 import SockJS from 'sockjs-client'; // SockJS 추가
-import { comm } from 'src/context/comm.js';
+import { comm } from '@/js/comm.js';
 
 
 function TestKafka() {

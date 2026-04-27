@@ -1,4 +1,4 @@
-import CustomButton from 'src/components/Atom/CustomButton';
+import CustomButton from '@/components/Atom/CustomButton';
 
 
 const BodyJoinFinalConfirm = ({ formData, onConfirm, onCancel }) => {

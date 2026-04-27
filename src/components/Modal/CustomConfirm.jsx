@@ -1,4 +1,4 @@
-import 'src/style/components/Modal/CustomModal.css';
+import '@/style/components/Modal/CustomModal.css';
 
 
 const CustomConfirm = ({ isOpen, message, onConfirm, onCancel }) => {

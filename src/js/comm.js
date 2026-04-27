@@ -1,4 +1,4 @@
-import { useAuthStore } from 'src/features/auth/useAuthStore';
+import { useAuthStore } from '@/js/auth/useAuthStore';
 import axios from 'axios';
 
 //전역변수 함수모음

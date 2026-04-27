@@ -1,7 +1,7 @@
 import React, { createContext, useState, useEffect } from 'react';
-import CustomAlert from 'src/components/Modal/CustomAlert';
-import CustomConfirm from 'src/components/Modal/CustomConfirm';
-import { comm } from 'src/context/comm.js';
+import CustomAlert from '@/components/Modal/CustomAlert';
+import CustomConfirm from '@/components/Modal/CustomConfirm';
+import { comm } from '@/js/comm.js';
 
 const CommonContext = createContext(undefined);
 

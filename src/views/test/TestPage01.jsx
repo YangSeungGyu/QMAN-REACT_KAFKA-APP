@@ -1,10 +1,10 @@
 import React from 'react';
-import BaseCalendar from 'src/components/Atom/BaseCalendar';
-import DatepickerCalendar from 'src/components/Atom/DatepickerCalendar';
-import CustomButton from 'src/components/Atom/CustomButton';
-import ModalLayout from 'src/components/Modal/ModalLayout';
-import BodyTestSample from 'src/components/Modal/BodyTestSample';
-import { comm } from 'src/context/comm.js';
+import BaseCalendar from '@/components/Atom/BaseCalendar';
+import DatepickerCalendar from '@/components/Atom/DatepickerCalendar';
+import CustomButton from '@/components/Atom/CustomButton';
+import ModalLayout from '@/components/Modal/ModalLayout';
+import BodyTestSample from '@/components/Modal/BodyTestSample';
+import { comm } from '@/js/comm.js';
 
 
 function TestPage01() {

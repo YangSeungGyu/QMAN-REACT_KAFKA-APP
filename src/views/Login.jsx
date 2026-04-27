@@ -1,12 +1,12 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useAuthStore } from 'src/features/auth/useAuthStore';
-import { comm } from 'src/context/comm.js';
-import { history } from 'src/history';
+import { useAuthStore } from '@/js/auth/useAuthStore';
+import { comm } from '@/js/comm.js';
+import { history } from '@/history';
 
-import 'src/style/views/Login.css';
+import '@/style/views/Login.css';
 
-import userData from 'src/sampleApiServer/sampleUserMock.json';
+import userData from '@/sampleApiServer/sampleUserMock.json';
 
 function Login() {
   const [id, setId] = useState('');

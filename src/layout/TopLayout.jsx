@@ -1,5 +1,5 @@
 import { Link, useNavigate } from 'react-router-dom';
-import { useAuthStore } from 'src/features/auth/useAuthStore';
+import { useAuthStore } from '@/js/auth/useAuthStore';
 
 function TopLayout({ titleColor, titleTxt }) {
   const navigate = useNavigate();

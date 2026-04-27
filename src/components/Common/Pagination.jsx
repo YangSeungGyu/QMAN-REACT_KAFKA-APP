@@ -1,4 +1,4 @@
-import 'src/style/components/Common/Pagination.css'
+import '@/style/components/Common/Pagination.css'
 
 
 const Pagination = ({ 

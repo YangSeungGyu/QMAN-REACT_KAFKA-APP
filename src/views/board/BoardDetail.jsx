@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { comm } from 'src/context/comm.js';
-import 'src/style/board/BoardForm.css';
+import { comm } from '@/js/comm.js';
+import '@/style/board/BoardForm.css';
 
 function BoardDetail() {
   const { idx }   = useParams();

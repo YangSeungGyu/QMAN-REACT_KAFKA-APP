@@ -1,31 +1,31 @@
 import React from 'react';
 import { unstable_HistoryRouter as HistoryRouter, Routes, Route } from 'react-router-dom';
-import { history } from 'src/history';
+import { history } from '@/history';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
-import MainLayout from 'src/layout/MainLayout';
-import Home from 'src/views/Home';
-import Login from 'src/views/Login';
-import JoinMember from 'src/views/member/JoinMember';
+import MainLayout from '@/layout/MainLayout';
+import Home from '@/views/Home';
+import Login from '@/views/Login';
+import JoinMember from '@/views/member/JoinMember';
 
-import BoardList from 'src/views/board/BoardList';
-import BoardDetail from 'src/views/board/BoardDetail';
-import BoardWrite from 'src/views/board/BoardWrite';
+import BoardList from '@/views/board/BoardList';
+import BoardDetail from '@/views/board/BoardDetail';
+import BoardWrite from '@/views/board/BoardWrite';
 
-import TitleTestPage from 'src/views/test/TitleTestPage';
-import TestPage01 from 'src/views/test/TestPage01';
-import TestPage02 from 'src/views/test/TestPage02';
-import TestPage03 from 'src/views/test/TestPage03';
-import TestBasicGrid from 'src/views/test/BasicGrid';
-import PageGrid from 'src/views/test/PageGrid';
+import TitleTestPage from '@/views/test/TitleTestPage';
+import TestPage01 from '@/views/test/TestPage01';
+import TestPage02 from '@/views/test/TestPage02';
+import TestPage03 from '@/views/test/TestPage03';
+import TestBasicGrid from '@/views/test/BasicGrid';
+import PageGrid from '@/views/test/PageGrid';
 
-import TestFlow from 'src/views/test/TestFlow';
+import TestFlow from '@/views/test/TestFlow';
 
-import TestKafka from 'src/views/kafka/TestKafka';
+import TestKafka from '@/views/kafka/TestKafka';
 
-import { CommonProvider } from 'src/context/CommonContext';
+import { CommonProvider } from '@/context/CommonContext';
 
-import 'src/App.css';
+import '@/App.css';
 
 const queryClient = new QueryClient();
 

@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import 'src/style/components/Modal/ModalLayout.css'
+import '@/style/components/Modal/ModalLayout.css'
 
 const ModalLayout = ({ isOpen, onClose, title, modalBody }) => {  
   useEffect(() => {

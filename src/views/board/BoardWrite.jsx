@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useAuthStore } from 'src/features/auth/useAuthStore';
-import { comm } from 'src/context/comm.js';
-import 'src/style/board/BoardForm.css';
+import { useAuthStore } from '@/js/auth/useAuthStore';
+import { comm } from '@/js/comm.js';
+import '@/style/board/BoardForm.css';
 
 const BoardWrite = () => {
   const navigate = useNavigate();

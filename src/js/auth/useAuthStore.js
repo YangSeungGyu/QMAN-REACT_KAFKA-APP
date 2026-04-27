@@ -1,5 +1,5 @@
 import { create } from 'zustand';
-import { comm } from 'src/context/comm.js';
+import { comm } from '@/js/comm.js';
 
 function loadUserFromStorage() {
   try {

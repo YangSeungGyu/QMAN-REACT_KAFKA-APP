@@ -158,6 +158,7 @@ function SideLayout() {
             <li><Link to="/test/titleTest" style={menuItemStyle('/test/titleTest')}>외부변경</Link></li>
             <li><Link to="/test/test03" style={menuItemStyle('/test/test03')}>로그인확인</Link></li>
             <li><Link to="/test/testFlow" style={menuItemStyle('/test/testFlow')}>Flow</Link></li>
+            <li><Link to="/test/testChart" style={menuItemStyle('/test/testChart')}>차트</Link></li>
           </ul>
         </li>
         {/*테스트 메뉴 end*/}

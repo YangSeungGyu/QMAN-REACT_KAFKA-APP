@@ -63,6 +63,9 @@ npm install reactflow
 [kafka]
 npm install kafkajs
 
+[chart]
+npm install chart.js react-chartjs-2
+
 
 =========[확장 플러그인 설치]=========
 Git Graph : git관리용으로 설치함

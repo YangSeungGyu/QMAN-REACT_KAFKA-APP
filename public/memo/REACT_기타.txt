@@ -1,0 +1,17 @@
+
+
+
+================[arrow function, 변수 function 차이]================
+const obj = {
+  name: "test",
+  handleClick: function() {
+    console.log(this.name); //this는 obj
+  }
+};
+
+const obj = {
+  name: "test",
+  handleClick: () => {
+    console.log(this.name); //this는 obj가 아님
+  }
+};

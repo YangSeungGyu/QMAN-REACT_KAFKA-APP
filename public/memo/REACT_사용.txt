@@ -1,4 +1,3 @@
-
 ================[컴포넌트.jsx]================
 function 컴포넌트() {
    
@@ -6,6 +5,19 @@ function 컴포넌트() {
   );
 }
 export default 컴포넌트
+
+
+-------
+const testFn = function() {}
+const codeList = [{...}, ...];
+
+function 컴포넌트() {
+  testFn();
+  codeList;
+  return (
+    ...
+  );
+}
 
 ================[useState]================
 import { useState } from "react";
@@ -48,7 +60,7 @@ import { useEffect} from "react";
 useEffect(() => {  
 }, []);
 
-*useEffect(() => {  }, 변수); < 변수값이 바뀌면 렌더링함(주소가 아닌 값으로확인함)
+*useEffect(() => {  }, [변수]); < 변수값이 바뀌면 렌더링함(주소가 아닌 값으로확인함) - 변수는 대괄호[] 안에 들어가야함.
 ================[Link]================
 import { Link } from 'react-router-dom';
 
@@ -61,8 +73,8 @@ const navigate = useNavigate();
 
 
 ================[localStorage]================
-localStorage.setItem('test', {'test':'111'});
-localStorage.getItem('test');
+localStorage.setItem('test', JSON.stringify({ test: '111' })); //문자로만 저장됨
+const test = JSON.parse(localStorage.getItem('test'));
 
 
 ================[html input 연결]================
@@ -93,7 +105,7 @@ const testFn = function(){ alert(test); }
 {
 	(msg != null) && <p>{msg}</p>
 }
- 
+ * 일반적으로: msg && <p>{msg}</p>
  ================[html if문(3항연산자)]================
  <div className={'A' == test ? 'a':'b'}>
  
@@ -121,5 +133,9 @@ const testFn = function(){ alert(test); }
 }, []);
 
 
-================[undefined 방지]================
+================[undefined 방지(optional chaining)]================
 user?.name : user를 체크함 null리턴
+user?.list?.[0]
+
+
+

@@ -71,6 +71,7 @@ useEffect(() => {
 }, []);
 
 *useEffect(() => {  }, [변수]); < 변수값이 바뀌면 렌더링함(주소가 아닌 값으로확인함) - 변수는 대괄호[] 안에 들어가야함.
+
 ================[Link]================
 import { Link } from 'react-router-dom';
 
@@ -104,6 +105,7 @@ context 사용 및 수정
 *주의 Outlet[1] > Outlet[2] > 컴포넌트 구조일 경우  컴포넌트에서는 Outlet[2]를 가져온다.
  - Outlet[1]로 올리는 경우 Outlet[2]가 선언된 곳에서 const rootCtx = useOutletContext();로
    Outlet[1]를 가져온 뒤 변수를 Outlet[2]로 넘겨야한다.
+
 ================[html input 연결]================
 import { useState } from "react";
 
@@ -215,6 +217,27 @@ return(
 function Child({ onUpdate }) {
   return <button onClick={() => onUpdate('완료')}>부모 데이터 변경</button>;
 }
+
+================[api(axios) 호출]================
+import axios from 'axios';
+
+일반전송(토큰)
+const param = {test: '11'};
+const response = await axios.post(url, data, {
+      headers: {
+        'Authorization': token ? `Bearer ${token}` : '',
+        'Content-Type': 'application/json',
+      }
+    });
+
+form데이터 전송
+const formData = new FormData();
+formData.append('username', id);
+formData.append('password', pw);	
+
+const response = await axios.post(url, formData, {
+  headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
+});
 
 
 ================================================================

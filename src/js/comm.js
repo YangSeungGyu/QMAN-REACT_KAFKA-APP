@@ -85,7 +85,8 @@ export const axiosPost = async (url, data = {}) => {
     if (err.response?.data?.message) {
       comm.customAlert(err.response.data.message);
     } else {
-      comm.customAlert('통신 중 오류가 발생했습니다.');
+
+      comm.customAlert('통신 중 오류가 발생했습니다.\n('+url+')');
     }
     return null;
   }

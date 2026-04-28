@@ -17,6 +17,8 @@ function MemoView({memoId}) {
     memoFileNm = "/memo/REACT_사용.txt";
   }else if(memoId == '05'){
     memoFileNm = "/memo/REACT_기타.txt";
+  }else if(memoId == '06'){
+    memoFileNm = "/memo/REDUX-SAGA.txt";  
   } else {
     //에러
     comm.customAlert('파일이 존재하지 않습니다.')

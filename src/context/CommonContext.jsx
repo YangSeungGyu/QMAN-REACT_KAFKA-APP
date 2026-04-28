@@ -37,7 +37,8 @@ export const CommonProvider = ({ children }) => {
     // 공통데이터 호출
     const fetchCommon = async () => {
       try {
-        const data = await comm.axiosPost('/common/getCommonData', {});
+        //const data = await comm.axiosPost('/common/getCommonData', {}); - 일단 막았음
+        const data = {};
         setCommonData(data);
       } catch (e) {
         console.error('공통데이터 로딩 실패:', e);

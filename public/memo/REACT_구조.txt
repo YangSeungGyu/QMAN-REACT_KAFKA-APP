@@ -36,3 +36,20 @@ npm update : 패키지들 최근버전으로 변경
 npm cache clean --force : npm캐쉬 청소
 
 * package.json 에서 변경가능
+
+
+
+==============[React 주요 모듈]==============
+import { useState, useEffect, useRef } from "react";
+ - useState : 화면렌더링에 관여하는 변수
+ - useEffect : 화면렌더링에 관여할 함수형태
+ - useRef : 렌더링에는 관여하지 않지만 기능적으로 동작할 변수(포커스 등)
+
+
+import { Outlet, useOutletContext, useLocation, useNavigate, Link, useParams } from 'react-router-dom';
+ - Outlet : 컴포넌트가 동적으로 변동하는곳에 선언 context를 추가할 수 있다.
+ - useOutletContext : outlet에 추가한 context 활용 
+ - useLocation :  {pathname:도메인 제외 경로,search:url의 파라미터,state:link나 navigate로 보낸 보이지않는값}
+ - useNavigate : 소스에서 url 변경
+ - Link : a태그
+ - useParams : 라우터에서 /:param변수로 설정된값 가져오기

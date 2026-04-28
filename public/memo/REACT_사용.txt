@@ -46,7 +46,7 @@ setObj(prev =>
   )
 );
 
-//전체값에 키:값 추가
+//전체 대상에 키:값 추가
 setObj(prev =>
   prev.map(item => ({
     ...item,
@@ -73,9 +73,23 @@ const navigate = useNavigate();
 
 
 ================[localStorage]================
-localStorage.setItem('test', JSON.stringify({ test: '111' })); //문자로만 저장됨
+문자로만 저장 가능 객체는 josn활용
+localStorage.setItem('test', JSON.stringify({ test: '111' }));
 const test = JSON.parse(localStorage.getItem('test'));
 
+
+================[context 전역변수]================
+context는 outlet에서 추가할 수 있다.
+
+Outlet설정
+  import { Outlet} from 'react-router-dom';
+  const [contextMap, setContextMap] = useState({변수01: '값01',변수02: '값02'});
+  <Outlet context={{contextMap,setContextMap}}/>  
+
+context 사용 및 수정
+  import { useOutletContext } from 'react-router-dom';
+  const  { useOutletContext, setContextMap } = useOutletContext();
+  수정 : setContextMap(prev => ({...prev, 변수02: '값03' }));
 
 ================[html input 연결]================
 import { useState } from "react";
@@ -114,7 +128,7 @@ const testFn = function(){ alert(test); }
 {
 	list.length > 0 ? (
 		list.map((obj) => (
-			<데이터 태그 >{obj.key}</데이터 태그>
+			<데이터 태그 >{obj}</데이터 태그>
 		))
 	) : (
 		<데이터 없을때 태그>
@@ -138,7 +152,15 @@ user?.name : user를 체크함 null리턴
 user?.list?.[0]
 
 
+================[useRef 포커싱 활용]================
+import { useRef } from 'react';
 
+const inputRef = useRef(null);
+const focusInput = () => {
+  inputRef.current.focus();
+};
+
+<input ref={inputRef} />
 
 ================[파라미터 사용]================
 라우터
@@ -151,7 +173,7 @@ import { useParams } from "react-router-dom";
 const { paramId } = useParams();
 
 
-================[Props 사용]================
+================[Props 사용(param사용법)]================
 라우터
 <Route path="test01" element={<Test propId="01"/>} />
 
@@ -161,6 +183,25 @@ const { paramId } = useParams();
 컴포넌트
 function Test({propId}){...propId..}
 
+
+================[Props 사용(자식에서 부모에게 값전달)]================
+부모 컴포넌트
+const [data, setData] = useState("대기중");
+const handleUpdate = (newValue) => {
+    setData(newValue); 
+  };
+
+return(
+  ...
+<Child onUpdate={(newValue) => setData(newValue)} />
+  ...
+)
+
+
+자식 컴포넌트
+function Child({ onUpdate }) {
+  return <button onClick={() => onUpdate('완료')}>부모 데이터 변경</button>;
+}
 
 
 ================================================================

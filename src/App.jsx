@@ -25,6 +25,7 @@ import TestBasicGrid from '@/views/test/BasicGrid';
 import PageGrid from '@/views/test/PageGrid';
 import TestFlow from '@/views/test/TestFlow';
 import TestChart from '@/views/test/TestChart';
+import TestSaga from '@/views/test/TestSaga';
 
 //자유 테스트
 import TestFree01 from '@/views/test/TestFree01';
@@ -76,6 +77,8 @@ function App() {
                 <Route path="testFree02" element={<TestFree02 />} />
 
                 <Route path="testChart" element={<TestChart />} />
+
+                <Route path="testSaga" element={<TestSaga />} />
               </Route>
 
               {/*kafka*/}

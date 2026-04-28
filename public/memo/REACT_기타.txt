@@ -15,3 +15,29 @@ const obj = {
     console.log(this.name); //this는 obj가 아님
   }
 };
+
+================[HTML 요소]================
+html 요소
+div: HTMLDivElement
+span: HTMLSpanElement
+p: HTMLParagraphElement
+a: HTMLAnchorElement
+br: HTMLBRElement
+ul: HTMLUListElement
+ol: HTMLOListElement
+li: HTMLLIElement
+input: HTMLInputElement
+button: HTMLButtonElement
+select: HTMLSelectElement
+option: HTMLOptionElement
+textarea: HTMLTextAreaElement
+form: HTMLFormElement
+img: HTMLImageElement
+video: HTMLVideoElement
+audio: HTMLAudioElement
+canvas: HTMLCanvasElement
+table: HTMLTableElement
+tr: HTMLTableRowElement
+td: HTMLTableCellElement
+th: HTMLTableHeaderCellElement
+label: HTMLLabelElement

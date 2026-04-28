@@ -80,6 +80,7 @@ function SideLayout() {
             <li><Link to="/memo/memo02" style={menuItemStyle('/memo/memo02')}>REACT_설치</Link></li>
             <li><Link to="/memo/memo03" style={menuItemStyle('/memo/memo03')}>REACT_구조</Link></li>
             <li><Link to="/memo/memo04" style={menuItemStyle('/memo/memo04')}>REACT_사용</Link></li>
+            <li><Link to="/memo/memo05" style={menuItemStyle('/memo/memo05')}>REACT_기타</Link></li>
           </ul>
         </li>
         {/*메모 메뉴 end*/}

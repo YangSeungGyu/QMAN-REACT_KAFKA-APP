@@ -140,6 +140,28 @@ user?.list?.[0]
 
 
 
+================[파라미터 사용]================
+라우터
+<Route path="test/:paramId" element={<Test/>} />
+
+링크 <li><Link to="/test/파라미터값">파라미터테스트</Link></li>
+
+컴포넌트
+import { useParams } from "react-router-dom";
+const { paramId } = useParams();
+
+
+================[Props 사용]================
+라우터
+<Route path="test01" element={<Test propId="01"/>} />
+
+링크 
+<li><Link to="/test01">프로퍼티스테스트</Link></li>
+
+컴포넌트
+function Test({propId}){...propId..}
+
+
 
 ================================================================
 ========================[태그 기본]==============================

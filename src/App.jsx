@@ -35,10 +35,7 @@ import TestFree02 from '@/views/test/TestFree02';
 import TestKafka from '@/views/kafka/TestKafka';
 
 //메모
-import Memo01 from '@/views/memo/Memo01';
-import Memo02 from '@/views/memo/Memo02';
-import Memo03 from '@/views/memo/Memo03';
-import Memo04 from '@/views/memo/Memo04';
+import MemoView from '@/views/memo/MemoView';
 
 
 import { CommonProvider } from '@/context/CommonContext';
@@ -88,10 +85,11 @@ function App() {
 
               {/*memo*/}
               <Route path="memo">
-                <Route path="memo01" element={<Memo01 />} />
-                <Route path="memo02" element={<Memo02 />} />
-                <Route path="memo03" element={<Memo03 />} />
-                <Route path="memo04" element={<Memo04 />} />
+                <Route path="memo01" element={<MemoView memoId="01"/>} />
+                <Route path="memo02" element={<MemoView memoId="02"/>} />
+                <Route path="memo03" element={<MemoView memoId="03"/>} />
+                <Route path="memo04" element={<MemoView memoId="04"/>} />
+                <Route path="memo05" element={<MemoView memoId="05"/>} />
               </Route>
               
 

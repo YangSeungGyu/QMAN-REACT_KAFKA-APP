@@ -87,7 +87,8 @@ const JoinMember = () => {
 
     setIdLoading(true);
     try {
-      const isDuplicated = await comm.axiosPost('/member/checkUserId', { userId: form.userId });
+      const resultData =  await comm.axiosPost('/member/checkUserId', { userId: form.userId });
+      const isDuplicated = resultData.isDupl;
       if (isDuplicated) {
         comm.customAlert('이미 사용 중인 아이디입니다.');
         setIsIdAvailable(false);

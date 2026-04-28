@@ -37,8 +37,8 @@ const BodyTestSample = ({ onConfirm, onCancel }) => {
       </table>
 
       <div className="modal-footer">
-        <CustomButton label="취소" onClickFunc={onCancel} />
         <CustomButton label="확인" onClickFunc={onConfirm} />
+        <CustomButton label="취소" onClickFunc={onCancel} />
       </div>
     </div>
   );

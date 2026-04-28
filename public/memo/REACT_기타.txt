@@ -1,6 +1,3 @@
-
-
-
 ================[arrow function, 변수 function 차이]================
 const obj = {
   name: "test",

@@ -1,11 +1,10 @@
-================[컴포넌트.jsx]================
+================[컴포넌트.jsx 기본틀]================
 function 컴포넌트() {
    
   return(
   );
 }
 export default 컴포넌트
-
 
 -------
 const testFn = function() {}
@@ -89,7 +88,7 @@ localStorage.setItem('test', JSON.stringify({ test: '111' }));
 const test = JSON.parse(localStorage.getItem('test'));
 
 
-================[context 전역변수]================
+================[context Outlet안에서의 전역변수]================
 context는 outlet에서 추가할 수 있다.
 
 Outlet설정
@@ -102,6 +101,9 @@ context 사용 및 수정
   const  { useOutletContext, setContextMap } = useOutletContext();
   수정 : setContextMap(prev => ({...prev, 변수02: '값03' }));
 
+*주의 Outlet[1] > Outlet[2] > 컴포넌트 구조일 경우  컴포넌트에서는 Outlet[2]를 가져온다.
+ - Outlet[1]로 올리는 경우 Outlet[2]가 선언된 곳에서 const rootCtx = useOutletContext();로
+   Outlet[1]를 가져온 뒤 변수를 Outlet[2]로 넘겨야한다.
 ================[html input 연결]================
 import { useState } from "react";
 

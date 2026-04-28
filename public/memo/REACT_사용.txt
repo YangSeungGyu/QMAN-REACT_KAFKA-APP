@@ -54,6 +54,17 @@ setObj(prev =>
   }))
 );
 
+
+//매칭대상 1개 찾아 리턴받기
+let matchedObj = array변수.find((obj)=>{
+	return obj.key == '찾을key'
+});
+
+//매칭대상 모두 찾아 리턴받기
+let matchedArr = array변수.filter((obj)=>{
+	return obj.key == '찾을key'
+});
+
 ================[useEffect]================
 import { useEffect} from "react";
 

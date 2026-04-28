@@ -2,20 +2,23 @@ import { useState } from "react";
 
 function TestFree01() {
 
-  const [test,setTest] = useState('');
+  let test01 = '';
+
+  
 
   const testFn = function(){
-    alert(test);
-    localStorage.setItem('test', test);
+   alert(test01);
     
   }
+  
+
   
   return(
     <>
       <input
             type="text"
-            onChange={(e) => setTest(e.target.value)}
-            value={test}
+            onChange={(e) => testFn(e.target.value)}
+            value={test01}
           />
         <button onClick={testFn}>확인</button>   
     </>

@@ -41,6 +41,9 @@ import TestKafka from '@/views/kafka/TestKafka';
 //메모
 import MemoView from '@/views/memo/MemoView';
 
+//swager
+import SwagerView from '@/views/swager/SwagerView';
+
 
 import { CommonProvider } from '@/context/CommonContext';
 
@@ -66,6 +69,8 @@ function App() {
                 <Route index element={<Home />} />
                 <Route path="login" element={<Login />} />
                 <Route path="member/joinMember" element={<JoinMember />} />
+
+                <Route path="swager" element={<SwagerView />} />
 
                 {/*board*/}
                 <Route path="board">

@@ -94,6 +94,10 @@ function SideLayout() {
         </li>
         {/*메모 메뉴 end*/}
 
+         <li>
+          <Link to="/swager" style={menuItemStyle('/swager')}>Swager</Link>
+        </li>
+
 
         {/*게시판 Grid 메뉴 start*/}
         <li>

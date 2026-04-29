@@ -16,7 +16,6 @@ const ModalLayout = ({ isOpen, onClose, title, modalBody }) => {
   return (
    <>
       <div className="modal-backdrop" onClick={onClose} />
-
       <div className="modal-wrapper">
         <div className="modal-content">
           <div className="modal-header">

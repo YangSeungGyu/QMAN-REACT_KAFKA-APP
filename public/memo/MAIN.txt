@@ -1,0 +1,29 @@
+
+[구성]
+ - api서버는 json타입 mock데이터로 DB를 별도로 사용하지 않음.
+ - api서버는 springSecurity적용되어있음. 토큰인증방식
+ - api서버 미사용 시 sampleApiServer > xxxController.js로 전환 테스트 가능.
+   [AuthController.js,boardController.js,LoginController.js]
+   [sampleBoardMock.json,sampleMobileAuthMock.json,sampleUserMock.json]
+ - 메모 : public/memo/ xxx.txt 파일들 연결된것.
+ - Atom : CustomButton.jsx, DatepickerCalendar.jsx, Pagination.jsx
+   ,ModalLayout.jsx, CustomAlert.jsx, CustomConfirm.jsx
+   ,BodyXXXX.jsx(커스텀Modal내용들)
+ - QueryClientProvider : 사용안함 (전에 saga 전체 셋팅 했을때 사용했던것. 전부 지움)
+ - ConfigProvider : 커스텀Provider customAlert,customConfirm셋팅됨, 그외 공통코드 가져오는 부분 있으나 주석처리함. 
+ - layout : MainLayout.jsx, SideLayout.jsx, TopLayout.jsx
+ - style : 각 컴포넌트 경로별로 분리되어 css파일 관리
+ - kafka : kafka 기동해야 사용 가능 
+
+
+[회원가입]
+ - 화면 : /views/member/JoinMember.jsx
+ - 검증 : js 분리 js/join/joinValidation
+ - 실제 가입은 불가
+
+
+
+[로그인]
+ - 화면 : /views/Login.jsx
+ - 로그인 api 및 storage(유저정보 및 토큰 보관) : /js/auth/useAuthStore
+ - comm.js의 axiosPost사용 시 로그인유저 token 자동셋팅

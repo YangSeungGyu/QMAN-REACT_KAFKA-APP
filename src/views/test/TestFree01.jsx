@@ -3,13 +3,7 @@ import { useState } from "react";
 function TestFree01() {
 
   const [test,setTest] = useState('');
-
-alert(2);
-
   const testFn = function(){
-    alert(test);
-    localStorage.setItem('test', test);
-    
   }
   
   return(

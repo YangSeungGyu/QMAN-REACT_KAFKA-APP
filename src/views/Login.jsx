@@ -75,7 +75,7 @@ function Login() {
           <div className="login-helper">
             <span onClick={() => navigate('/member/joinMember')}>회원가입</span>
             <span className="divider">|</span>
-            <span onClick={() => comm.customAlert('미구현')}>아이디/비밀번호 찾기</span>
+            <span onClick={() => comm.customAlert('미구현(mock데이터 사용으로인해)')}>아이디/비밀번호 찾기</span>
           </div>
         </div>
       </div>

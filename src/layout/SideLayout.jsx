@@ -164,6 +164,7 @@ function SideLayout() {
             transition: 'max-height 0.3s ease',
           }}>
             <li><Link to="/test/test02" style={menuItemStyle('/test/test02')}>기본컴포넌트</Link></li>
+            <li><Link to="/test/testCustomConfirm" style={menuItemStyle('/test/testCustomConfirm')}>CustomConfirm</Link></li>
             <li><Link to="/test/test01" style={menuItemStyle('/test/test01')}>Calendar</Link></li>
             <li><Link to="/test/titleTest" style={menuItemStyle('/test/titleTest')}>외부변경</Link></li>
             <li><Link to="/test/test03" style={menuItemStyle('/test/test03')}>로그인확인</Link></li>

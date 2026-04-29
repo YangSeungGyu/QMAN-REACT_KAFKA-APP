@@ -27,6 +27,8 @@ import TestFlow from '@/views/test/TestFlow';
 import TestChart from '@/views/test/TestChart';
 import TestSaga from '@/views/test/TestSaga';
 import TestAntdUi from '@/views/test/TestAntdUi';
+import TestCustomConfirm from '@/views/test/TestCustomConfirm';
+
 
 //자유 테스트
 import TestFree01 from '@/views/test/TestFree01';
@@ -81,6 +83,7 @@ function App() {
                   <Route path="basicGrid" element={<TestBasicGrid />} />
                   <Route path="pageGrid" element={<PageGrid />} />
                   <Route path="testFlow" element={<TestFlow />} />
+                  <Route path="testCustomConfirm" element={<TestCustomConfirm />} />
 
                   <Route path="testFree01" element={<TestFree01 />} />
                   <Route path="testFree02" element={<TestFree02 />} />

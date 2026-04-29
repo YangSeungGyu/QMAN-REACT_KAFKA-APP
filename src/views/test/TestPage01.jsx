@@ -1,9 +1,6 @@
 import React from 'react';
 import BaseCalendar from '@/components/Atom/BaseCalendar';
 import DatepickerCalendar from '@/components/Atom/DatepickerCalendar';
-import CustomButton from '@/components/Atom/CustomButton';
-import ModalLayout from '@/components/Modal/ModalLayout';
-import BodyTestSample from '@/components/Modal/BodyTestSample';
 import { comm } from '@/js/comm.js';
 
 
@@ -28,12 +25,6 @@ function TestPage01() {
 
 
 
-  const handleConfirm = () => {
-    setIsModalOpen(false);
-  };
-
-const [isModalOpen, setIsModalOpen] = React.useState(false);
-
   return(
     <>
       <div>
@@ -49,28 +40,9 @@ const [isModalOpen, setIsModalOpen] = React.useState(false);
               onChange={handleDateChange2}
             />
         <hr className="line-hr" />{/*============================================ */}
-        <div>
-            <CustomButton 
-            label="샘플모달열기" 
-            onClickFunc={()=>setIsModalOpen(true)} 
-          />
-          <CustomButton 
-            label="customAlert" 
-            onClickFunc={()=>comm.customAlert('테스트1')} 
-          />
-          <CustomButton 
-            label="customAlert" 
-            onClickFunc={()=>comm.customConfirm('테스트2',()=>alert(1))} 
-          />
-        </div>
+       
       </div>
 
-      <ModalLayout 
-          isOpen={isModalOpen} 
-          onClose={() => setIsModalOpen(false)} 
-          title="테스트모달1"
-          modalBody={<BodyTestSample onConfirm={handleConfirm} onCancel={() => setIsModalOpen(false)} />}
-        />
     </>
   );
 }

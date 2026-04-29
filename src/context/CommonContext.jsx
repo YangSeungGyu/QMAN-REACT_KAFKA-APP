@@ -38,13 +38,15 @@ export const CommonProvider = ({ children }) => {
         //onConfirm: onConfirm,
         onConfirm: async () => {
           try{
+            setConfirm(prev => ({ ...prev, show: false }));
+            setTimeout(() => resolve(true), 100);
             await onConfirm(); // onConfirm 내부에서 api같은걸 호출시 대기
           }catch(error){
             console.error("customConfirm error:", error);
           }finally {
             //끝나면 자동으로 닫힘
-            setConfirm(prev => ({ ...prev, show: false }));
-            setTimeout(() => resolve(true), 100);
+            //setConfirm(prev => ({ ...prev, show: false }));
+            //setTimeout(() => resolve(true), 100);
           }
         },
         onCancel: () => {

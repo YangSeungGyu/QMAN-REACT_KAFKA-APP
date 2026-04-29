@@ -26,6 +26,7 @@ import PageGrid from '@/views/test/PageGrid';
 import TestFlow from '@/views/test/TestFlow';
 import TestChart from '@/views/test/TestChart';
 import TestSaga from '@/views/test/TestSaga';
+import TestAntdUi from '@/views/test/TestAntdUi';
 
 //자유 테스트
 import TestFree01 from '@/views/test/TestFree01';
@@ -43,63 +44,74 @@ import { CommonProvider } from '@/context/CommonContext';
 
 import '@/App.css';
 
+//antd 스타일 변경
+import { ConfigProvider } from 'antd';
+import useShadcnTheme from '@/style/shadcnTheme.js';
+
+
+
 const queryClient = new QueryClient();
 
 function App() {
+  const configProps = useShadcnTheme(); // antd 스타일 변경
   return (
     <QueryClientProvider client={queryClient}>
       <CommonProvider>
-        <HistoryRouter history={history}>
-          <Routes>
-            <Route path="/" element={<MainLayout />}>
-              <Route index element={<Home />} />
-              <Route path="login" element={<Login />} />
-              <Route path="member/joinMember" element={<JoinMember />} />
+        <ConfigProvider {...configProps}> {/*antd 스타일 변경*/}
+          <HistoryRouter history={history}>
+            <Routes>
+              <Route path="/" element={<MainLayout />}>
+                <Route index element={<Home />} />
+                <Route path="login" element={<Login />} />
+                <Route path="member/joinMember" element={<JoinMember />} />
 
-              {/*board*/}
-              <Route path="board">
-                <Route path="boardList" element={<BoardList />} />
-                <Route path="boardDetail/:idx" element={<BoardDetail />} />
-                <Route path="boardWrite" element={<BoardWrite />} />
+                {/*board*/}
+                <Route path="board">
+                  <Route path="boardList" element={<BoardList />} />
+                  <Route path="boardDetail/:idx" element={<BoardDetail />} />
+                  <Route path="boardWrite" element={<BoardWrite />} />
+                </Route>
+
+                {/*test*/}
+                <Route path="test">
+                  <Route path="titleTest" element={<TitleTestPage />} />
+                  <Route path="test01" element={<TestPage01 />} />
+                  <Route path="test02" element={<TestPage02 />} />
+                  <Route path="test03" element={<TestPage03 />} />
+                  <Route path="basicGrid" element={<TestBasicGrid />} />
+                  <Route path="pageGrid" element={<PageGrid />} />
+                  <Route path="testFlow" element={<TestFlow />} />
+
+                  <Route path="testFree01" element={<TestFree01 />} />
+                  <Route path="testFree02" element={<TestFree02 />} />
+
+                  <Route path="testChart" element={<TestChart />} />
+
+                  <Route path="testSaga" element={<TestSaga />} />
+
+                  <Route path="testAntdUi" element={<TestAntdUi />} />
+                </Route>
+
+                {/*kafka*/}
+                <Route path="kafka">
+                  <Route path="TestKafka" element={<TestKafka />} />
+                </Route>
+
+                {/*memo*/}
+                <Route path="memo">
+                  <Route path="memo01" element={<MemoView memoId="01"/>} />
+                  <Route path="memo02" element={<MemoView memoId="02"/>} />
+                  <Route path="memo03" element={<MemoView memoId="03"/>} />
+                  <Route path="memo04" element={<MemoView memoId="04"/>} />
+                  <Route path="memo05" element={<MemoView memoId="05"/>} />
+                  <Route path="memo06" element={<MemoView memoId="06"/>} />
+                </Route>
+                
+
               </Route>
-
-              {/*test*/}
-              <Route path="test">
-                <Route path="titleTest" element={<TitleTestPage />} />
-                <Route path="test01" element={<TestPage01 />} />
-                <Route path="test02" element={<TestPage02 />} />
-                <Route path="test03" element={<TestPage03 />} />
-                <Route path="basicGrid" element={<TestBasicGrid />} />
-                <Route path="pageGrid" element={<PageGrid />} />
-                <Route path="testFlow" element={<TestFlow />} />
-
-                <Route path="testFree01" element={<TestFree01 />} />
-                <Route path="testFree02" element={<TestFree02 />} />
-
-                <Route path="testChart" element={<TestChart />} />
-
-                <Route path="testSaga" element={<TestSaga />} />
-              </Route>
-
-              {/*kafka*/}
-              <Route path="kafka">
-                <Route path="TestKafka" element={<TestKafka />} />
-              </Route>
-
-              {/*memo*/}
-              <Route path="memo">
-                <Route path="memo01" element={<MemoView memoId="01"/>} />
-                <Route path="memo02" element={<MemoView memoId="02"/>} />
-                <Route path="memo03" element={<MemoView memoId="03"/>} />
-                <Route path="memo04" element={<MemoView memoId="04"/>} />
-                <Route path="memo05" element={<MemoView memoId="05"/>} />
-                <Route path="memo06" element={<MemoView memoId="06"/>} />
-              </Route>
-              
-
-            </Route>
-          </Routes>
-        </HistoryRouter>
+            </Routes>
+          </HistoryRouter>
+        </ConfigProvider>
       </CommonProvider>
     </QueryClientProvider>
   );

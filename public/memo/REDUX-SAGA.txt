@@ -1,4 +1,4 @@
-============redux saga 설정===========
+============redux saga 설정추가===========
 stroe
 	└rootReducer.js
 	└store.js
@@ -12,17 +12,17 @@ features
 		└postSlice.js
 		└postApi.js
 	
------------------------
-main.jsx << 수정
+
+[main.jsx] << 수정
 import { Provider } from 'react-redux';
 import store from './store/store';
-
 <Provider store={store}>
 	<App />
 </Provider>
 
------------------------
-TestSaga.jsx 에서 호출
+
+
+[TestSaga.jsx] 에서 호출
 
 =================셋팅에 따른 설정=========================
 01.main.jsx 에서 /store/store를 Provider로 감쌈
@@ -43,7 +43,7 @@ Api : axios api요청을 함수로 분리(Saga에서 호출함)
 Reducer(상태변경함수) : 각 비동기에 요청,결과에대한 함수.
 Saga : Api와 Reducer함수를 요청별로 셋팅하여 Worker로 생성 후 takeLatest에 셋팅하여 Saga로 생성
  - takeLatest에 등록되면 Watcher에 등록되어 실시간 감지됨(동일요청 무시 마지막것만 실행)
- 
+
 =================saga사용=========================
 설정파일 생성 및 연결 :
 /features/경로에 postApi.js생성 :  api 호출작성

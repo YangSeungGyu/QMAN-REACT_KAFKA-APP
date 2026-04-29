@@ -13,7 +13,12 @@ const obj = {
   }
 };
 
-================[HTML 요소]================
+================[useState 주의점]================
+변수를 타 변수에 적용해서 사용하면 useState 속성을 잃어버리니 주의
+
+
+
+================[HTML 요소-type을 알아야 할 경우]================
 html 요소
 div: HTMLDivElement
 span: HTMLSpanElement

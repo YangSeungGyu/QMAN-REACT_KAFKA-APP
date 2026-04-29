@@ -162,6 +162,7 @@ function SideLayout() {
             <li><Link to="/test/testFlow" style={menuItemStyle('/test/testFlow')}>Flow</Link></li>
             <li><Link to="/test/testChart" style={menuItemStyle('/test/testChart')}>차트</Link></li>
             <li><Link to="/test/testSaga" style={menuItemStyle('/test/testSaga')}>Saga</Link></li>
+            <li><Link to="/test/testAntdUi" style={menuItemStyle('/test/testAntdUi')}>AntdUi</Link></li>
           </ul>
         </li>
         {/*테스트 메뉴 end*/}

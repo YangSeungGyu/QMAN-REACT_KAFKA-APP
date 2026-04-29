@@ -66,7 +66,22 @@ npm install kafkajs
 [chart]
 npm install chart.js react-chartjs-2
 
+[Ant Design]
+npm install antd
 
+[Ant Design 스타일 확장]
+npm install antd-style clsx
+ - https://ant.design/ 에서 전체 샘플파일 받아서 적용.(js로 받는곳은 컴포넌트별 css라서..)
+   (기본 ts던데 js로 받는방법 모름. ts관렴문법 제거 및 Props import제거)
+ - App.jsx에 적용
+---------------------[App.jsx]---------------------------
+import { ConfigProvider } from 'antd';
+import useShadcnTheme from '@/style/shadcnTheme.js';
+...
+const configProps = useShadcnTheme();
+...
+<ConfigProvider {...configProps}> ... </ConfigProvider>
+------------------------------------------------
 =========[확장 플러그인 설치]=========
 Git Graph : git관리용으로 설치함
 ---------깃 프로젝트 올리기------

@@ -153,7 +153,11 @@ const testFn = function(){ alert(test); }
  
 
  ================[초기값 api 호출]================
- useEffect(() => {
+import { useState, useEffect } from "react";
+
+const [data, setData] = useState(); 
+
+useEffect(() => {
   const fetchData = async () => {
     const res = await axios.get("/api");
     setData(res.data);

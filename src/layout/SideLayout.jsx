@@ -1,6 +1,14 @@
 import { Link, useLocation } from 'react-router-dom';
 import { useState } from 'react';
 
+
+
+
+
+
+
+
+
 function SideLayout() {
   const [testOpen, setTestOpen] = useState(false);
   const [boardOpen, setBoardOpen] = useState(false);

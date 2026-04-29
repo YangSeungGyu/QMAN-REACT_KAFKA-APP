@@ -1,9 +1,12 @@
+import { comm } from '@/js/comm.js';
+
 function TestFree02() {
-
-
-  const testFn = function(){
-    const test =  localStorage.getItem('test');
-    alert(test);
+  
+ 
+  const testFn = async function(){
+   await comm.customConfirm('123',()=>alert(1));
+   await comm.customConfirm('222',()=>alert(2));
+   console.log(11);
   }
 
   return(

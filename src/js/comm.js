@@ -3,13 +3,22 @@ import axios from 'axios';
 
 //전역변수 함수모음
 
-//comm.customAlert,comm.customConfirm 두개는 CommonContext.jsx 에서 렌더링시 재할당됨
+
+/*
+  !!!! 중요 : comm.customAlert,comm.customConfirm 두개는 CommonContext.jsx 에서 렌더링시 재할당됨!!!
+  jsx에서는 Context할당을 받아 Provider값을 직접 사용 가능하지만  
+  js에서는 직접적으로 Context를 할당받아서 호출 할 수 없으므로 js에서 먼저 할당하고 CommonContext가 호출될 때 재할당되어 셋팅되는
+  방식을 사용.
+*/
 export let comm = {
+  //초기선언 -> CommonContext에서 덮어씀
   customAlert: (msg) => {
     alert(msg);
     return Promise.resolve();
   },
+  //초기선언 -> CommonContext에서 덮어씀
   customConfirm: (msg, onConfirm) => { if (confirm(msg)) onConfirm(); },
+
   API_URL       : 'http://localhost:8199',
   getTodayString: null,
   formatDate    : null,

@@ -1,6 +1,8 @@
 import React from 'react';
 import { useOutletContext } from 'react-router-dom';
 import CustomButton from '@/components/Atom/CustomButton';
+import ShowCode from '@/components/Common/showCode'; //DeleteShowCodeLine
+import sourceCode from './TitleTestPage.jsx?raw'; //DeleteShowCodeLine
 
 
 function TitleTestPage() {
@@ -66,68 +68,71 @@ function TitleTestPage() {
   };
 
   return (
-    <div className="test-container">
-        <h3>TopLayout의 타이틀 변경</h3>
-        <hr className="line-hr" />{/*============================================ */}   
-        {colors.map((color) => (
-            <label key={color.value} style={{ marginRight: '10px', cursor: 'pointer' }}>
-              <input
-                type="radio"
-                name="titleColor"
-                value={color.value}
-                checked={mainLayoutContainer.titleColor === color.value}
-                onChange={handleColorChange}
-              />
-                &nbsp;{color.name}
-            </label>
-        ))}
+    <>
+      <ShowCode sourceCode={sourceCode|| "is not found"} />{/*DeleteShowCodeLine*/}
+      <div className="test-container">
+          <h3>TopLayout의 타이틀 변경</h3>
+          <hr className="line-hr" />{/*============================================ */}   
+          {colors.map((color) => (
+              <label key={color.value} style={{ marginRight: '10px', cursor: 'pointer' }}>
+                <input
+                  type="radio"
+                  name="titleColor"
+                  value={color.value}
+                  checked={mainLayoutContainer.titleColor === color.value}
+                  onChange={handleColorChange}
+                />
+                  &nbsp;{color.name}
+              </label>
+          ))}
 
-      <hr className="line-hr" />{/*============================================ */}
-
-      <input type="text" 
-        onChange={(e) => setInputTitleTxt(e.target.value)}
-        value={inputTitleTxt}
-      />
-      <CustomButton 
-          label="타이틀 변경" 
-          onClickFunc={handlerTxtChangeBt} 
-        />
-
-       <hr className="line-hr" />{/*============================================ */}
-       
-        {checkOptions.map(opt => (
-          <label key={opt} style={{ marginRight: '15px', cursor: 'pointer' }}>
-            <input 
-              type="checkbox" 
-              checked={checkedItems.includes(opt)}
-              onChange={() => handleCheckboxChange(opt)}
-            />
-            &nbsp;{opt}
-          </label>
-        ))}
-        <CustomButton 
-          label="적용" 
-          onClickFunc={handlerCheckToTitleBt} 
-        />
-      
         <hr className="line-hr" />{/*============================================ */}
 
-        <select
-          onChange={handleSelectChange}
-          value={selectTitle}
-          style={{padding:'5px',borderRadius:'4px'}}
-        >
-          {
-          titleOptions.map(obj=>(
-              <option  
-                key={obj.value}
-                value={obj.value}>
-                {obj.label}
-              </option>
-            ))
-          }
-        </select>
-    </div>
+        <input type="text" 
+          onChange={(e) => setInputTitleTxt(e.target.value)}
+          value={inputTitleTxt}
+        />
+        <CustomButton 
+            label="타이틀 변경" 
+            onClickFunc={handlerTxtChangeBt} 
+          />
+
+        <hr className="line-hr" />{/*============================================ */}
+        
+          {checkOptions.map(opt => (
+            <label key={opt} style={{ marginRight: '15px', cursor: 'pointer' }}>
+              <input 
+                type="checkbox" 
+                checked={checkedItems.includes(opt)}
+                onChange={() => handleCheckboxChange(opt)}
+              />
+              &nbsp;{opt}
+            </label>
+          ))}
+          <CustomButton 
+            label="적용" 
+            onClickFunc={handlerCheckToTitleBt} 
+          />
+        
+          <hr className="line-hr" />{/*============================================ */}
+
+          <select
+            onChange={handleSelectChange}
+            value={selectTitle}
+            style={{padding:'5px',borderRadius:'4px'}}
+          >
+            {
+            titleOptions.map(obj=>(
+                <option  
+                  key={obj.value}
+                  value={obj.value}>
+                  {obj.label}
+                </option>
+              ))
+            }
+          </select>
+      </div>
+    </>
   );
 }
 

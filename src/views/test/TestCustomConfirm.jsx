@@ -3,6 +3,8 @@ import CustomButton from '@/components/Atom/CustomButton';
 import ModalLayout from '@/components/Modal/ModalLayout';
 import BodyTestSample from '@/components/Modal/BodyTestSample';
 import { comm } from '@/js/comm.js';
+import ShowCode from '@/components/Common/showCode'; //DeleteShowCodeLine
+import sourceCode from './TestCustomConfirm.jsx?raw'; //DeleteShowCodeLine
 
 function TestCustomConfirm() {
   
@@ -40,6 +42,7 @@ function TestCustomConfirm() {
 
   return(
     <>
+      <ShowCode sourceCode={sourceCode|| "is not found"} />{/*DeleteShowCodeLine*/}
       <div>
         CommonContext.jsx에 선언되어있며 Provider로 App.jsx에 연결(comm.js는 js파일에서도 사용하기 위한 껍데기)
       </div>
@@ -70,7 +73,6 @@ function TestCustomConfirm() {
           title="테스트모달1"
           modalBody={<BodyTestSample onConfirm={handleConfirm} onCancel={() => setIsModalOpen(false)} />}
        /> 
-
     </>
   );
 }

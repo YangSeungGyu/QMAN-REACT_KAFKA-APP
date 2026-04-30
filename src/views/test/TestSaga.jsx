@@ -1,8 +1,11 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchPostsRequest } from '@/features/post/postSlice';
 import { useEffect } from 'react';
+import ShowCode from '@/components/Common/showCode'; //DeleteShowCodeLine
+import sourceCode from './TestSaga.jsx?raw'; //DeleteShowCodeLine
 
 function TestSaga() {
+
   const dispatch = useDispatch();
   const { data, loading, error } = useSelector((state) => state.post);
 
@@ -17,6 +20,7 @@ function TestSaga() {
 
   return (
     <>
+        <ShowCode sourceCode={sourceCode|| "is not found"} />{/*DeleteShowCodeLine*/}
         <div>
           {data}
         </div>

@@ -1,7 +1,7 @@
-
 import { Button, DatePicker, Space, Input, Select, Table, Divider,  Modal, Card  } from 'antd';
 const { Search } = Input;
-
+import ShowCode from '@/components/Common/showCode'; //DeleteShowCodeLine
+import sourceCode from './TestAntdUi.jsx?raw'; //DeleteShowCodeLine
 
 
 
@@ -70,67 +70,68 @@ function TestAntdUi() {
 
   return(
     <>
-    <div style={{ padding: 24 }}>
-      <Space direction="vertical" size="middle">
-        {/* type : primary, default, dashed, text, link */}
-        {/* prop : danger, ghost, shape,  block  */}
-        <Button type="primary">Primary 버튼</Button>
+      <ShowCode sourceCode={sourceCode|| "is not found"} />{/*DeleteShowCodeLine*/}
+      <div style={{ padding: 24 }}>
+        <Space direction="vertical" size="middle">
+          {/* type : primary, default, dashed, text, link */}
+          {/* prop : danger, ghost, shape,  block  */}
+          <Button type="primary">Primary 버튼</Button>
 
-        <Divider />{/*-----------------------------------*/}
+          <Divider />{/*-----------------------------------*/}
 
-        <DatePicker />
+          <DatePicker />
 
-        <Divider />{/*-----------------------------------*/}
+          <Divider />{/*-----------------------------------*/}
 
-        <Input placeholder="아이디를 입력하세요" />
+          <Input placeholder="아이디를 입력하세요" />
 
-        <Divider />{/*-----------------------------------*/}
-        
-
-        <Search placeholder="검색어 입력" onSearch={onSearch} enterButton />
-
-        <Divider />{/*-----------------------------------*/}
-
-        <Select
-          defaultValue="seoul"
-          style={{ width: 120 }}
-          options={[
-            { value: 'seoul', label: '서울' },
-            { value: 'busan', label: '부산' },
-          ]}
-        />
-
-        <Divider />{/*-----------------------------------*/}
-
-        {/* Card는 직접 스타일 적용 가능 table은 불가*/}
-        <Card style={{ border: '1px solid #71717a' }}>
-          <Table 
-            columns={columns} 
-            dataSource={data} 
-            bordered 
-            pagination={{
-              position: ['bottomCenter'], 
-              defaultPageSize: 10,
-              // showSizeChanger: true,
-              // showTotal: (total) => `총 ${total}개 항목`,
-            }}
-          />
-         </Card>
-
-         <Divider />{/*-----------------------------------*/}
-
-          {contextHolder}
-          <Space direction="horizontal" size="middle">
-              <Button type="primary"  onClick={showAlert}>
-                Alert
-              </Button>
-              <Button type="primary"  onClick={showConfirm}>
-                Confirm
-              </Button>
-          </Space>
+          <Divider />{/*-----------------------------------*/}
           
-       </Space>
-    </div>
+
+          <Search placeholder="검색어 입력" onSearch={onSearch} enterButton />
+
+          <Divider />{/*-----------------------------------*/}
+
+          <Select
+            defaultValue="seoul"
+            style={{ width: 120 }}
+            options={[
+              { value: 'seoul', label: '서울' },
+              { value: 'busan', label: '부산' },
+            ]}
+          />
+
+          <Divider />{/*-----------------------------------*/}
+
+          {/* Card는 직접 스타일 적용 가능 table은 불가*/}
+          <Card style={{ border: '1px solid #71717a' }}>
+            <Table 
+              columns={columns} 
+              dataSource={data} 
+              bordered 
+              pagination={{
+                position: ['bottomCenter'], 
+                defaultPageSize: 10,
+                // showSizeChanger: true,
+                // showTotal: (total) => `총 ${total}개 항목`,
+              }}
+            />
+          </Card>
+
+          <Divider />{/*-----------------------------------*/}
+
+            {contextHolder}
+            <Space direction="horizontal" size="middle">
+                <Button type="primary"  onClick={showAlert}>
+                  Alert
+                </Button>
+                <Button type="primary"  onClick={showConfirm}>
+                  Confirm
+                </Button>
+            </Space>
+            
+        </Space>
+      </div>
     </>
   );
 }

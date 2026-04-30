@@ -8,8 +8,10 @@ import {
   Tooltip,
   Legend
 } from "chart.js";
-
 import { Line } from "react-chartjs-2";
+import ShowCode from '@/components/Common/showCode'; //DeleteShowCodeLine
+import sourceCode from './TestChart.jsx?raw'; //DeleteShowCodeLine
+
 
 // chart.js 필수 등록
 ChartJS.register(
@@ -97,9 +99,10 @@ function TestChart() {
 
   return(
     <>
-    <div style={{ width: "100%", height: 400 }}>
-      <Line data={chartData} options={options} />
-    </div>
+      <ShowCode sourceCode={sourceCode|| "is not found"} />{/*DeleteShowCodeLine*/}
+      <div style={{ width: "100%", height: 400 }}>
+        <Line data={chartData} options={options} />
+      </div>
     </>
   );
 }

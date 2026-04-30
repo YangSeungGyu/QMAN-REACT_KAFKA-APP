@@ -1,6 +1,8 @@
 import { useState, useEffect, useRef } from "react";
 import SockJS from "sockjs-client";
 import { Client } from "@stomp/stompjs";
+import ShowCode from '@/components/Common/showCode'; //DeleteShowCodeLine
+import sourceCode from './TestSoket.jsx?raw'; //DeleteShowCodeLine
 
 function TestSoket() {
   const [msg, setMsg] = useState(''); //soket보낼 메시지
@@ -46,6 +48,7 @@ function TestSoket() {
 
   return (
     <>
+      <ShowCode sourceCode={sourceCode|| "is not found"} />{/*DeleteShowCodeLine*/}
       <input
         type="text"
         onChange={(e) => setMsg(e.target.value)}

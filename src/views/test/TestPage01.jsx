@@ -2,6 +2,8 @@ import React from 'react';
 import BaseCalendar from '@/components/Atom/BaseCalendar';
 import DatepickerCalendar from '@/components/Atom/DatepickerCalendar';
 import { comm } from '@/js/comm.js';
+import ShowCode from '@/components/Common/showCode'; //DeleteShowCodeLine
+import sourceCode from './TestPage01.jsx?raw'; //DeleteShowCodeLine
 
 
 function TestPage01() {
@@ -27,6 +29,7 @@ function TestPage01() {
 
   return(
     <>
+      <ShowCode sourceCode={sourceCode|| "is not found"} />{/*DeleteShowCodeLine*/}
       <div>
         기본 달력
             <BaseCalendar
@@ -42,7 +45,6 @@ function TestPage01() {
         <hr className="line-hr" />{/*============================================ */}
        
       </div>
-
     </>
   );
 }

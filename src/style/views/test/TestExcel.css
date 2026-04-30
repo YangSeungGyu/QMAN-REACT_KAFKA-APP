@@ -1,0 +1,121 @@
+/* TestExcel.css */
+
+.test-excel-container {
+  padding: 20px;
+  width: 100%;
+}
+
+.test-excel-wrapper {
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  border: 1px solid #e0e0e0;
+  padding: 12px 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  min-width: 800px;
+}
+
+.upload-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.excel-label {
+  font-size: 14px;
+  font-weight: 700;
+  color: #333;
+  margin-right: 10px;
+  white-space: nowrap;
+}
+
+.input-wrapper {
+  position: relative;
+}
+
+.text-input {
+  width: 250px;
+  padding: 8px 12px;
+  font-size: 13px;
+  border: 1px solid #d1d1d1;
+  border-radius: 4px;
+  background-color: #fafafa;
+  color: #555;
+  outline: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.button-secondary {
+  padding: 8px 16px;
+  font-size: 13px;
+  background-color: #fff;
+  border: 1px solid #adadad;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s;
+  white-space: nowrap;
+  flex-shrink: 0;
+  color: #333;
+}
+
+.button-primary {
+  padding: 8px 16px;
+  font-size: 13px;
+  background-color: #007bff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s;
+  white-space: nowrap;
+  flex-shrink: 0;
+  color: #fff;
+  font-weight: 600;
+}
+
+.download-button {
+  text-decoration: none;
+  background-color: #217346;
+  color: #fff;
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-size: 13px;
+  font-weight: 600;
+  white-space: nowrap;
+  flex-shrink: 0;
+  display: inline-block;
+}
+
+.result-container {
+  margin-top: 20px;
+  padding: 20px;
+  background-color: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+}
+
+.table-wrapper {
+  overflow-x: auto;
+}
+
+.result-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+.result-table th {
+  background-color: #f8f9fa;
+  border-bottom: 2px solid #dee2e6;
+  padding: 10px;
+  text-align: left;
+  font-weight: 600;
+}
+
+.result-table td {
+  border-bottom: 1px solid #eee;
+  padding: 10px;
+  color: #444;
+}

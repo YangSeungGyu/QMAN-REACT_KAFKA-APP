@@ -2,6 +2,8 @@ import { useEffect } from 'react';
 import CustomButton from '@/components/Atom/CustomButton'
 import { comm } from '@/js/comm.js';
 import { useNavigate } from 'react-router-dom';
+import ShowCode from '@/components/Common/showCode'; //DeleteShowCodeLine
+import sourceCode from './TestPage03.jsx?raw'; //DeleteShowCodeLine
 
 function TestPage03() {
   const navigate = useNavigate();
@@ -19,12 +21,15 @@ function TestPage03() {
   }
 
   return(
-    <div>
-       <CustomButton 
-          label="테스트" 
-          onClickFunc={testFn} 
-        />
-    </div>
+    <>
+      <ShowCode sourceCode={sourceCode|| "is not found"} />{/*DeleteShowCodeLine*/}
+      <div>
+        <CustomButton 
+            label="테스트" 
+            onClickFunc={testFn} 
+          />
+      </div>
+    </>
   );
 }
 export default TestPage03

@@ -8,6 +8,8 @@ import ReactFlow, {
   Position 
 } from 'reactflow';
 import 'reactflow/dist/style.css';
+import ShowCode from '@/components/Common/showCode'; //DeleteShowCodeLine
+import sourceCode from './TestFlow.jsx?raw'; //DeleteShowCodeLine
 
 const SmartNode = ({ data }) => {
   const containerStyle = {
@@ -120,22 +122,25 @@ function TestFlow() {
   const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
 
   return (
-    <div style={{ width: '100%', height: '100vh', background: '#eef2f5' }}>
-      <ReactFlow
-        nodes={nodes}
-        edges={edges}
-        nodesDraggable={false}
-        onNodesChange={onNodesChange}
-        onEdgesChange={onEdgesChange}
-        nodeTypes={nodeTypes}
-        connectionMode="loose"
-        
-        defaultViewport={{ x: 0, y: 0, zoom: 1.5 }}
-      >
-        <Background variant="lines" color="#ddd" />
-        <Controls />
-      </ReactFlow>
-    </div>
+    <>
+      <ShowCode sourceCode={sourceCode|| "is not found"} />{/*DeleteShowCodeLine*/}
+      <div style={{ width: '100%', height: '100vh', background: '#eef2f5' }}>
+        <ReactFlow
+          nodes={nodes}
+          edges={edges}
+          nodesDraggable={false}
+          onNodesChange={onNodesChange}
+          onEdgesChange={onEdgesChange}
+          nodeTypes={nodeTypes}
+          connectionMode="loose"
+          
+          defaultViewport={{ x: 0, y: 0, zoom: 1.5 }}
+        >
+          <Background variant="lines" color="#ddd" />
+          <Controls />
+        </ReactFlow>
+      </div>
+    </>
   );
 }
 

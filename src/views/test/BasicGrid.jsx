@@ -4,10 +4,12 @@ import { useState, useEffect } from 'react';
 import { comm } from '@/js/comm.js';
 import ShowCode from '@/components/Common/showCode'; //DeleteShowCodeLine
 import sourceCode from './BasicGrid.jsx?raw'; //DeleteShowCodeLine
+import commJsSourceCode from '@/js/comm.js?raw'; //DeleteShowCodeLine
 
 ModuleRegistry.registerModules([AllCommunityModule]);
 
 function BasicGrid() {
+  const subSourceCodeObj =  {'@/js/comm.js':commJsSourceCode} //DeleteShowCodeLine
   const [list, setList]       = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError]     = useState(null);
@@ -42,7 +44,7 @@ function BasicGrid() {
 
   return (
     <>
-      <ShowCode sourceCode={sourceCode|| "is not found"} />{/*DeleteShowCodeLine*/}
+      <ShowCode sourceCode={sourceCode|| "is not found"} subSourceCodeObj={subSourceCodeObj}  />{/*DeleteShowCodeLine*/}
       <div style={{ height: 500 }}>
         {loading && <p>로딩중...</p>}
         {error && <p>에러: {error}</p>}

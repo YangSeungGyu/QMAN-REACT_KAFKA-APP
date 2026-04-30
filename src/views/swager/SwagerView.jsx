@@ -17,4 +17,4 @@ function SwagerView() {
     </div>
   );
 }
-export default SwagerView
+export default SwagerView 

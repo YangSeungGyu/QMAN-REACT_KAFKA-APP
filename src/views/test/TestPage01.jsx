@@ -4,9 +4,11 @@ import DatepickerCalendar from '@/components/Atom/DatepickerCalendar';
 import { comm } from '@/js/comm.js';
 import ShowCode from '@/components/Common/showCode'; //DeleteShowCodeLine
 import sourceCode from './TestPage01.jsx?raw'; //DeleteShowCodeLine
+import commJsSourceCode from '@/js/comm.js?raw'; //DeleteShowCodeLine
 
 
 function TestPage01() {
+  const subSourceCodeObj =  {'@/js/comm.js':commJsSourceCode} //DeleteShowCodeLine
 
   const today = new Date();
   //기본달력
@@ -29,7 +31,7 @@ function TestPage01() {
 
   return(
     <>
-      <ShowCode sourceCode={sourceCode|| "is not found"} />{/*DeleteShowCodeLine*/}
+      <ShowCode sourceCode={sourceCode|| "is not found"} subSourceCodeObj={subSourceCodeObj} />{/*DeleteShowCodeLine*/}
       <div>
         기본 달력
             <BaseCalendar

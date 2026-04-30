@@ -13,9 +13,11 @@ import authData from '@/sampleApiServer/sampleMobileAuthMock.json';
 import userData from '@/sampleApiServer/sampleUserMock.json';
 import ShowCode from '@/components/Common/showCode'; //DeleteShowCodeLine
 import sourceCode from './JoinMember.jsx?raw'; //DeleteShowCodeLine
+import commJsSourceCode from '@/js/comm.js?raw'; //DeleteShowCodeLine
+import joinMemberJsSourceCode from '@/js/join/joinValidation?raw';  //DeleteShowCodeLine
 
 const JoinMember = () => {
-
+  const subSourceCodeObj =  {'@/js/comm.js':commJsSourceCode,'@/js/join/joinValidation':joinMemberJsSourceCode} //DeleteShowCodeLine
   // 로딩 상태
   const [authLoading, setAuthLoading]   = useState(false);
   const [idLoading, setIdLoading]       = useState(false);
@@ -149,7 +151,7 @@ const JoinMember = () => {
 
   return (
     <>
-      <ShowCode sourceCode={sourceCode|| "is not found"} />{/*DeleteShowCodeLine*/}
+      <ShowCode sourceCode={sourceCode|| "is not found"} subSourceCodeObj={subSourceCodeObj}  />{/*DeleteShowCodeLine*/}
       <div className="join-member-container">
         {/* 본인 정보 섹션 */}
         <section className="join-section">

@@ -2,13 +2,6 @@ import { Link, useLocation } from 'react-router-dom';
 import { useState } from 'react';
 
 
-
-
-
-
-
-
-
 function SideLayout() {
  const [openMenu, setOpenMenu] = useState(null);
  const toggleMenu = (menu) => {
@@ -40,13 +33,7 @@ function SideLayout() {
       padding: '16px 8px',
       boxSizing: 'border-box',
     }}>
-      <div style={{
-        color: '#fff', fontWeight: 'bold', fontSize: '16px',
-        padding: '8px 16px', marginBottom: '12px',
-        borderBottom: '1px solid #ffffff22'
-      }}>
-        메뉴
-      </div>
+      
 
       <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
         <li>

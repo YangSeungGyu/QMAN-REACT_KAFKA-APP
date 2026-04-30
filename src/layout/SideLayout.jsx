@@ -10,10 +10,10 @@ import { useState } from 'react';
 
 
 function SideLayout() {
-  const [testOpen, setTestOpen] = useState(false);
-  const [boardOpen, setBoardOpen] = useState(false);
-  const [memoOpen, setMemoOpen] = useState(false);
-  const [freeTestOpen, setFreeTestOpen] = useState(false);
+ const [openMenu, setOpenMenu] = useState(null);
+ const toggleMenu = (menu) => {
+  setOpenMenu(prev => (prev === menu ? null : menu));
+};
 
   const location = useLocation();
 
@@ -57,19 +57,19 @@ function SideLayout() {
          {/*메모 메뉴 start*/}
         <li>
           <div
-            onClick={() => setMemoOpen(!memoOpen)}
+            onClick={() => toggleMenu('memo')}
             style={{
               display: 'flex', alignItems: 'center', gap: '8px',
               padding: '8px 16px', color: '#fff', fontWeight: 'bold', fontSize: '14px',
               cursor: 'pointer', borderRadius: '6px', userSelect: 'none',
               transition: 'background-color 0.2s', marginBottom: '2px',
-              backgroundColor: memoOpen ? '#ffffff11' : 'transparent',
+              backgroundColor: openMenu === 'memo' ? '#ffffff11' : 'transparent',
             }}
           >
             <span style={{
               display: 'inline-block',
               transition: 'transform 0.3s ease',
-              transform: memoOpen ? 'rotate(90deg)' : 'rotate(0deg)',
+              transform: openMenu === 'memo' ? 'rotate(90deg)' : 'rotate(0deg)',
               fontSize: '12px',
             }}>▶</span>
             메모
@@ -81,7 +81,7 @@ function SideLayout() {
             margin: '0',
             borderLeft: '2px solid #321fdb55',
             marginLeft: '16px',
-            maxHeight: memoOpen ? '400px' : '0px',
+            maxHeight: openMenu === 'memo' ? '400px' : '0px',
             overflow: 'hidden',
             transition: 'max-height 0.3s ease',
           }}>
@@ -99,19 +99,19 @@ function SideLayout() {
         {/*게시판 Grid 메뉴 start*/}
         <li>
           <div
-            onClick={() => setBoardOpen(!boardOpen)}
+            onClick={() => toggleMenu('board')}
             style={{
               display: 'flex', alignItems: 'center', gap: '8px',
               padding: '8px 16px', color: '#fff', fontWeight: 'bold', fontSize: '14px',
               cursor: 'pointer', borderRadius: '6px', userSelect: 'none',
               transition: 'background-color 0.2s', marginBottom: '2px',
-              backgroundColor: boardOpen ? '#ffffff11' : 'transparent',
+              backgroundColor: openMenu === 'board' ? '#ffffff11' : 'transparent',
             }}
           >
             <span style={{
               display: 'inline-block',
               transition: 'transform 0.3s ease',
-              transform: boardOpen ? 'rotate(90deg)' : 'rotate(0deg)',
+              transform: openMenu === 'board' ? 'rotate(90deg)' : 'rotate(0deg)',
               fontSize: '12px',
             }}>▶</span>
             게시판
@@ -122,7 +122,7 @@ function SideLayout() {
             margin: '0',
             borderLeft: '2px solid #321fdb55',
             marginLeft: '16px',
-            maxHeight: boardOpen ? '400px' : '0px',
+            maxHeight: openMenu === 'board' ? '400px' : '0px',
             overflow: 'hidden',
             transition: 'max-height 0.3s ease',
           }}>
@@ -136,19 +136,19 @@ function SideLayout() {
         {/*테스트 메뉴 start*/}
         <li>
           <div
-            onClick={() => setTestOpen(!testOpen)}
+            onClick={() => toggleMenu('test')}
             style={{
               display: 'flex', alignItems: 'center', gap: '8px',
               padding: '8px 16px', color: '#fff', fontWeight: 'bold', fontSize: '14px',
               cursor: 'pointer', borderRadius: '6px', userSelect: 'none',
               transition: 'background-color 0.2s', marginBottom: '2px',
-              backgroundColor: testOpen ? '#ffffff11' : 'transparent',
+              backgroundColor: openMenu === 'test' ? '#ffffff11' : 'transparent',
             }}
           >
             <span style={{
               display: 'inline-block',
               transition: 'transform 0.3s ease',
-              transform: testOpen ? 'rotate(90deg)' : 'rotate(0deg)',
+              transform:  openMenu === 'test' ? 'rotate(90deg)' : 'rotate(0deg)',
               fontSize: '12px',
             }}>▶</span>
             테스트(참조)
@@ -160,7 +160,7 @@ function SideLayout() {
             margin: '0',
             borderLeft: '2px solid #321fdb55',
             marginLeft: '16px',
-            maxHeight: testOpen ? '450px' : '0px',
+            maxHeight:  openMenu === 'test' ? '450px' : '0px',
             overflow: 'hidden',
             transition: 'max-height 0.3s ease',
           }}>
@@ -182,19 +182,19 @@ function SideLayout() {
         {/*테스트 메뉴 start*/}
         <li>
           <div
-            onClick={() => setFreeTestOpen(!freeTestOpen)}
+            onClick={() => toggleMenu('free')}
             style={{
               display: 'flex', alignItems: 'center', gap: '8px',
               padding: '8px 16px', color: '#fff', fontWeight: 'bold', fontSize: '14px',
               cursor: 'pointer', borderRadius: '6px', userSelect: 'none',
               transition: 'background-color 0.2s', marginBottom: '2px',
-              backgroundColor: freeTestOpen ? '#ffffff11' : 'transparent',
+              backgroundColor:  openMenu === 'free' ? '#ffffff11' : 'transparent',
             }}
           >
             <span style={{
               display: 'inline-block',
               transition: 'transform 0.3s ease',
-              transform: freeTestOpen ? 'rotate(90deg)' : 'rotate(0deg)',
+              transform: openMenu === 'free' ? 'rotate(90deg)' : 'rotate(0deg)',
               fontSize: '12px',
             }}>▶</span>
             임시테스트
@@ -206,7 +206,7 @@ function SideLayout() {
             margin: '0',
             borderLeft: '2px solid #321fdb55',
             marginLeft: '16px',
-            maxHeight: freeTestOpen ? '400px' : '0px',
+            maxHeight: openMenu === 'free' ? '400px' : '0px',
             overflow: 'hidden',
             transition: 'max-height 0.3s ease',
           }}>

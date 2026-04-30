@@ -2,6 +2,8 @@ import { AgGridReact } from 'ag-grid-react';
 import { AllCommunityModule, ModuleRegistry } from 'ag-grid-community';
 import { useState, useEffect } from 'react';
 import { comm } from '@/js/comm.js';
+import ShowCode from '@/components/Common/showCode'; //DeleteShowCodeLine
+import sourceCode from './PageGrid.jsx?raw'; //DeleteShowCodeLine
 
 ModuleRegistry.registerModules([AllCommunityModule]);
 
@@ -50,6 +52,7 @@ function PageGrid() {
 
   return (
     <>
+      <ShowCode sourceCode={sourceCode|| "is not found"} />{/*DeleteShowCodeLine*/}
       <div style={{ height: 500 }}>
         {loading && <p>로딩중...</p>}
         {error && <p>에러: {error}</p>}

@@ -11,6 +11,8 @@ import '@/style/member/JoinMember.css';
 
 import authData from '@/sampleApiServer/sampleMobileAuthMock.json';
 import userData from '@/sampleApiServer/sampleUserMock.json';
+import ShowCode from '@/components/Common/showCode'; //DeleteShowCodeLine
+import sourceCode from './JoinMember.jsx?raw'; //DeleteShowCodeLine
 
 const JoinMember = () => {
 
@@ -147,6 +149,7 @@ const JoinMember = () => {
 
   return (
     <>
+      <ShowCode sourceCode={sourceCode|| "is not found"} />{/*DeleteShowCodeLine*/}
       <div className="join-member-container">
         {/* 본인 정보 섹션 */}
         <section className="join-section">

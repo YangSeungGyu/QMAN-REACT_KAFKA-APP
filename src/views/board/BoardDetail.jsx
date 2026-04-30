@@ -2,6 +2,8 @@ import { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { comm } from '@/js/comm.js';
 import '@/style/board/BoardForm.css';
+import ShowCode from '@/components/Common/showCode'; //DeleteShowCodeLine
+import sourceCode from './BoardDetail.jsx?raw'; //DeleteShowCodeLine
 
 function BoardDetail() {
   const { idx }   = useParams();
@@ -29,34 +31,37 @@ function BoardDetail() {
   if (loading || !data) return <div>로딩 중...</div>;
 
   return (
-    <div className="board-form-container">
-      <h2 className="board-form-title">게시글 상세 보기</h2>
+    <>
+      <ShowCode sourceCode={sourceCode|| "is not found"} />{/*DeleteShowCodeLine*/}
+      <div className="board-form-container">
+        <h2 className="board-form-title">게시글 상세 보기</h2>
 
-      <table className="form-table">
-        <tbody>
-          <tr>
-            <th>제목</th>
-            <td><strong>{data.title}</strong></td>
-          </tr>
-          <tr>
-            <th>작성자 / 날짜</th>
-            <td>{data.writer} | {data.date}</td>
-          </tr>
-          <tr>
-            <th>내용</th>
-            <td className="content-cell">
-              {data.content || '등록된 본문 내용이 없습니다. BoardController에서 내용을 추가해보세요!'}
-            </td>
-          </tr>
-        </tbody>
-      </table>
+        <table className="form-table">
+          <tbody>
+            <tr>
+              <th>제목</th>
+              <td><strong>{data.title}</strong></td>
+            </tr>
+            <tr>
+              <th>작성자 / 날짜</th>
+              <td>{data.writer} | {data.date}</td>
+            </tr>
+            <tr>
+              <th>내용</th>
+              <td className="content-cell">
+                {data.content || '등록된 본문 내용이 없습니다. BoardController에서 내용을 추가해보세요!'}
+              </td>
+            </tr>
+          </tbody>
+        </table>
 
-      <div className="form-buttons">
-        <button className="btn-common btn-gray" onClick={() => movePage('/board/boardList')}>
-          목록으로
-        </button>
+        <div className="form-buttons">
+          <button className="btn-common btn-gray" onClick={() => movePage('/board/boardList')}>
+            목록으로
+          </button>
+        </div>
       </div>
-    </div>
+    </>
   );
 }
 

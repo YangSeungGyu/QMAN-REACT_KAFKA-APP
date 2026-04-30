@@ -3,10 +3,10 @@ import { useNavigate } from 'react-router-dom';
 import { useAuthStore } from '@/js/auth/useAuthStore';
 import { comm } from '@/js/comm.js';
 import { history } from '@/history';
-
 import '@/style/views/Login.css';
-
 import userData from '@/sampleApiServer/sampleUserMock.json';
+import ShowCode from '@/components/Common/showCode'; //DeleteShowCodeLine
+import sourceCode from './Login.jsx?raw'; //DeleteShowCodeLine
 
 function Login() {
   const [id, setId] = useState('');
@@ -32,6 +32,7 @@ function Login() {
 
   return (
     <>
+      <ShowCode sourceCode={sourceCode|| "is not found"} />{/*DeleteShowCodeLine*/}
       <div className="login-page-container">
         <div className="login-card">
           <h2 className="login-title">Q-Man 시스템 로그인</h2>

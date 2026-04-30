@@ -3,6 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import { useAuthStore } from '@/js/auth/useAuthStore';
 import { comm } from '@/js/comm.js';
 import '@/style/board/BoardForm.css';
+import ShowCode from '@/components/Common/showCode'; //DeleteShowCodeLine
+import sourceCode from './BoardWrite.jsx?raw'; //DeleteShowCodeLine
 
 const BoardWrite = () => {
   const navigate = useNavigate();
@@ -32,46 +34,48 @@ const BoardWrite = () => {
   };
 
   return (
-    <div className="board-form-container">
-      <h2 className="board-form-title">게시글 작성</h2>
+    <>
+      <ShowCode sourceCode={sourceCode|| "is not found"} />{/*DeleteShowCodeLine*/}
+      <div className="board-form-container">
+        <h2 className="board-form-title">게시글 작성</h2>
+        <table className="form-table">
+          <tbody>
+            <tr>
+              <th>제목</th>
+              <td>
+                <input
+                  type="text"
+                  className="write-input"
+                  placeholder="제목을 입력해주세요"
+                  value={title}
+                  onChange={(e) => setTitle(e.target.value)}
+                />
+              </td>
+            </tr>
+            <tr>
+              <th>내용</th>
+              <td className="content-cell">
+                <textarea
+                  className="write-textarea"
+                  placeholder="내용을 입력해주세요"
+                  value={content}
+                  onChange={(e) => setContent(e.target.value)}
+                />
+              </td>
+            </tr>
+          </tbody>
+        </table>
 
-      <table className="form-table">
-        <tbody>
-          <tr>
-            <th>제목</th>
-            <td>
-              <input
-                type="text"
-                className="write-input"
-                placeholder="제목을 입력해주세요"
-                value={title}
-                onChange={(e) => setTitle(e.target.value)}
-              />
-            </td>
-          </tr>
-          <tr>
-            <th>내용</th>
-            <td className="content-cell">
-              <textarea
-                className="write-textarea"
-                placeholder="내용을 입력해주세요"
-                value={content}
-                onChange={(e) => setContent(e.target.value)}
-              />
-            </td>
-          </tr>
-        </tbody>
-      </table>
-
-      <div className="form-buttons">
-        <button type="button" className="btn-common btn-gray" onClick={() => movePage('/board/boardList')}>
-          취소
-        </button>
-        <button type="button" className="btn-common btn-navy" onClick={handleSubmit}>
-          등록하기
-        </button>
+        <div className="form-buttons">
+          <button type="button" className="btn-common btn-gray" onClick={() => movePage('/board/boardList')}>
+            취소
+          </button>
+          <button type="button" className="btn-common btn-navy" onClick={handleSubmit}>
+            등록하기
+          </button>
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 

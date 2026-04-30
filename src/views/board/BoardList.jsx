@@ -4,6 +4,8 @@ import { useAuthStore } from '@/js/auth/useAuthStore';
 import { comm } from '@/js/comm.js';
 import Pagination from '@/components/Common/Pagination';
 import '@/style/board/BoardList.css';
+import ShowCode from '@/components/Common/showCode'; //DeleteShowCodeLine
+import sourceCode from './BoardList.jsx?raw'; //DeleteShowCodeLine
 
 function BoardList() {
   const movePage = useNavigate();
@@ -35,58 +37,61 @@ function BoardList() {
   }, [currentPage]);
 
   return (
-    <div className="board-container">
-      <h2 className="board-title">게시판 목록 (총 {totalCnt}건)</h2>
+    <>
+      <ShowCode sourceCode={sourceCode|| "is not found"} />{/*DeleteShowCodeLine*/}
+      <div className="board-container">
+        <h2 className="board-title">게시판 목록 (총 {totalCnt}건)</h2>
 
-      <table className="board-table">
-        <thead>
-          <tr>
-            <th>번호</th>
-            <th>제목</th>
-            <th>작성자</th>
-            <th>날짜</th>
-          </tr>
-        </thead>
-        <tbody>
-          {loading ? (
-            <tr><td colSpan={4} style={{ padding: '50px' }}>데이터 로드 중...</td></tr>
-          ) : list.length > 0 ? (
-            list.map((board) => (
-              <tr key={board.idx}>
-                <td>{board.idx}</td>
-                <td
-                  className="title-cell"
-                  onClick={() => movePage('/board/boardDetail/' + board.idx)}
-                  style={{ cursor: 'pointer', color: '#222' }}
-                >{board.title}</td>
-                <td>{board.writer}</td>
-                <td>{board.date}</td>
-              </tr>
-            ))
-          ) : (
+        <table className="board-table">
+          <thead>
             <tr>
-              <td colSpan={4} style={{ padding: '50px' }}>게시글이 없습니다.</td>
+              <th>번호</th>
+              <th>제목</th>
+              <th>작성자</th>
+              <th>날짜</th>
             </tr>
+          </thead>
+          <tbody>
+            {loading ? (
+              <tr><td colSpan={4} style={{ padding: '50px' }}>데이터 로드 중...</td></tr>
+            ) : list.length > 0 ? (
+              list.map((board) => (
+                <tr key={board.idx}>
+                  <td>{board.idx}</td>
+                  <td
+                    className="title-cell"
+                    onClick={() => movePage('/board/boardDetail/' + board.idx)}
+                    style={{ cursor: 'pointer', color: '#222' }}
+                  >{board.title}</td>
+                  <td>{board.writer}</td>
+                  <td>{board.date}</td>
+                </tr>
+              ))
+            ) : (
+              <tr>
+                <td colSpan={4} style={{ padding: '50px' }}>게시글이 없습니다.</td>
+              </tr>
+            )}
+          </tbody>
+        </table>
+
+        <div className="board-action-row">
+          {isLoggedIn && (
+            <button className="write-btn" onClick={() => movePage('/board/boardWrite')}>
+              글쓰기
+            </button>
           )}
-        </tbody>
-      </table>
+        </div>
 
-      <div className="board-action-row">
-        {isLoggedIn && (
-          <button className="write-btn" onClick={() => movePage('/board/boardWrite')}>
-            글쓰기
-          </button>
-        )}
+        <Pagination
+          currentPage={currentPage}
+          totalCnt={totalCnt}
+          pageSize={pageSize}
+          pageBlockSize={pageBlockSize}
+          onPageChange={(page) => setCurrentPage(page)}
+        />
       </div>
-
-      <Pagination
-        currentPage={currentPage}
-        totalCnt={totalCnt}
-        pageSize={pageSize}
-        pageBlockSize={pageBlockSize}
-        onPageChange={(page) => setCurrentPage(page)}
-      />
-    </div>
+    </>
   );
 }
 

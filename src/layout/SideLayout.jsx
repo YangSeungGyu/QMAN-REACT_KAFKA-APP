@@ -52,7 +52,8 @@ function SideLayout() {
         <li>
           <Link to="/" style={menuItemStyle('/')}>HOME</Link>
         </li>
-
+        <li><Link to="/swager" style={menuItemStyle('/swager')}>Swager</Link></li>
+        
          {/*메모 메뉴 start*/}
         <li>
           <div
@@ -93,10 +94,6 @@ function SideLayout() {
           </ul>
         </li>
         {/*메모 메뉴 end*/}
-
-         <li>
-          <Link to="/swager" style={menuItemStyle('/swager')}>Swager</Link>
-        </li>
 
 
         {/*게시판 Grid 메뉴 start*/}
@@ -176,6 +173,7 @@ function SideLayout() {
             <li><Link to="/test/testChart" style={menuItemStyle('/test/testChart')}>차트</Link></li>
             <li><Link to="/test/testSaga" style={menuItemStyle('/test/testSaga')}>Saga</Link></li>
             <li><Link to="/test/testAntdUi" style={menuItemStyle('/test/testAntdUi')}>AntdUi</Link></li>
+            <li><Link to="/test/testSoket" style={menuItemStyle('/test/testSoket')}>Soket</Link></li>
           </ul>
         </li>
         {/*테스트 메뉴 end*/}

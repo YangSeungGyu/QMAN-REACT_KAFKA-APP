@@ -28,6 +28,7 @@ import TestChart from '@/views/test/TestChart';
 import TestSaga from '@/views/test/TestSaga';
 import TestAntdUi from '@/views/test/TestAntdUi';
 import TestCustomConfirm from '@/views/test/TestCustomConfirm';
+import TestSoket from '@/views/test/TestSoket';
 
 
 //자유 테스트
@@ -98,6 +99,7 @@ function App() {
                   <Route path="testSaga" element={<TestSaga />} />
 
                   <Route path="testAntdUi" element={<TestAntdUi />} />
+                  <Route path="testSoket" element={<TestSoket />} />
                 </Route>
 
                 {/*kafka*/}

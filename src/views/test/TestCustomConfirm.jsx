@@ -3,11 +3,23 @@ import CustomButton from '@/components/Atom/CustomButton';
 import ModalLayout from '@/components/Modal/ModalLayout';
 import BodyTestSample from '@/components/Modal/BodyTestSample';
 import { comm } from '@/js/comm.js';
+
 import ShowCode from '@/components/Common/showCode'; //DeleteShowCodeLine
 import sourceCode from './TestCustomConfirm.jsx?raw'; //DeleteShowCodeLine
+import commJsSourceCode from '@/js/comm.js?raw'; //DeleteShowCodeLine
+import customButtonSourceCode from '@/components/Atom/CustomButton?raw'; //DeleteShowCodeLine 
+import modalLayoutSourceCode from '@/components/Modal/ModalLayout?raw'; //DeleteShowCodeLine 
+import bodyTestSampleSourceCode from '@/components/Modal/BodyTestSample?raw'; //DeleteShowCodeLine 
+import useAuthStoreSourceCode from '@/js/auth/useAuthStore?raw'; //DeleteShowCodeLine 
 
 function TestCustomConfirm() {
-  
+  const subSourceCodeObj =  { //DeleteShowCodeLine
+	'@/js/comm.js':commJsSourceCode //DeleteShowCodeLine
+	,'@/components/Atom/CustomButton':customButtonSourceCode //DeleteShowCodeLine
+	,'@/components/Modal/ModalLayout':modalLayoutSourceCode  //DeleteShowCodeLine
+	,'@/components/Modal/BodyTestSample':bodyTestSampleSourceCode  //DeleteShowCodeLine  
+  ,'@/js/auth/useAuthStore':useAuthStoreSourceCode  //DeleteShowCodeLine  
+} //DeleteShowCodeLine
 
   const test00Fn = async function(){
     await comm.customAlert('123');
@@ -42,7 +54,7 @@ function TestCustomConfirm() {
 
   return(
     <>
-      <ShowCode sourceCode={sourceCode|| "is not found"} />{/*DeleteShowCodeLine*/}
+      <ShowCode sourceCode={sourceCode|| "is not found"} subSourceCodeObj={subSourceCodeObj}  />{/*DeleteShowCodeLine*/}
       <div>
         CommonContext.jsx에 선언되어있며 Provider로 App.jsx에 연결(comm.js는 js파일에서도 사용하기 위한 껍데기)
       </div>

@@ -5,10 +5,18 @@ import { comm } from '@/js/comm.js';
 import ShowCode from '@/components/Common/showCode'; //DeleteShowCodeLine
 import sourceCode from './TestPage01.jsx?raw'; //DeleteShowCodeLine
 import commJsSourceCode from '@/js/comm.js?raw'; //DeleteShowCodeLine
+import datepickerCalendarSourceCode from '@/components/Atom/DatepickerCalendar?raw'; //DeleteShowCodeLine
+import baseCalendarSourceCode from '@/components/Atom/BaseCalendar?raw'; //DeleteShowCodeLine
+import useAuthStoreSourceCode from '@/js/auth/useAuthStore?raw'; //DeleteShowCodeLine 
 
 
 function TestPage01() {
-  const subSourceCodeObj =  {'@/js/comm.js':commJsSourceCode} //DeleteShowCodeLine
+  const subSourceCodeObj =  {  //DeleteShowCodeLine
+    '@/js/comm.js':commJsSourceCode  //DeleteShowCodeLine
+    ,'@/components/Atom/DatepickerCalendar':datepickerCalendarSourceCode  //DeleteShowCodeLine
+    ,'@/components/Atom/BaseCalendar':baseCalendarSourceCode  //DeleteShowCodeLine
+    ,'@/js/auth/useAuthStore':useAuthStoreSourceCode  //DeleteShowCodeLine 
+  }  //DeleteShowCodeLine
 
   const today = new Date();
   //기본달력

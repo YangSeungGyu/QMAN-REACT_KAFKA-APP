@@ -4,10 +4,13 @@ import { useState, useEffect } from 'react';
 import { comm } from '@/js/comm.js';
 import ShowCode from '@/components/Common/showCode'; //DeleteShowCodeLine
 import sourceCode from './PageGrid.jsx?raw'; //DeleteShowCodeLine
+import commJsSourceCode from '@/js/comm.js?raw'; //DeleteShowCodeLine
+import useAuthStoreSourceCode from '@/js/auth/useAuthStore?raw'; //DeleteShowCodeLine 
 
 ModuleRegistry.registerModules([AllCommunityModule]);
 
 function PageGrid() {
+  const subSourceCodeObj =  {'@/js/comm.js':commJsSourceCode,'@/js/auth/useAuthStore':useAuthStoreSourceCode} //DeleteShowCodeLine
   const [list, setList]         = useState([]);
   const [totalCnt, setTotalCnt] = useState(0);
   const [loading, setLoading]   = useState(false);
@@ -52,7 +55,7 @@ function PageGrid() {
 
   return (
     <>
-      <ShowCode sourceCode={sourceCode|| "is not found"} />{/*DeleteShowCodeLine*/}
+      <ShowCode sourceCode={sourceCode|| "is not found"} subSourceCodeObj={subSourceCodeObj}  />{/*DeleteShowCodeLine*/}
       <div style={{ height: 500 }}>
         {loading && <p>로딩중...</p>}
         {error && <p>에러: {error}</p>}

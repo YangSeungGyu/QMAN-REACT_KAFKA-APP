@@ -34,7 +34,7 @@ const ShowCode = ({ sourceCode, subSourceCodeObj }) => {
               href="#"
               onClick={(e) => {
                 e.preventDefault();
-                setCurrentCode(subSourceCodeObj[key]); // ✅ 해당 key로 이동
+                setCurrentCode(subSourceCodeObj[key]); 
                 setIsSubView(true);
               }}
               style={{ color: 'skyblue' }}
@@ -59,9 +59,9 @@ const ShowCode = ({ sourceCode, subSourceCodeObj }) => {
             setCurrentCode(cleanedCode);
             setIsSubView(false);
           }}
-          style={{ color: 'orange' }}
+          style={{ color: 'skyblue' }}
         >
-          [back]
+          [Back to the Component]
         </a>
         {'\n'}
         {parts}

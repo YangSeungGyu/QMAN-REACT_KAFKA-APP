@@ -1,11 +1,14 @@
 import React from 'react';
 import { useOutletContext } from 'react-router-dom';
 import CustomButton from '@/components/Atom/CustomButton';
+
 import ShowCode from '@/components/Common/showCode'; //DeleteShowCodeLine
 import sourceCode from './TitleTestPage.jsx?raw'; //DeleteShowCodeLine
+import customButtonSourceCode from '@/components/Atom/CustomButton?raw'; //DeleteShowCodeLine 
 
 
 function TitleTestPage() {
+  const subSourceCodeObj =  {'@/components/Atom/CustomButton':customButtonSourceCode} //DeleteShowCodeLine
   //Outlet에서 받은 context 값 받아오기
   const  { mainLayoutContainer, setMainLayoutContainer } = useOutletContext();
 
@@ -69,7 +72,7 @@ function TitleTestPage() {
 
   return (
     <>
-      <ShowCode sourceCode={sourceCode|| "is not found"} />{/*DeleteShowCodeLine*/}
+      <ShowCode sourceCode={sourceCode|| "is not found"} subSourceCodeObj={subSourceCodeObj}  />{/*DeleteShowCodeLine*/}
       <div className="test-container">
           <h3>TopLayout의 타이틀 변경</h3>
           <hr className="line-hr" />{/*============================================ */}   

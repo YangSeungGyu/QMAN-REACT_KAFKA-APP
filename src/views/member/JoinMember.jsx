@@ -11,13 +11,25 @@ import '@/style/member/JoinMember.css';
 
 import authData from '@/sampleApiServer/sampleMobileAuthMock.json';
 import userData from '@/sampleApiServer/sampleUserMock.json';
+
 import ShowCode from '@/components/Common/showCode'; //DeleteShowCodeLine
 import sourceCode from './JoinMember.jsx?raw'; //DeleteShowCodeLine
 import commJsSourceCode from '@/js/comm.js?raw'; //DeleteShowCodeLine
 import joinMemberJsSourceCode from '@/js/join/joinValidation?raw';  //DeleteShowCodeLine
+import customButtonSourceCode from '@/components/Atom/CustomButton?raw'; //DeleteShowCodeLine 
+import modalLayoutSourceCode from '@/components/Modal/ModalLayout?raw'; //DeleteShowCodeLine 
+import bodyMemberConfirmSourceCode from '@/components/Modal/BodyMemberConfirm?raw'; //DeleteShowCodeLine 
+import bodyJoinFinalConfirmSourceCode from '@/components/Modal/BodyJoinFinalConfirm?raw'; //DeleteShowCodeLine 
 
 const JoinMember = () => {
-  const subSourceCodeObj =  {'@/js/comm.js':commJsSourceCode,'@/js/join/joinValidation':joinMemberJsSourceCode} //DeleteShowCodeLine
+  const subSourceCodeObj =  { //DeleteShowCodeLine
+    '@/js/comm.js':commJsSourceCode //DeleteShowCodeLine
+    ,'@/js/join/joinValidation':joinMemberJsSourceCode //DeleteShowCodeLine
+    ,'@/components/Atom/CustomButton':customButtonSourceCode //DeleteShowCodeLine
+    ,'@/components/Modal/ModalLayout':modalLayoutSourceCode //DeleteShowCodeLine
+    ,'@/components/Modal/BodyMemberConfirm':bodyMemberConfirmSourceCode //DeleteShowCodeLine
+    ,'@/components/Modal/BodyJoinFinalConfirm':bodyJoinFinalConfirmSourceCode //DeleteShowCodeLine
+  } //DeleteShowCodeLine
   // 로딩 상태
   const [authLoading, setAuthLoading]   = useState(false);
   const [idLoading, setIdLoading]       = useState(false);

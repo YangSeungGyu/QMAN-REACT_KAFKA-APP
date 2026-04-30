@@ -3,9 +3,10 @@ import { fetchPostsRequest } from '@/features/post/postSlice';
 import { useEffect } from 'react';
 import ShowCode from '@/components/Common/showCode'; //DeleteShowCodeLine
 import sourceCode from './TestSaga.jsx?raw'; //DeleteShowCodeLine
+import postSliceSourceCode from '@/features/post/postSlice?raw'; //DeleteShowCodeLine
 
 function TestSaga() {
-
+  const subSourceCodeObj =  {'@/features/post/postSlice':postSliceSourceCode} //DeleteShowCodeLine
   const dispatch = useDispatch();
   const { data, loading, error } = useSelector((state) => state.post);
 
@@ -20,7 +21,7 @@ function TestSaga() {
 
   return (
     <>
-        <ShowCode sourceCode={sourceCode|| "is not found"} />{/*DeleteShowCodeLine*/}
+        <ShowCode sourceCode={sourceCode|| "is not found"} subSourceCodeObj={subSourceCodeObj} />{/*DeleteShowCodeLine*/}
         <div>
           {data}
         </div>

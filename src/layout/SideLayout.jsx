@@ -226,7 +226,7 @@ function SideLayout() {
             margin: '0',
             borderLeft: '2px solid #321fdb55',
             marginLeft: '16px',
-            maxHeight:  openMenu === 'test' ? '450px' : '0px',
+            maxHeight:  openMenu === 'test' ? '470px' : '0px',
             overflow: 'hidden',
             transition: 'max-height 0.3s ease',
           }}>
@@ -241,6 +241,7 @@ function SideLayout() {
             <li><Link to="/test/testAntdUi" style={menuItemStyle('/test/testAntdUi')}>AntdUi</Link></li>
             <li><Link to="/test/testSoket" style={menuItemStyle('/test/testSoket')}>Soket</Link></li>
             <li><Link to="/test/testExcel" style={menuItemStyle('/test/testExcel')}>Excel</Link></li>
+            <li><Link to="/test/testScheduler" style={menuItemStyle('/test/testScheduler')}>Scheduler</Link></li>
           </ul>
         </li>
         {/*테스트 메뉴 end*/}

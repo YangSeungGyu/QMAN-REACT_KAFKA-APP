@@ -30,6 +30,7 @@ import TestAntdUi from '@/views/test/TestAntdUi';
 import TestCustomConfirm from '@/views/test/TestCustomConfirm';
 import TestSoket from '@/views/test/TestSoket';
 import TestExcel from '@/views/test/TestExcel';
+import TestScheduler from '@/views/test/TestScheduler';
 
 //자유 테스트
 import TestFree01 from '@/views/test/TestFree01';
@@ -104,6 +105,7 @@ function App() {
                   <Route path="testAntdUi" element={<TestAntdUi />} />
                   <Route path="testSoket" element={<TestSoket />} />
                   <Route path="testExcel" element={<TestExcel />} />
+                  <Route path="testScheduler" element={<TestScheduler />} />
                 </Route>
 
                 {/*kafka*/}

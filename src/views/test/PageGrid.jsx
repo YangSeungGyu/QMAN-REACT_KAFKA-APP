@@ -19,13 +19,40 @@ function PageGrid() {
   const [searchTitle, setSearchTitle] = useState('');
   const [searchWriter, setSearchWriter] = useState('');
 
+  //수정대상 리스트
+  const [changedRows, setChangedRows] = useState([]);
+
   const totalPages = Math.ceil(totalCnt / size);
 
+
+  //editable 수정가능여부
   const [colDefs] = useState([
     { field: 'title',   headerName: '제목',   editable: true,  cellStyle: { textAlign: 'left', borderRight: '1px solid #e2e2e2' }, flex: 1 },
-    { field: 'writer',  headerName: '작성자', editable: true,  cellStyle: { textAlign: 'left', borderRight: '1px solid #e2e2e2' }, flex: 1 },
+    { field: 'writer',  headerName: '작성자', editable: false,  cellStyle: { textAlign: 'left', borderRight: '1px solid #e2e2e2' }, flex: 1 },
     { field: 'regDate', headerName: '등록일', editable: false, cellStyle: { textAlign: 'left', borderRight: '1px solid #e2e2e2' }, flex: 1 },
   ]);
+
+  //grid 수정시 수정대상에 추가
+  const handleCellValueChanged = (e) => {
+    setChangedRows(prev => {
+      const exists = prev.findIndex(row => row.idx === e.data.idx);
+      if (exists >= 0) {
+        const updated = [...prev];
+        updated[exists] = e.data;
+        return updated;
+      }
+      return [...prev, e.data];
+    });
+  };
+  //저장 시 수정대상 초기화
+  const handleSave = () => {
+    if(changedRows.length > 0 ){
+      alert(JSON.stringify(changedRows, null, 2));
+      setChangedRows([]); // 초기화
+    } else {
+      alert('변경 대상이 없습니다.');
+    }
+  };
 
   const fetchList = async (params) => {
     setLoading(true);
@@ -70,13 +97,14 @@ function PageGrid() {
             placeholder="작성자"
           />
           <button onClick={handleSearch}>검색</button>
+          <button onClick={handleSave}>저장</button>
         </div>
 
         
         <AgGridReact
           rowData={list}
           columnDefs={colDefs}
-          onCellValueChanged={(e) => console.log('변경된 값:', e.data)}
+          onCellValueChanged={handleCellValueChanged} 
           defaultColDef={{ sortable: false }}
           style={{ height: '100%', width: '100%' }}
         />

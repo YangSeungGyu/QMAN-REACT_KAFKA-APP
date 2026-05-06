@@ -28,7 +28,7 @@ function PageGrid() {
   //editable 수정가능여부
   const [colDefs] = useState([
     { field: 'title',   headerName: '제목',   editable: true,  cellStyle: { textAlign: 'left', borderRight: '1px solid #e2e2e2' }, flex: 1 },
-    { field: 'writer',  headerName: '작성자', editable: false,  cellStyle: { textAlign: 'left', borderRight: '1px solid #e2e2e2' }, flex: 1 },
+    { field: 'writer',  headerName: '작성자', editable: true,  cellStyle: { textAlign: 'left', borderRight: '1px solid #e2e2e2' }, flex: 1 },
     { field: 'regDate', headerName: '등록일', editable: false, cellStyle: { textAlign: 'left', borderRight: '1px solid #e2e2e2' }, flex: 1 },
   ]);
 

@@ -40,7 +40,9 @@ import TestFree02 from '@/views/test/TestFree02';
 import TestKafka from '@/views/kafka/TestKafka';
 
 //메모
-import MemoView from '@/views/memo/MemoView';
+import MemoReactView from '@/views/memo/MemoReactView';
+import MemoOtherView from '@/views/memo/MemoOtherView';
+import MemoOracleView from '@/views/memo/MemoOracleView';
 
 //swager
 import SwagerView from '@/views/swager/SwagerView';
@@ -111,13 +113,21 @@ function App() {
 
                 {/*memo*/}
                 <Route path="memo">
-                  <Route path="memo01" element={<MemoView memoId="01"/>} />
-                  <Route path="memo02" element={<MemoView memoId="02"/>} />
-                  <Route path="memo03" element={<MemoView memoId="03"/>} />
-                  <Route path="memo04" element={<MemoView memoId="04"/>} />
-                  <Route path="memo05" element={<MemoView memoId="05"/>} />
-                  <Route path="memo06" element={<MemoView memoId="06"/>} />
-                  <Route path="memo07" element={<MemoView memoId="07"/>} />
+                  <Route path="react01" element={<MemoReactView memoId="01"/>} />
+                  <Route path="react02" element={<MemoReactView memoId="02"/>} />
+                  <Route path="react03" element={<MemoReactView memoId="03"/>} />
+                  <Route path="react04" element={<MemoReactView memoId="04"/>} />
+                  <Route path="react05" element={<MemoReactView memoId="05"/>} />
+                  <Route path="react06" element={<MemoReactView memoId="06"/>} />
+
+                  <Route path="other01" element={<MemoOtherView memoId="01"/>} />
+
+                  <Route path="oracle01" element={<MemoOracleView memoId="01"/>} />
+                  <Route path="oracle02" element={<MemoOracleView memoId="02"/>} />
+                  <Route path="oracle03" element={<MemoOracleView memoId="03"/>} />
+                  <Route path="oracle04" element={<MemoOracleView memoId="04"/>} />
+                  <Route path="oracle05" element={<MemoOracleView memoId="05"/>} />
+                  <Route path="oracle06" element={<MemoOracleView memoId="06"/>} />
                 </Route>
                 
 

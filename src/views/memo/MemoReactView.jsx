@@ -2,25 +2,25 @@ import { useEffect, useState } from "react";
 import { comm } from '@/js/comm.js';
 
 
-function MemoView({memoId}) {
+function MemoReactView({memoId}) {
   const [text, setText] = useState("");
-
+  const memoPath = "/memo/react/";
   let memoFileNm = null;
 
   if(memoId == '01'){
-    memoFileNm = "/memo/YSG_VS_CODE.txt";
+    memoFileNm = memoPath+"/YSG_VS_CODE.txt";
   }else if(memoId == '02'){
-    memoFileNm = "/memo/REACT_설치.txt";
+    memoFileNm = memoPath+"/REACT_설치.txt";
   }else if(memoId == '03'){
-    memoFileNm = "/memo/REACT_구조.txt";
+    memoFileNm = memoPath+"/REACT_구조.txt";
   }else if(memoId == '04'){
-    memoFileNm = "/memo/REACT_사용.txt";
+    memoFileNm = memoPath+"/REACT_사용.txt";
   }else if(memoId == '05'){
-    memoFileNm = "/memo/REACT_기타.txt";
+    memoFileNm = memoPath+"/REACT_기타.txt";
   }else if(memoId == '06'){
-    memoFileNm = "/memo/REDUX-SAGA.txt";  
+    memoFileNm = memoPath+"/REDUX-SAGA.txt";  
   }else if(memoId == '07'){
-    memoFileNm = "/memo/반도체_공장용어.txt";    
+    memoFileNm = memoPath+"/반도체_공장용어.txt";    
   } else {
     //에러
     comm.customAlert('파일이 존재하지 않습니다.')
@@ -37,4 +37,4 @@ function MemoView({memoId}) {
       <pre>{text}</pre>
   );
 }
-export default MemoView
+export default MemoReactView

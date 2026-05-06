@@ -19,8 +19,8 @@ function BasicGrid() {
   };
 
   const [colDefs] = useState([
-    { field: 'title',   headerName: '제목',   filter: true, filterParams: commonfilterParam, editable: true,  cellStyle: { textAlign: 'left', borderRight: '1px solid #e2e2e2' }, flex: 1 },
-    { field: 'writer',  headerName: '작성자', filter: true, filterParams: commonfilterParam, editable: true,  cellStyle: { textAlign: 'left', borderRight: '1px solid #e2e2e2' }, flex: 1 },
+    { field: 'title',   headerName: '제목',   filter: true, filterParams: commonfilterParam, editable: false,  cellStyle: { textAlign: 'left', borderRight: '1px solid #e2e2e2' }, flex: 1 },
+    { field: 'writer',  headerName: '작성자', filter: true, filterParams: commonfilterParam, editable: false,  cellStyle: { textAlign: 'left', borderRight: '1px solid #e2e2e2' }, flex: 1 },
     { field: 'regDate', headerName: '등록일',                                                editable: false, cellStyle: { textAlign: 'left', borderRight: '1px solid #e2e2e2' }, flex: 1 },
   ]);
 

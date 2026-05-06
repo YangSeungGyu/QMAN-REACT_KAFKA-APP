@@ -44,22 +44,22 @@ function SideLayout() {
          {/*메모 메뉴 start*/}
         <li>
           <div
-            onClick={() => toggleMenu('memo')}
+            onClick={() => toggleMenu('memoReact')}
             style={{
               display: 'flex', alignItems: 'center', gap: '8px',
               padding: '8px 16px', color: '#fff', fontWeight: 'bold', fontSize: '14px',
               cursor: 'pointer', borderRadius: '6px', userSelect: 'none',
               transition: 'background-color 0.2s', marginBottom: '2px',
-              backgroundColor: openMenu === 'memo' ? '#ffffff11' : 'transparent',
+              backgroundColor: openMenu === 'memoReact' ? '#ffffff11' : 'transparent',
             }}
           >
             <span style={{
               display: 'inline-block',
               transition: 'transform 0.3s ease',
-              transform: openMenu === 'memo' ? 'rotate(90deg)' : 'rotate(0deg)',
+              transform: openMenu === 'memoReact' ? 'rotate(90deg)' : 'rotate(0deg)',
               fontSize: '12px',
             }}>▶</span>
-            메모
+            React 학습
           </div>
 
           <ul style={{
@@ -68,20 +68,98 @@ function SideLayout() {
             margin: '0',
             borderLeft: '2px solid #321fdb55',
             marginLeft: '16px',
-            maxHeight: openMenu === 'memo' ? '400px' : '0px',
+            maxHeight: openMenu === 'memoReact' ? '400px' : '0px',
             overflow: 'hidden',
             transition: 'max-height 0.3s ease',
           }}>
-            <li><Link to="/memo/memo01" style={menuItemStyle('/memo/memo01')}>VS_CODE</Link></li>
-            <li><Link to="/memo/memo02" style={menuItemStyle('/memo/memo02')}>REACT_설치</Link></li>
-            <li><Link to="/memo/memo03" style={menuItemStyle('/memo/memo03')}>REACT_구조</Link></li>
-            <li><Link to="/memo/memo04" style={menuItemStyle('/memo/memo04')}>REACT_사용</Link></li>
-            <li><Link to="/memo/memo05" style={menuItemStyle('/memo/memo05')}>REACT_기타</Link></li>
-            <li><Link to="/memo/memo06" style={menuItemStyle('/memo/memo06')}>REDUX-SAGA</Link></li>
-            <li><Link to="/memo/memo07" style={menuItemStyle('/memo/memo07')}>반도체공장용어</Link></li>
+            <li><Link to="/memo/react01" style={menuItemStyle('/memo/react01')}>VS_CODE</Link></li>
+            <li><Link to="/memo/react02" style={menuItemStyle('/memo/react02')}>REACT_설치</Link></li>
+            <li><Link to="/memo/react03" style={menuItemStyle('/memo/react03')}>REACT_구조</Link></li>
+            <li><Link to="/memo/react04" style={menuItemStyle('/memo/react04')}>REACT_사용</Link></li>
+            <li><Link to="/memo/react05" style={menuItemStyle('/memo/react05')}>REACT_기타</Link></li>
+            <li><Link to="/memo/react06" style={menuItemStyle('/memo/react06')}>REDUX-SAGA</Link></li>
           </ul>
         </li>
         {/*메모 메뉴 end*/}
+
+        {/*메모 메뉴 start*/}
+        <li>
+          <div
+            onClick={() => toggleMenu('memoOracle')}
+            style={{
+              display: 'flex', alignItems: 'center', gap: '8px',
+              padding: '8px 16px', color: '#fff', fontWeight: 'bold', fontSize: '14px',
+              cursor: 'pointer', borderRadius: '6px', userSelect: 'none',
+              transition: 'background-color 0.2s', marginBottom: '2px',
+              backgroundColor: openMenu === 'memoOracle' ? '#ffffff11' : 'transparent',
+            }}
+          >
+            <span style={{
+              display: 'inline-block',
+              transition: 'transform 0.3s ease',
+              transform: openMenu === 'memoOracle' ? 'rotate(90deg)' : 'rotate(0deg)',
+              fontSize: '12px',
+            }}>▶</span>
+            Oracle 학습
+          </div>
+
+          <ul style={{
+            listStyle: 'none',
+            padding: '0 0 0 16px',
+            margin: '0',
+            borderLeft: '2px solid #321fdb55',
+            marginLeft: '16px',
+            maxHeight: openMenu === 'memoOracle' ? '400px' : '0px',
+            overflow: 'hidden',
+            transition: 'max-height 0.3s ease',
+          }}>
+            <li><Link to="/memo/oracle01" style={menuItemStyle('/memo/oracle01')}>오라클 기본</Link></li>
+            <li><Link to="/memo/oracle02" style={menuItemStyle('/memo/oracle02')}>오라클 조인</Link></li>
+            <li><Link to="/memo/oracle03" style={menuItemStyle('/memo/oracle03')}>오라클 재귀호출</Link></li>
+            <li><Link to="/memo/oracle04" style={menuItemStyle('/memo/oracle04')}>오라클 내장함수</Link></li>
+            <li><Link to="/memo/oracle05" style={menuItemStyle('/memo/oracle05')}>오라클 DML</Link></li>
+            <li><Link to="/memo/oracle06" style={menuItemStyle('/memo/oracle06')}>오라클 합산</Link></li>
+          </ul>
+        </li>
+        {/*메모 메뉴 end*/}
+
+        {/*메모 메뉴 start*/}
+        <li>
+          <div
+            onClick={() => toggleMenu('memoOther')}
+            style={{
+              display: 'flex', alignItems: 'center', gap: '8px',
+              padding: '8px 16px', color: '#fff', fontWeight: 'bold', fontSize: '14px',
+              cursor: 'pointer', borderRadius: '6px', userSelect: 'none',
+              transition: 'background-color 0.2s', marginBottom: '2px',
+              backgroundColor: openMenu === 'memoOther' ? '#ffffff11' : 'transparent',
+            }}
+          >
+            <span style={{
+              display: 'inline-block',
+              transition: 'transform 0.3s ease',
+              transform: openMenu === 'memoOther' ? 'rotate(90deg)' : 'rotate(0deg)',
+              fontSize: '12px',
+            }}>▶</span>
+            기타 학습
+          </div>
+
+          <ul style={{
+            listStyle: 'none',
+            padding: '0 0 0 16px',
+            margin: '0',
+            borderLeft: '2px solid #321fdb55',
+            marginLeft: '16px',
+            maxHeight: openMenu === 'memoOther' ? '400px' : '0px',
+            overflow: 'hidden',
+            transition: 'max-height 0.3s ease',
+          }}>
+            <li><Link to="/memo/other01" style={menuItemStyle('/memo/other01')}>반도체공장용어</Link></li>
+          </ul>
+        </li>
+        {/*메모 메뉴 end*/}
+
+        
 
 
         {/*게시판 Grid 메뉴 start*/}
@@ -204,9 +282,12 @@ function SideLayout() {
         </li>
         {/*테스트 메뉴 end*/}
 
+        
+        {/*
         <li>
           <Link to="/kafka/TestKafka" style={menuItemStyle('/kafka/TestKafka')}>Kafka</Link>
         </li>
+        */}
       </ul>
     </aside>
   );

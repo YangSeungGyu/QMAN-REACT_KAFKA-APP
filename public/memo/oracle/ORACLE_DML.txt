@@ -1,0 +1,76 @@
+================[기본활용]================
+INSERT INTO EMP (EMPNO, ENAME, DEPTNO, SAL)
+VALUES (101, '김철수', '10', 5000);
+------------------------
+UPDATE EMP
+SET SAL = 5500
+WHERE EMPNO = 101;
+------------------------
+DELETE FROM EMP
+WHERE EMPNO = 101;
+
+================[MERGE]================
+/*테이블에 다른 테이블이나 SELECT결과를 활용하여 조인시킨 결과를 기반으로 INSERT, UPDATE(혹은 DELETE) 실행
+  WHEN MATCHED THEN,  WHEN NOT MATCHED THEN 둘중 하나만 사용 가능하다.
+  DB별로 SELECT UPDATE문이나 SELECT INSERT문은 문법 차이가 크다. 그래서 MERGE문은 표준문법이라 대부분 DB종류에서 동일 문법으로 사용 가능
+*/
+MERGE INTO EMP E
+USING (    
+    SELECT 101 AS EMPNO, '김철수' AS ENAME, '10' AS DEPTNO, 5000 AS SAL FROM DUAL
+) S
+ON (E.EMPNO = S.EMPNO)
+WHEN MATCHED THEN  
+  UPDATE SET 
+  E.ENAME = S.ENAME,
+  E.DEPTNO = S.DEPTNO,
+  E.SAL = S.SAL,
+
+WHEN NOT MATCHED THEN
+  INSERT (EMPNO, ENAME, DEPTNO, SAL)
+  VALUES (S.EMPNO, S.ENAME, S.DEPTNO, S.SAL);
+
+================[SELECT INSERT]================
+INSERT INTO EMP (EMPNO, ENAME, DEPTNO,SAL)
+SELECT EMPNO, ENAME, DEPTNO,SAL
+FROM EMP2
+WHERE DEPTNO = '10';
+
+테이블과 함께 백업 데이터 생성 시
+
+CREATE TABLE EMP_BACK AS
+SELECT * FROM EMP
+WHERE DEPTNO = '10';
+
+================[SELECT UPDATE]================
+/*단점 컬럼별 SELECT문 필요*/
+UPDATE EMP E
+SET E.DNAME = (
+    SELECT B.NEW_NAME 
+    FROM EMP_BACK B
+    WHERE B.EMPNO = E.EMPNO
+)
+
+/*단점 일반적인 UPDATE형식이 아님. UPDATE대상을 명확히 잡지 않음. 그래서 안씀.*/
+UPDATE (
+    SELECT 
+        E.DNAME AS OLD_NAME
+        ,B.DNAME AS NEW_NAME
+        ,E.LOC AS OLD_LOC
+        ,B.LOC AS NEW_LOC
+    FROM EMP E
+    INNER JOIN EMP_BACK B ON E.EMPNO = B.EMPNO
+    WHERE B.DEPTNO = '10'
+)
+SET 
+    OLD_LOC = NEW_LOC
+    ,OLD_NAME = NEW_NAME
+    
+※결론 오라클에서 SELECT UPDATE는 MERGE 쓰자..(다른 DB에서는 괜찮은 방법들이 있음)
+
+================[SELECT DELETE]================
+DELETE FROM EMP E
+WHERE NOT EXISTS (
+    SELECT 1 
+    FROM EMP_BACK B
+    WHERE B.DEPTNO = E.DEPTNO 
+);

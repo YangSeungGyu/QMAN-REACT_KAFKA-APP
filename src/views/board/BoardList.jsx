@@ -6,13 +6,9 @@ import Pagination from '@/components/Common/Pagination';
 import '@/style/board/BoardList.css';
 import ShowCode from '@/components/Common/showCode'; //DeleteShowCodeLine
 import sourceCode from './BoardList.jsx?raw'; //DeleteShowCodeLine
-import commJsSourceCode from '@/js/comm.js?raw'; //DeleteShowCodeLine
-import PaginationSourceCode from '@/components/Common/Pagination?raw'; //DeleteShowCodeLine
-import useAuthStoreSourceCode from '@/js/auth/useAuthStore?raw'; //DeleteShowCodeLine
 
 function BoardList() {
-  const subSourceCodeObj =  {'@/js/comm.js':commJsSourceCode,'@/components/Common/Pagination':PaginationSourceCode //DeleteShowCodeLine
-  ,'@/js/auth/useAuthStore':useAuthStoreSourceCode} //DeleteShowCodeLine
+  
   const movePage = useNavigate();
   const { isLoggedIn } = useAuthStore();
 
@@ -43,7 +39,7 @@ function BoardList() {
 
   return (
     <>
-      <ShowCode sourceCode={sourceCode|| "is not found"} subSourceCodeObj={subSourceCodeObj}  />{/*DeleteShowCodeLine*/}
+      <ShowCode sourceCode={sourceCode|| "is not found"}/>{/*DeleteShowCodeLine*/}
       <div className="board-container">
         <h2 className="board-title">게시판 목록 (총 {totalCnt}건)</h2>
 

@@ -1,9 +1,39 @@
 import { useState, useEffect } from 'react';
 
-const ShowCode = ({ sourceCode, subSourceCodeObj }) => {
+//내부 참조 소스 링크
+import commJsSourceCode from '@/js/comm.js?raw'; 
+import joinMemberJsSourceCode from '@/js/join/joinValidation?raw';  
+import customButtonSourceCode from '@/components/Atom/CustomButton?raw';  
+import modalLayoutSourceCode from '@/components/Modal/ModalLayout?raw';  
+import bodyMemberConfirmSourceCode from '@/components/Modal/BodyMemberConfirm?raw';  
+import bodyJoinFinalConfirmSourceCode from '@/components/Modal/BodyJoinFinalConfirm?raw';  
+import bodyTestSampleSourceCode from '@/components/Modal/BodyTestSample?raw';  
+import useAuthStoreSourceCode from '@/js/auth/useAuthStore?raw'; 
+import PaginationSourceCode from '@/components/Common/Pagination?raw';  
+import datepickerCalendarSourceCode from '@/components/Atom/DatepickerCalendar?raw'; 
+import baseCalendarSourceCode from '@/components/Atom/BaseCalendar?raw'; 
+import postSliceSourceCode from '@/features/post/postSlice?raw';
+
+const ShowCode = ({ sourceCode}) => {
   const [isOpen, setIsOpen] = useState(false);
   const [currentCode, setCurrentCode] = useState('');
   const [isSubView, setIsSubView] = useState(false);
+
+
+  const subSourceCodeObj = { 
+    '@/js/comm.js': commJsSourceCode
+	,'@/js/join/joinValidation': joinMemberJsSourceCode
+	,'@/components/Atom/CustomButton': customButtonSourceCode
+	,'@/components/Modal/ModalLayout': modalLayoutSourceCode
+	,'@/components/Modal/BodyMemberConfirm': bodyMemberConfirmSourceCode
+	,'@/components/Modal/BodyJoinFinalConfirm': bodyJoinFinalConfirmSourceCode
+	,'@/components/Modal/BodyTestSample': bodyTestSampleSourceCode
+	,'@/js/auth/useAuthStore': useAuthStoreSourceCode
+	,'@/components/Common/Pagination': PaginationSourceCode
+	,'@/components/Atom/DatepickerCalendar': datepickerCalendarSourceCode
+	,'@/components/Atom/BaseCalendar': baseCalendarSourceCode
+	,'@/features/post/postSlice': postSliceSourceCode
+  } 
 
   const cleanedCode = sourceCode
     .split('\n')

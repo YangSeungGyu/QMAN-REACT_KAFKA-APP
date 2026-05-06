@@ -5,14 +5,10 @@ import { useNavigate } from 'react-router-dom';
 
 import ShowCode from '@/components/Common/showCode'; //DeleteShowCodeLine
 import sourceCode from './TestPage03.jsx?raw'; //DeleteShowCodeLine
-import commJsSourceCode from '@/js/comm.js?raw'; //DeleteShowCodeLine
-import customButtonSourceCode from '@/components/Atom/CustomButton?raw'; //DeleteShowCodeLine 
-import useAuthStoreSourceCode from '@/js/auth/useAuthStore?raw'; //DeleteShowCodeLine 
+
 
 function TestPage03() {
-   const subSourceCodeObj =  {'@/js/comm.js':commJsSourceCode,'@/components/Atom/CustomButton':customButtonSourceCode //DeleteShowCodeLine 
-    ,'@/js/auth/useAuthStore':useAuthStoreSourceCode  //DeleteShowCodeLine  
-   } //DeleteShowCodeLine
+   
   const navigate = useNavigate();
 
   //페이지 진입 시 로그인 체크
@@ -29,7 +25,7 @@ function TestPage03() {
 
   return(
     <>
-      <ShowCode sourceCode={sourceCode|| "is not found"}  subSourceCodeObj={subSourceCodeObj} />{/*DeleteShowCodeLine*/}
+      <ShowCode sourceCode={sourceCode|| "is not found"} />{/*DeleteShowCodeLine*/}
       <div>
         <CustomButton 
             label="테스트" 

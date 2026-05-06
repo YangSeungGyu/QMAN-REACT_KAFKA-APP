@@ -14,22 +14,10 @@ import userData from '@/sampleApiServer/sampleUserMock.json';
 
 import ShowCode from '@/components/Common/showCode'; //DeleteShowCodeLine
 import sourceCode from './JoinMember.jsx?raw'; //DeleteShowCodeLine
-import commJsSourceCode from '@/js/comm.js?raw'; //DeleteShowCodeLine
-import joinMemberJsSourceCode from '@/js/join/joinValidation?raw';  //DeleteShowCodeLine
-import customButtonSourceCode from '@/components/Atom/CustomButton?raw'; //DeleteShowCodeLine 
-import modalLayoutSourceCode from '@/components/Modal/ModalLayout?raw'; //DeleteShowCodeLine 
-import bodyMemberConfirmSourceCode from '@/components/Modal/BodyMemberConfirm?raw'; //DeleteShowCodeLine 
-import bodyJoinFinalConfirmSourceCode from '@/components/Modal/BodyJoinFinalConfirm?raw'; //DeleteShowCodeLine 
+
 
 const JoinMember = () => {
-  const subSourceCodeObj =  { //DeleteShowCodeLine
-    '@/js/comm.js':commJsSourceCode //DeleteShowCodeLine
-    ,'@/js/join/joinValidation':joinMemberJsSourceCode //DeleteShowCodeLine
-    ,'@/components/Atom/CustomButton':customButtonSourceCode //DeleteShowCodeLine
-    ,'@/components/Modal/ModalLayout':modalLayoutSourceCode //DeleteShowCodeLine
-    ,'@/components/Modal/BodyMemberConfirm':bodyMemberConfirmSourceCode //DeleteShowCodeLine
-    ,'@/components/Modal/BodyJoinFinalConfirm':bodyJoinFinalConfirmSourceCode //DeleteShowCodeLine
-  } //DeleteShowCodeLine
+  
   // 로딩 상태
   const [authLoading, setAuthLoading]   = useState(false);
   const [idLoading, setIdLoading]       = useState(false);
@@ -163,7 +151,7 @@ const JoinMember = () => {
 
   return (
     <>
-      <ShowCode sourceCode={sourceCode|| "is not found"} subSourceCodeObj={subSourceCodeObj}  />{/*DeleteShowCodeLine*/}
+      <ShowCode sourceCode={sourceCode|| "is not found"}/>{/*DeleteShowCodeLine*/}
       <div className="join-member-container">
         {/* 본인 정보 섹션 */}
         <section className="join-section">

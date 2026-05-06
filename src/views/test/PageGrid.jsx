@@ -11,8 +11,8 @@ function PageGrid() {
   
   const [list, setList]         = useState([]);
   const [totalCnt, setTotalCnt] = useState(0);
-  const [loading, setLoading]   = useState(false);
-  const [error, setError]       = useState(null);
+  const [_loading, setLoading]   = useState(false);
+  const [_error, setError]       = useState(null);
 
   const [page, setPage]               = useState(1);
   const [size, setSize]               = useState(10);

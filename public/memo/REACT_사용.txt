@@ -23,6 +23,7 @@ import { useState } from "react";
 
 const [변수, set변수] = useState('초기값'); 
 
+* 변수를 사용하지 않는다면 앞에 _변수 이렇게 바꾸면 오류표기되지 않음(의도적 비사용표기)
 ================[useState 값 제어]================
 [객체]
 const [obj, setObj] = useState({ name: '초기', age: 19 });

@@ -117,6 +117,7 @@ function App() {
                   <Route path="memo04" element={<MemoView memoId="04"/>} />
                   <Route path="memo05" element={<MemoView memoId="05"/>} />
                   <Route path="memo06" element={<MemoView memoId="06"/>} />
+                  <Route path="memo07" element={<MemoView memoId="07"/>} />
                 </Route>
                 
 

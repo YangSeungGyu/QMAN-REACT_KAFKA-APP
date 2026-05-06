@@ -1,0 +1,75 @@
+------------------------------------기본 용어---------------------------------------
+팹(Fab) : 반도체를 생산하는 공장(clean room이 있는 공장)
+팹리스(Fabless) : 설계전문 업체(생산공장없음) 
+Foundry : 팹리스 업체에서 위탁받아 생산하는 업체
+
+EQP(Equipment) : 장비를 뜻하는 용어
+Particle(파티클) : 먼지
+Recipe(레시피) : 공정을 수행하기 위한 장비의 설정값
+
+------------------------------------반도체 설비 및 공정 용어---------------------------------------
+[주요재료]
+웨이퍼 : 반도체 동그란 회로판
+Mask (마스크) : 웨이퍼에 회로패턴을 그리기 위해 덧대는 유리판(회로 밑그림 유리판)
+
+[장비,설비]
+Chamber(챔버) : 웨이퍼 공정을 진행하는 설비의 밀폐작업공간(장비하나에 여러개도 가능)
+Chiller(칠러) : 챔버내의 온도를 제어하는 장비 혹은 냉동기
+Clean Room : 먼지를 제거하여 고청정상태를 유지하는 공간
+GCS(Gas Control System) : 가스를 장비까지 전달하는 설비(압력,유량,순도 관리 등)
+
+[시스템]
+MES(Manufacturing Execution System) : 생산관리 시스템(다음 공정이 어디인지 관리하는 시스템)
+PMS(Particle Monitoring System) : 팹 내부와 장비안의 먼지를 실시간으로 감지하는 시스템
+EES(Equipment Engineering System) : 장비 실시간 모니터링, 데이터 효율 분석하는 모니터링 시스템
+ - FDC(Fault Detection and Classification) : EES에서 관리하는 역활중 하나로 이상감지 기능
+ - RMS(Recipe Management System) : MES와 장비간 레시피를 전달하는 기능
+ - APC(Advanced Process Control) : 결과를 보고 장비수치 자동 보정 기능
+ - PM(Preventive Maintenance)관리 : 부품관리, 점검 주기 기능
+
+[기타]
+Input Para(Input Parameter) : 설비를 제어하는 설정값 변수 등
+UT(Utility) : Gas UT,Water UT,Air UT,Electricty UT 장비 가동에 필요한것들
+Set Point : 온도,압력,속도 등 제어단계 목표치
+Hook-up : 장비에 필요한 선들을 연결하는 작업(가스,공기,물 등등..)
+UPW(Ultra Pure Water) : 웨이퍼 표면을 닦는 청정물
+Capacity(Capa) : 한달에 생산하는 팹의 웨이퍼 장수
+Lot(랏) : 반도체 생산 기본 단위 : 웨이퍼 25장이 1랏(추척단위)
+FOUP(Front Opening Unified Pod) : Lot을 모아서 담은 박스
+Yield (수율): 웨이퍼에서 정상제품 비율
+Throughput : 시간당 장비가 처리하는 웨이퍼 장수
+VAC(Vacuum) 진공
+ - P-VAC (Process-Vacuum) : 웨이퍼 부산물 공기 흡입
+ - H-VAC (Heating-Vacuum) : 팹 전체 온습도 및 공기질 관리
+
+
+
+[공정] 
+◆Front-End Process(전공정) : 웨이퍼 포면에 회로를 형성하는 공정 (증착>포토>식각>평탄화(반복))
+ ▷Deposition(회로를 그리기위한 막 증착 작업)
+     - CVD(Chemical Vapor Deposition) : 웨이퍼 표면에 화학적 작용으로 막을 입히는 설비
+     - PVD(Physical Vapor  Deposition) : 막을 씌울 재료를  쏴서 물리적으로 코팅되게 하는 설비
+     -> Sputtering : 챔버안에서 PVD에서 막 재료를 쏘는 공정
+ ▷Photo(Photolithography) : 빛으로 회로를 그리는 공정
+   - Alignment(얼라인먼트) : 노광기에서 웨이퍼와 마스크 위치를 맞추는 작업
+   - Exposure(노광) : 회로를 세기는 단계
+ ▷Etching(식각) : 회로 외 불필요한 부분 깍는 작업
+ ▷CMP(Chemical Mechanical Polishing) : 웨이퍼 표면을 평탄화하는 장비(웨이퍼를 돌려서 평탄화)
+
+◆Back-End Process(후공정) : 웨이퍼에 배선연결,패키징,불량판단을 위한 공정
+ ▷EDS(Electrical Die Sorting) : 웨이퍼의 개별 침들의 품질테스트 공정
+ ▷Packaging (패키징): 칩을 외부 환경으로부터 보호하고 단자에 연결하는 공정
+ ▷Final Test: 패키징 완료 후 출하 전 마지막으로 진행하는 성능 및 신뢰성 테스트
+
+------------------------------------기타 공정,설비 용어---------------------------------------
+OAC(Outside Air Conditioning) : AHU 이전 외부공기를 1차적으로 맞추는 장치
+AHU(Air Handling Unit) : 공조기. 큰건물의 냉난방,여과,가습등을 관리하는 장치
+
+CDA(Clean Dry Air) : 습도를 제거하고 공기청정을 담당하는 장치
+PCW(Process Cooling Water) : 공정 냉각수
+
+Drain(배수) : 폐수 배출
+Exhaust(배기) : 폐가스를 정화하여 배출
+ - Scrubber(스크러버) : 배기전 유해가스 제거, 파티클 제거
+
+Smock Room : 방진복(Smock) 입는 장소

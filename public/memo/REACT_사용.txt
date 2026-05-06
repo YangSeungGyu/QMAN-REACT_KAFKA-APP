@@ -72,6 +72,16 @@ useEffect(() => {
 
 *useEffect(() => {  }, [변수]); < 변수값이 바뀌면 렌더링함(주소가 아닌 값으로확인함) - 변수는 대괄호[] 안에 들어가야함.
 
+================[컴포넌트 함수에서 비동기 함수 사용]================
+async function testFn(){await.. return test}
+
+const [obj, setObj] = useState('');
+useEffect(() => {
+	testFn().then((tmp) => {
+	  setObj(tmp);
+	});
+},[]);
+
 ================[Link]================
 import { Link } from 'react-router-dom';
 

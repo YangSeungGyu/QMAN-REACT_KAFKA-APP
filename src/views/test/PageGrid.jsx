@@ -54,10 +54,8 @@ function PageGrid() {
   return (
     <>
       <ShowCode sourceCode={sourceCode|| "is not found"}/>{/*DeleteShowCodeLine*/}
-      <div style={{ height: 500 }}>
-        {loading && <p>로딩중...</p>}
-        {error && <p>에러: {error}</p>}
-
+      <div style={{ display: 'flex', flexDirection: 'column', height: 500 }}> {/*flex,column,height를 줘야 들썩거리지 않음.*/}
+        
         <div className="page-grid-search">
           <input
             type="text"
@@ -74,17 +72,25 @@ function PageGrid() {
           <button onClick={handleSearch}>검색</button>
         </div>
 
+        
         <AgGridReact
           rowData={list}
           columnDefs={colDefs}
           onCellValueChanged={(e) => console.log('변경된 값:', e.data)}
           defaultColDef={{ sortable: false }}
+          style={{ height: '100%', width: '100%' }}
         />
+        
 
         <div className="page-grid-paging">
           <span className="page-size-wrap">
-            Page Size:
-            <select value={size} onChange={(e) => { setSize(Number(e.target.value)); setPage(1); }}>
+            Page Size:  {/*pageSize변경 시 1페이지로 다시 조회*/}
+            <select value={size} onChange={(e) => { 
+              const newSize = Number(e.target.value);
+              setSize(newSize); 
+              setPage(1);
+              fetchList({ page: 1, size: newSize, searchTitle, searchWriter }); 
+            }}>
               <option value={5}>5</option>
               <option value={10}>10</option>
               <option value={20}>20</option>

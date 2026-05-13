@@ -24,6 +24,22 @@ const test = () => ('11')
 변수를 타 변수에 적용해서 사용하면 useState 속성을 잃어버리니 주의
 
 
+================[arrow]================
+setArrayObj(prev => [...prev, newObj]) (새 데이터 추가)
+setArrayObj(prev => prev.map(...)) (특정 데이터 수정)
+setArrayObj(prev => []) (전체 삭제)
+
+
+// id가 'targetId'인 요소만 제외하고 나머지만 유지
+setArrayObj(prev => prev.filter(item => item.id !== 'targetId'));
+
+
+setArrayObj(prev => [newObj, ...prev]); //반대로 쓸 수 있으며 최상단으로 올림.
+
+
+setArrayObj(prev => [newObj, ...prev].slice(0, 10));// 배열을 10개로 제한하고 신규객체를 추가
+
+setArrayObj(prev => [...prev].sort((a, b) => a.price - b.price)); //오름차순 정렬
 
 ================[HTML 요소-type을 알아야 할 경우]================
 html 요소

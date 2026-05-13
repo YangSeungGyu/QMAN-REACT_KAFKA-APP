@@ -267,6 +267,14 @@ WHERE
 AAA.EMPNO IS NOT NULL -- 매칭안되는 마지막 줄 삭제
 ORDER BY AAA.RN
 */
+
+
+/*현재시간부터 1시간전까지 1분단위 데이터뽑기(CROSS JOIN 때 활용)
+SELECT
+    TO_CHAR(SYSDATE - (LEVEL - 1)/(60*24),'YYYY-MM-DD HH24:MI') AS TIME_INFO
+    ,'-'||(LEVEL - 1)||' minute' AS TMP
+FROM DUAL
+CONNECT BY LEVEL <= 61
 ---------------------------------
 /*동일 결과 LAG()OVER 오라클 함수 사용 - 단점 컬럼 하나씩만 됨. 세번째 인자는 NVL처리
 SELECT 

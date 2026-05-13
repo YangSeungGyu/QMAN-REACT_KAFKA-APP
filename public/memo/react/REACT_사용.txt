@@ -28,31 +28,51 @@ const [변수, set변수] = useState('초기값');
 [객체]
 const [obj, setObj] = useState({ name: '초기', age: 19 });
 
-setObj(prev => ({
-  ...prev,
-  name: "변경"
-}));
+초기화
+setTestObj({});
+
+값추가/변경
+setTestObj(prev=>({...prev,name:'c'}));
+
+해당키 삭제
+setTestObj(({ name, ...rest }) => rest);
 
 
 [배열]
 const [obj, setObj] = useState([{ name: '초기', age: 19 },{ name: '초기2', age: 10 }]);
 
-//특정값 유추 후 변경
-setObj(prev =>
-  prev.map(item =>
-    (item.id === targetId)
-      ? { ...item, name: "변경" }
-      : item
-  )
+//초기화
+setObj([]);
+
+//전체에 키값 추가
+setObj(prev=>
+	(prev.map(
+		item=>(
+			{item,새로운키:값}
+		)
+	))
 );
 
-//전체 대상에 키:값 추가
-setObj(prev =>
-  prev.map(item => ({
-    ...item,
-    gender: "M"
-  }))
-);
+//특정키 변경
+setObj(prev=>
+	(prev.map(
+		item => {if(item.name == '초기'){
+				return {item,name:'중기'};
+			}
+		return item;
+		}
+	))
+)
+
+//특정키 제외
+setObj(prev=>
+	(prev.filter(
+		item => item.name != '초기'
+	))
+)
+
+//객체 배열에 추가
+setObj(prev => [...prev, {name:'말기',age:30}])
 
 
 //매칭대상 1개 찾아 리턴받기
@@ -81,6 +101,15 @@ useEffect(() => {
 	testFn().then((tmp) => {
 	  setObj(tmp);
 	});
+},[]);
+
+혹은
+
+useEffect(()=>{
+  const tempFn = acync ()=> {
+    const tmp = await testFn();
+    setObj(tmp);
+  }
 },[]);
 
 ================[Link]================

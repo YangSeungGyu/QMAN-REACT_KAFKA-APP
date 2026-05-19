@@ -13,9 +13,12 @@ src/App.jsx : 최상단 리엑트 위치(각종 셋팅)
  - 라우터로 각 파일을 url경로로 매칭
  - 리엑트 컴포넌트 파일은 function [컴포넌트명](){[자바스크립트] return([html소스])} 구조
  - useState 등 화면관련 변수 수정이 일어나면 컴포넌트 function이 통으로 재실행됨.
+ - useState의 생성은 한번만 실행됨. 새로고침으로도 재생성 되지 않음.
+ - useState에서 set함수에 값을 넣어도 [변수]에 반영되지 않음 렌더링 이후에 반영됨.(setObj에 넣은값을 log에 obj찍는다고 반영안됨)
  - id기준으로 매핑되는게 아닌 useState에 선언된 변수로 매핑됨.
  - useState,useEffect에서 제어하는값의 변화가 있어야 렌더링됨.
  - useState,useRef는 렌더링되어도 값이 유지됨.(중요 - 렌더링에는 영향 없이 유지되는 변수가 필요하면 useRef)
+ - useEffect는 컴포넌트 함수가 모두 실행된 이후에 실행된다.
  - useEffect에서 return은 언마운트 될때 실행된다.(페이지 벗어나거나 새로고침, 혹은 []에 값에 변화가 생길때 등)
  - useRef 는 useRef.속성1, useRef.속성2로 바로 매퍼처럼 사용가능
  

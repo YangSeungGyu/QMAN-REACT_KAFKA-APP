@@ -36,6 +36,10 @@ import TestScheduler from '@/views/test/TestScheduler';
 import TestFree01 from '@/views/test/TestFree01';
 import TestFree02 from '@/views/test/TestFree02';
 
+//패킷 확인
+import TestPcap4j from '@/views/test/TestPcap4j';
+
+
 
 //카프카
 import TestKafka from '@/views/kafka/TestKafka';
@@ -49,6 +53,8 @@ import MemoOracleView from '@/views/memo/MemoOracleView';
 import SwagerView from '@/views/swager/SwagerView';
 
 
+//ThreeJs
+import ThreeJs01 from '@/views/three/ThreeJs01';
 
 import { CommonProvider } from '@/context/CommonContext';
 
@@ -106,6 +112,8 @@ function App() {
                   <Route path="testSoket" element={<TestSoket />} />
                   <Route path="testExcel" element={<TestExcel />} />
                   <Route path="testScheduler" element={<TestScheduler />} />
+                  <Route path="testPcap4j" element={<TestPcap4j />} />
+                 
                 </Route>
 
                 {/*kafka*/}
@@ -130,6 +138,10 @@ function App() {
                   <Route path="oracle04" element={<MemoOracleView memoId="04"/>} />
                   <Route path="oracle05" element={<MemoOracleView memoId="05"/>} />
                   <Route path="oracle06" element={<MemoOracleView memoId="06"/>} />
+                </Route>
+                 {/*test*/}
+                <Route path="three">
+                     <Route path="threeJs01" element={<ThreeJs01 />} />
                 </Route>
                 
 

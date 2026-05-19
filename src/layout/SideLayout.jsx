@@ -226,7 +226,7 @@ function SideLayout() {
             margin: '0',
             borderLeft: '2px solid #321fdb55',
             marginLeft: '16px',
-            maxHeight:  openMenu === 'test' ? '470px' : '0px',
+            maxHeight:  openMenu === 'test' ? '510px' : '0px',
             overflow: 'hidden',
             transition: 'max-height 0.3s ease',
           }}>
@@ -242,6 +242,7 @@ function SideLayout() {
             <li><Link to="/test/testSoket" style={menuItemStyle('/test/testSoket')}>Soket</Link></li>
             <li><Link to="/test/testExcel" style={menuItemStyle('/test/testExcel')}>Excel</Link></li>
             <li><Link to="/test/testScheduler" style={menuItemStyle('/test/testScheduler')}>Scheduler</Link></li>
+            <li><Link to="/test/testPcap4j" style={menuItemStyle('/test/testPcap4j')}>TestPcap4j</Link></li>
           </ul>
         </li>
         {/*테스트 메뉴 end*/}
@@ -289,6 +290,43 @@ function SideLayout() {
           <Link to="/kafka/TestKafka" style={menuItemStyle('/kafka/TestKafka')}>Kafka</Link>
         </li>
         */}
+
+        {/*three 메뉴 start*/}
+        <li>
+          <div
+            onClick={() => toggleMenu('three')}
+            style={{
+              display: 'flex', alignItems: 'center', gap: '8px',
+              padding: '8px 16px', color: '#fff', fontWeight: 'bold', fontSize: '14px',
+              cursor: 'pointer', borderRadius: '6px', userSelect: 'none',
+              transition: 'background-color 0.2s', marginBottom: '2px',
+              backgroundColor: openMenu === 'three' ? '#ffffff11' : 'transparent',
+            }}
+          >
+            <span style={{
+              display: 'inline-block',
+              transition: 'transform 0.3s ease',
+              transform: openMenu === 'three' ? 'rotate(90deg)' : 'rotate(0deg)',
+              fontSize: '12px',
+            }}>▶</span>
+            threeJs
+          </div>
+
+          <ul style={{
+            listStyle: 'none',
+            padding: '0 0 0 16px',
+            margin: '0',
+            borderLeft: '2px solid #321fdb55',
+            marginLeft: '16px',
+            maxHeight: openMenu === 'three' ? '400px' : '0px',
+            overflow: 'hidden',
+            transition: 'max-height 0.3s ease',
+          }}>
+            <li><Link to="/three/threeJs01" style={menuItemStyle('/three/threeJs01')}>threeJs01</Link></li>
+          </ul>
+        </li>
+        {/*three 메뉴 end*/}
+
       </ul>
     </aside>
   );

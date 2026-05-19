@@ -40,6 +40,8 @@ function SideLayout() {
           <Link to="/" style={menuItemStyle('/')}>HOME</Link>
         </li>
         <li><Link to="/swager" style={menuItemStyle('/swager')}>Swager</Link></li>
+
+        <li><Link to="/path" style={menuItemStyle('/path')}>Tree 구조</Link></li>
         
          {/*메모 메뉴 start*/}
         <li>

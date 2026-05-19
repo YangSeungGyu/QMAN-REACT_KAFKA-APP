@@ -11,6 +11,10 @@ import Login from '@/views/Login';
 import JoinMember from '@/views/member/JoinMember';
 
 
+
+import Path from '@/views/Path';
+
+
 //게시판
 import BoardList from '@/views/board/BoardList';
 import BoardDetail from '@/views/board/BoardDetail';
@@ -82,6 +86,8 @@ function App() {
                 <Route path="member/joinMember" element={<JoinMember />} />
 
                 <Route path="swager" element={<SwagerView />} />
+
+                <Route path="path" element={<Path />} />
 
                 {/*board*/}
                 <Route path="board">

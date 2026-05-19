@@ -25,7 +25,7 @@ function TestScheduler() {
   //로그용 소켓 연결
   React.useEffect(() => {
     const client = new Client({
-      webSocketFactory: () => new SockJS("http://localhost:8199/ws"),
+      webSocketFactory: () => new SockJS(comm.API_URL+"/ws"),
       onConnect: () => {
         console.log("스케줄러 소켓 연결됨");
         client.subscribe("/topic/schedulerLog", (message) => {

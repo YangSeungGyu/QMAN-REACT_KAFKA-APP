@@ -1,9 +1,11 @@
-function SwagerView() {
+import { comm } from '@/js/comm.js';
 
+function SwagerView() {
+    const commApiUrl = comm.API_URL;
   return(
       <div style={{ width: '100%', height: '100vh', overflow: 'hidden' }}>
       <iframe
-        src="http://localhost:8199/swagger"
+        src={commApiUrl + "/swagger"}
         title="Swagger UI"
         style={{
           width: '100%',

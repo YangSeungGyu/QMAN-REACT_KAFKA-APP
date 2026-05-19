@@ -3,6 +3,7 @@ import SockJS from "sockjs-client";
 import { Client } from "@stomp/stompjs";
 import ShowCode from '@/components/Common/showCode'; //DeleteShowCodeLine
 import sourceCode from './TestSoket.jsx?raw'; //DeleteShowCodeLine
+import { comm } from '@/js/comm.js';
 
 function TestSoket() {
   const [msg, setMsg] = useState(''); //soket보낼 메시지
@@ -11,7 +12,7 @@ function TestSoket() {
 
   useEffect(() => {
     const client = new Client({
-      webSocketFactory: () => new SockJS("http://localhost:8199/ws"),
+      webSocketFactory: () => new SockJS(comm.API_URL+"/ws"),
       onConnect: () => {
         console.log("소켓 연결됨");
         client.subscribe("/testTopic", (message) => {

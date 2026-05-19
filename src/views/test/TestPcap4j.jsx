@@ -1,6 +1,7 @@
 import React from 'react';
 import SockJS from "sockjs-client";
 import { Client } from "@stomp/stompjs";
+import { comm } from '@/js/comm.js';
 
 function TestPcap4j() {
   const [logs, setLogs] = React.useState([]);
@@ -16,7 +17,7 @@ function TestPcap4j() {
 
   React.useEffect(() => {
     const client = new Client({
-      webSocketFactory: () => new SockJS("http://localhost:8199/ws"),
+      webSocketFactory: () => new SockJS(comm.API_URL+"/ws"),
       onConnect: () => {
         client.subscribe("/packet", (message) => {
           const body = message.body;

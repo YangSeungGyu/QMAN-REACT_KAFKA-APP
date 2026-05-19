@@ -8,17 +8,17 @@ function MemoOracleView({memoId}) {
   let memoFileNm = null;
 
   if(memoId == '01'){
-    memoFileNm = memoPath+"/ORACLE_기본.txt";    
+    memoFileNm = memoPath+"ORACLE_기본.txt";    
   } else if(memoId == '02'){
-    memoFileNm = memoPath+"/ORACLE_조인.txt";
+    memoFileNm = memoPath+"ORACLE_조인.txt";
   } else if(memoId == '03'){
-    memoFileNm = memoPath+"/ORACLE_재귀호출.txt";
+    memoFileNm = memoPath+"ORACLE_재귀호출.txt";
   } else if(memoId == '04'){
-    memoFileNm = memoPath+"/ORACLE_내장함수.txt";
+    memoFileNm = memoPath+"ORACLE_내장함수.txt";
   } else if(memoId == '05'){
-    memoFileNm = memoPath+"/ORACLE_DML.txt";      
+    memoFileNm = memoPath+"ORACLE_DML.txt";      
   } else if(memoId == '06'){
-    memoFileNm = memoPath+"/ORACLE_합산.txt";      
+    memoFileNm = memoPath+"ORACLE_합산.txt";      
   } else {
     //에러
     comm.customAlert('파일이 존재하지 않습니다.')

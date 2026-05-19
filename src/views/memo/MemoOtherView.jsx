@@ -8,7 +8,7 @@ function MemoOtherView({memoId}) {
   let memoFileNm = null;
 
   if(memoId == '01'){
-    memoFileNm = memoPath+"/반도체_공장용어.txt";    
+    memoFileNm = memoPath+"반도체_공장용어.txt";    
   } else {
     //에러
     comm.customAlert('파일이 존재하지 않습니다.')

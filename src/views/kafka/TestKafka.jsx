@@ -48,7 +48,7 @@ useEffect(() => {
 
 // 3. 웹소켓 연결 및 실시간 데이터 누적
     const client = new Client({
-      webSocketFactory: () => new SockJS('http://localhost:8199/ws'),
+      webSocketFactory: () => new SockJS(comm.API_URL+'/ws'),
       reconnectDelay: 5000,
       onConnect: () => {
         client.subscribe('/topic/kafka-data', (message) => {

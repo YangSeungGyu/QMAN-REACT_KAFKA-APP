@@ -18,6 +18,7 @@ export let comm = {
   customConfirm: (msg, onConfirm) => { if (confirm(msg)) onConfirm();},
 
   //고정 값이 아닌경우 모두 초기값으로 두고 아래에서 로직 작성 후 할당.
+  //API_URL       : '',
   API_URL       : 'http://localhost:8199',
   getTodayString: null,
   formatDate    : null,

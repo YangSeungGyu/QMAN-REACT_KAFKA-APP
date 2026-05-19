@@ -3,6 +3,7 @@ import ShowCode from '@/components/Common/showCode'; //DeleteShowCodeLine
 import sourceCode from './TestExcel.jsx?raw'; //DeleteShowCodeLine
 import axios from 'axios';
 import '@/style/views/test/TestExcel.css'
+import { comm } from '@/js/comm.js';
 
 
 function TestExcel() {
@@ -28,7 +29,7 @@ function TestExcel() {
     formData.append("file", file);
 
     try {
-      const response = await axios.post("http://localhost:8199/test/uploadExcel", formData);
+      const response = await axios.post(comm.API_URL+"/test/uploadExcel", formData);
       if (response.status === 200) {
         setResultData(response.data);
       }

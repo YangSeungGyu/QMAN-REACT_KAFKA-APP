@@ -2,6 +2,7 @@ import { useEffect, useState, useRef } from "react";
 import { Client } from "@stomp/stompjs";
 import SockJS from "sockjs-client";
 import { comm } from '@/js/comm.js';
+import TestPcap4j from "@/views/test/TestPcap4j";
 
 function Home() {
   const [text, setText] = useState("");
@@ -190,6 +191,10 @@ function Home() {
             {renderStorageTable()}
           </div>
         </div>
+      </div>
+
+      <div style={{ marginBottom: '2rem', padding: '20px', background: 'white', borderRadius: '12px', boxShadow: '0 4px 6px rgba(0,0,0,0.05)' }}>        
+        <TestPcap4j />
       </div>
 
       <div style={{ padding: '20px', background: 'white', borderRadius: '12px', boxShadow: '0 4px 6px rgba(0,0,0,0.05)' }}>

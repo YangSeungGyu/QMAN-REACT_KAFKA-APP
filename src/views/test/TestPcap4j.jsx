@@ -2,6 +2,7 @@ import React from 'react';
 import SockJS from "sockjs-client";
 import { Client } from "@stomp/stompjs";
 import { comm } from '@/js/comm.js';
+import axios from 'axios';
 
 function TestPcap4j() {
   const [logs, setLogs] = React.useState([]);
@@ -46,7 +47,7 @@ function TestPcap4j() {
 
           setLogs(prev => {
             const formattedLog = `${body}\n=======================================================================`;
-            return [formattedLog, ...prev].slice(0, 100);
+            return [formattedLog, ...prev].slice(0, 50);
           });
         });
       },
@@ -86,8 +87,30 @@ function TestPcap4j() {
     <>
       {/* 상단 타이틀 및 버튼 영역 */}
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', margin: '10px 0' }}>
-        <h3 style={{ margin: 0 }}>실시간 네트워크 패킷 모니터 (최신 100개)</h3>
+        <h3 style={{ margin: 0 }}>실시간 네트워크 패킷 모니터 (50개)</h3>
         <div style={{ display: 'flex', gap: '10px', alignItems: 'center' }}>
+
+          {/* 테스트API */}
+          <button
+            onClick={() => { 
+              axios.get('http://203.81.134.96:8199/test/test2', {
+                params: { param: '1234' } 
+              })
+              .then(res => console.log(res.data))
+              .catch(err => console.error(err));
+            }}
+            style={{
+              padding: '6px 12px',
+              backgroundColor: showPeers ? '#1565c0' : '#444',
+              color: '#fff',
+              border: 'none',
+              borderRadius: '4px',
+              cursor: 'pointer',
+              fontSize: '13px',
+            }}
+          >
+            테스트API
+          </button>
 
           {/* 송수신 대상 보기 버튼 - 추가 */}
           <button

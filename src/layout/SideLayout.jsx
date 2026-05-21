@@ -84,7 +84,7 @@ function SideLayout() {
         </li>
         {/*메모 메뉴 end*/}
 
-        {/*메모 메뉴 start*/}
+        {/*메모 메뉴 start
         <li>
           <div
             onClick={() => toggleMenu('memoOracle')}
@@ -123,9 +123,10 @@ function SideLayout() {
             <li><Link to="/memo/oracle06" style={menuItemStyle('/memo/oracle06')}>오라클 합산</Link></li>
           </ul>
         </li>
+        */}
         {/*메모 메뉴 end*/}
 
-        {/*메모 메뉴 start*/}
+        {/*메모 메뉴 start
         <li>
           <div
             onClick={() => toggleMenu('memoOther')}
@@ -145,7 +146,7 @@ function SideLayout() {
             }}>▶</span>
             기타 학습
           </div>
-
+          
           <ul style={{
             listStyle: 'none',
             padding: '0 0 0 16px',
@@ -159,6 +160,7 @@ function SideLayout() {
             <li><Link to="/memo/other01" style={menuItemStyle('/memo/other01')}>반도체공장용어</Link></li>
           </ul>
         </li>
+        */}
         {/*메모 메뉴 end*/}
 
         

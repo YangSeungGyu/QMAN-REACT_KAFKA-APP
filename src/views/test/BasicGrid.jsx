@@ -13,6 +13,20 @@ function BasicGrid() {
   const [loading, setLoading] = useState(false);
   const [error, setError]     = useState(null);
 
+
+  //필터링 명칭 변경
+  const koreanLocaleText = {
+    contains: '포함',
+    equals: '일치',
+    notEqual: '불일치',
+    startsWith: '시작단어',
+    endsWith: '끝단어',
+    blank: '공백',
+    notBlank: '공백 아님',
+    filterOoo: '필터링...',
+  };
+
+  //사용할 필터링
   const commonfilterParam = {
     filterOptions: ['contains', 'equals'],
     suppressAndOrCondition: true,
@@ -52,8 +66,9 @@ function BasicGrid() {
           columnDefs={colDefs}
           onCellValueChanged={(e) => console.log('변경된 값:', e.data)}
           pagination={true}
-          paginationPageSize={10}
-          paginationPageSizeSelector={[5, 10, 20, 50]}
+          paginationPageSize={10}/*디폴트 페이지 사이즈*/
+          paginationPageSizeSelector={[5, 10, 20, 50]}/*페이지 사이즈*/
+          localeText={koreanLocaleText} /*필터 한글로 변경*/
         />
       </div>
       <style>
@@ -61,6 +76,12 @@ function BasicGrid() {
         .ag-paging-panel {
           justify-content: center !important;
         }
+
+        /*행 표시 영역 제거*/
+        .ag-paging-row-summary-panel {
+          display: none !important;
+        }
+
         `}
       </style>
     </>

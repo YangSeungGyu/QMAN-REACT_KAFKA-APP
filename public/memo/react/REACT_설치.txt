@@ -54,6 +54,8 @@ npm install history
 [AG grid]
 npm install ag-grid-react ag-grid-community
 
+ - npm install ag-grid-community ag-grid-enterprise ag-grid-react ag-charts-enterprise --legacy-peer-deps 엔터프라이즈
+
 [soket]
 npm install @stomp/stompjs sockjs-client
 
@@ -90,3 +92,6 @@ git add .
 git commit -m ["코멘트"]
 git remote add origin [프로젝트 GIT URL]
 git push -u origin main
+
+
+-----------------------------

@@ -199,6 +199,7 @@ function SideLayout() {
             <li><Link to="/board/boardList" style={menuItemStyle('/board/boardList')}>table게시판</Link></li>
             <li><Link to="/test/basicGrid" style={menuItemStyle('/test/basicGrid')}>기본그리드</Link></li>
             <li><Link to="/test/pageGrid" style={menuItemStyle('/test/pageGrid')}>페이지그리드</Link></li>
+            <li><Link to="/test/agGrid" style={menuItemStyle('/test/agGrid')}>AgGridEP</Link></li>
           </ul>
         </li>
         {/*게시판 Grid 메뉴 end*/}

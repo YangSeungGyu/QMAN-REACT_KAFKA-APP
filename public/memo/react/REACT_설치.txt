@@ -55,7 +55,7 @@ npm install history
 npm install ag-grid-react ag-grid-community
 
  - npm install ag-grid-community ag-grid-enterprise ag-grid-react ag-charts-enterprise --legacy-peer-deps 엔터프라이즈
-
+ - npm install ag-grid-community ag-grid-react 스타일
 [soket]
 npm install @stomp/stompjs sockjs-client
 

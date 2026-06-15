@@ -1,11 +1,13 @@
 import { AgGridReact } from 'ag-grid-react';
 import { useState } from 'react';
 import ShowCode from '@/components/Common/showCode'; //DeleteShowCodeLine
-import sourceCode from './AgGrid.jsx?raw'; //DeleteShowCodeLine
+import sourceCode from './AgGridDesign.jsx?raw'; //DeleteShowCodeLine
 
 import { ModuleRegistry } from 'ag-grid-community'; 
 
-
+// AG Grid 핵심 스타일 및 Balham 테마 스타일시트 로드
+import 'ag-grid-community/styles/ag-grid.css';
+import 'ag-grid-community/styles/ag-theme-balham.css';
 
 // 필요한 모든 AG Grid 엔터프라이즈 모듈 임포트
 import { 
@@ -34,32 +36,40 @@ ModuleRegistry.registerModules([
   IntegratedChartsModule.with(AgChartsEnterpriseModule)
 ]);
 
-function AgGrid() {
-const [gridApi, setGridApi] = useState(null);
+function AgGridDesign() {
+  const [gridApi, setGridApi] = useState(null);
 
-const onGridReady = (params) => {
-  setGridApi(params.api);
-};
+  const onGridReady = (params) => {
+    setGridApi(params.api);
+  };
 
-const toggleSideBar = () => {
-  if (!gridApi) return;
-
-  const opened = gridApi.getOpenedToolPanel();
-
-  if (opened) {
-    gridApi.closeToolPanel();
-
-    if (gridApi.setSideBarVisible) {
-      gridApi.setSideBarVisible(false);
+  //사이드바에서 컬럼을 끄고 켤 때 실시간으로 크기를 재조정하는 함수 !!!!
+  const handleColumnVisible = (params) => {
+    if (params.api) {
+      params.api.sizeColumnsToFit();
     }
-  } else {
-    if (gridApi.setSideBarVisible) {
-      gridApi.setSideBarVisible(true);
-    }
+  };
 
-    gridApi.openToolPanel('columns');
-  }
-};
+  //사이드바 버튼으로 펼치는 함수
+  const toggleSideBar = () => {
+    if (!gridApi) return;
+
+    const opened = gridApi.getOpenedToolPanel();
+
+    if (opened) {
+      gridApi.closeToolPanel();
+
+      if (gridApi.setSideBarVisible) {
+        gridApi.setSideBarVisible(false);
+      }
+    } else {
+      if (gridApi.setSideBarVisible) {
+        gridApi.setSideBarVisible(true);
+      }
+
+      gridApi.openToolPanel('columns');
+    }
+  };
 
   // 데이터 구조
   const [list] = useState([
@@ -73,7 +83,7 @@ const toggleSideBar = () => {
     { id: 8, year: '2025년', dept: '영업 2팀', writer: '최지우', title: 'E 프로젝트 수주', sales: 5000, count: 18 },
   ]);
 
-  //ag그리드 한글로 변경
+  // ag그리드 한글로 변경
   const koreanLocaleText = {
     contains: '포함',
     equals: '일치',
@@ -85,18 +95,22 @@ const toggleSideBar = () => {
     filterOoo: '필터링...',
     pivotMode: '피벗 모드',
     pivotColumns: '피벗 열',
-    rowGroups: '행 그룹',
-    values: '값',
+    RowGroups: '행 그룹',
+    values: '합산 값',
     charts: '차트 생성',
+    columns : '기준변경',
+    filters : '필터',
+   
+
   };
 
-  //우측 filters에서 검색 조건 지정(포함,일치)
+  // 우측 filters에서 검색 조건 지정(포함,일치)
   const commonfilterParam = {
     filterOptions: ['contains', 'equals'],
     suppressAndOrCondition: true,
   };
 
-  //각 컬럼 속성, 그룹이나 피벗 대상에 포함시킬 여부 등
+  // 각 컬럼 속성
   const [colDefs] = useState([
     { field: 'year', headerName: '년도', enableRowGroup: true, enablePivot: true }, 
     { field: 'dept', headerName: '부서', enableRowGroup: true, enablePivot: true },
@@ -118,10 +132,13 @@ const toggleSideBar = () => {
         }}
       >
         SideBar
-    </button>
-      <div style={{ height: '100%', width: '100%' }}>
+      </button>
+      
+      <div className="ag-theme-balham" style={{ height: '700px', width: '100%' }}>
         <AgGridReact
+          theme="legacy"
           onGridReady={onGridReady}
+          onColumnVisible={handleColumnVisible} // [추가] 컬럼 표시 상태가 바뀔 때 실행될 이벤트 연결
           rowData={list}
           columnDefs={colDefs}
           pagination={true}
@@ -130,10 +147,17 @@ const toggleSideBar = () => {
           localeText={koreanLocaleText}
           
           enableCharts={true}          
-          cellSelection={true}         
+          cellSelection={true}       
+          
+          // 초기 로드 시 가로 폭 가득 채우기
+          autoSizeStrategy={{
+            type: 'fitGridWidth',              
+            defaultMinWidth: 80,
+          }}
+          
           sideBar={{
-             hiddenByDefault: true
-            ,toolPanels: [
+            hiddenByDefault: true,
+            toolPanels: [
               {
                 id: 'columns',
                 labelDefault: 'Columns',
@@ -158,46 +182,44 @@ const toggleSideBar = () => {
             defaultToolPanel: 'columns'
           }}              
           pivotMode={false} 
-
-          pivotPanelShow={'always'}
+          suppressPivotPanel={true}
         />
       </div>
     </>
   );
 }
 
-
 if (typeof document !== 'undefined') {
   const styleInject = document.createElement('style');
   styleInject.innerHTML = `
     /* 1. 사이드바 전체 가로 폭 확장 */
-    .ag-side-bar, .ag-tool-panel-wrapper {
+    .ag-theme-balham .ag-side-bar, .ag-theme-balham .ag-tool-panel-wrapper {
       width: 330px !important;
       max-width: 330px !important;
     }
 
     /* 2. 행 그룹, 값 드롭존 상자 높이 확보 */
-    .ag-column-drop { 
+    .ag-theme-balham .ag-column-drop { 
       min-height: 145px !important; 
     }
 
-    /* 3. 🎯 버그 수정 핵심: 일반 상단 서치바 아이콘이 깨지지 않도록, 딱 '드롭존 패널(.ag-column-drop)'만 강제 표시 */
-    .ag-column-panel-column-select .ag-column-drop.ag-hidden { 
+    /* 3. 버그 수정 핵심: 일반 상단 서치바 아이콘이 깨지지 않도록, 딱 '드롭존 패널(.ag-column-drop)'만 강제 표시 */
+    .ag-theme-balham .ag-column-panel-column-select .ag-column-drop.ag-hidden { 
       display: flex !important; 
     }
     
     /* 4. 서치바 영역의 레이아웃이 깨지거나 가려지지 않도록 패딩 및 간격 최적화 */
-    .ag-column-select-header {
+    .ag-theme-balham .ag-column-select-header {
       padding: 8px 12px !important;
       gap: 8px !important;
     }
     
     /* 5. 체크박스가 텍스트나 아이콘을 덮어쓰지 않도록 정렬 정돈 */
-    .ag-column-select-header .ag-checkbox {
+    .ag-theme-balham .ag-column-select-header .ag-checkbox {
       margin-right: 6px !important;
     }
   `;
   document.head.appendChild(styleInject);
 }
 
-export default AgGrid;
+export default AgGridDesign;

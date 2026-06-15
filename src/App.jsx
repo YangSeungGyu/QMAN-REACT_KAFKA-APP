@@ -28,6 +28,8 @@ import TestPage03 from '@/views/test/TestPage03';
 import TestBasicGrid from '@/views/test/BasicGrid';
 import PageGrid from '@/views/test/PageGrid';
 import AgGrid from '@/views/test/AgGrid';
+import AgGridDesign from '@/views/test/AgGridDesign';
+
 import TestFlow from '@/views/test/TestFlow';
 import TestChart from '@/views/test/TestChart';
 import TestSaga from '@/views/test/TestSaga';
@@ -106,6 +108,7 @@ function App() {
                   <Route path="basicGrid" element={<TestBasicGrid />} />
                   <Route path="pageGrid" element={<PageGrid />} />
                   <Route path="agGrid" element={<AgGrid />} />
+                  <Route path="agGridDesign" element={<AgGridDesign />} />
                   <Route path="testFlow" element={<TestFlow />} />
                   <Route path="testCustomConfirm" element={<TestCustomConfirm />} />
 

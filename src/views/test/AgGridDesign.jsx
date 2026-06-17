@@ -42,12 +42,17 @@ function AgGridDesign() {
   
   const [groupCount, setGroupCount] = useState(0);
   
-  // 💡 [추가] 현재 그룹들이 펼쳐져 있는지 여부를 관리하는 토글 상태
+  //현재 그룹들이 펼쳐져 있는지 여부를 관리하는 토글 상태
   const [isExpanded, setIsExpanded] = useState(false);
 
   const onGridReady = (params) => {
     setGridApi(params.api);
     setGroupCount(params.api.getRowGroupColumns().length);
+
+    // 최초 화면에서는 사이드바 숨김
+    setTimeout(() => {
+      params.api.closeToolPanel();
+    }, 0);
   };
 
   const handleColumnVisible = (params) => {
@@ -70,23 +75,14 @@ function AgGridDesign() {
 
   //사이드바 버튼으로 펼치는 함수
   const toggleSideBar = () => {
-    if (!gridApi) return;
+   if (!gridApi) return;
+     const opened = gridApi.getOpenedToolPanel();
 
-    const opened = gridApi.getOpenedToolPanel();
-
-    if (opened) {
-      gridApi.closeToolPanel();
-
-      if (gridApi.setSideBarVisible) {
-        gridApi.setSideBarVisible(false);
-      }
-    } else {
-      if (gridApi.setSideBarVisible) {
-        gridApi.setSideBarVisible(true);
-      }
-
-      gridApi.openToolPanel('columns');
-    }
+     if (opened) {
+       gridApi.closeToolPanel();
+     } else {
+       gridApi.openToolPanel('columns');
+     }
   };
 
   // 데이터 구조 (총 40개 샘플 데이터)
@@ -229,41 +225,68 @@ function AgGridDesign() {
       
       <div className="ag-theme-balham" style={{ height: '700px', width: '100%' }}>
         <AgGridReact
+          // ag-Grid의 테마 설정 ("legacy" 테마 사용)
           theme="legacy"
+          // 그리드가 초기화 이벤트(컬럼까지 셋팅된상태)
           onGridReady={onGridReady}
+
+          // 컬럼의 표시/숨김 상태 변경 함수
           onColumnVisible={handleColumnVisible}
+          // 셀의 값이 변경(수정 등) 실행 함수
           onCellValueChanged={handleCellValueChanged}
-          
+          // 행 그룹화(Row Grouping) 상태가 변경 실행 함수
           onRowGroupChanged={handleRowGroupChanged}
+          // 컬럼의 행 그룹 상태 변경 실행 함수
           onColumnRowGroupChanged={handleRowGroupChanged}
-          
+
+          // 데이터 데이터 바인딩
           rowData={list}
+          // 컬럼 바인딩
           columnDefs={colDefs}
+
+          
+          // 하단 페이지 활성화
           pagination={true}
+          // 페이지 사이즈
           paginationPageSize={20}
+          // 페이지 사이즈 리스트
           paginationPageSizeSelector={[5, 10, 20, 50]}
+
+          // === [언어 및 기능 설정] ===
+          // 그리드 내장 텍스트 변경 매핑
           localeText={koreanLocaleText}
+
+          // 차트 활성(Enterprise)
           enableCharts={true}          
+          // 마우스 드래그 범위 선택 기능
           cellSelection={true}       
+
+          // 너비 자동 조절 전략
           autoSizeStrategy={{
+            // 그리드 전체 너비에 맞게 컬럼 채움
             type: 'fitGridWidth',              
+            // 자동 조절 시 최소 너비(px)
             defaultMinWidth: 80,
           }}
           
+          // 사이드바 설정
           sideBar={{
-            hiddenByDefault: true,
+            // 그리드 로드 시 숨김 처리
+            //hiddenByDefault: true,
+            // 사이드바 패널 옵션
             toolPanels: [
               {
                 id: 'columns',
                 labelDefault: 'Columns',
                 labelKey: 'columns',
                 iconKey: 'columns',
+                // 컬럼 제어(컬럼 숨김, 그룹핑, 피벗 등 관리) 사용
                 toolPanel: 'agColumnsToolPanel',
                 toolPanelParams: {
-                  suppressRowGroups: false,
-                  suppressValues: false,
-                  suppressPivots: false,
-                  suppressPivotMode: false,
+                  suppressRowGroups: false,   // 행 그룹화 영역 표시 (true==숨김)
+                  suppressValues: false,      // 값(Value) 영역 표시
+                  suppressPivots: false,      // 피벗 영역 표시
+                  suppressPivotMode: false,   // 피벗 모드 체크박스 표시
                 }
               },
               {
@@ -271,12 +294,18 @@ function AgGridDesign() {
                 labelDefault: 'Filters',
                 labelKey: 'filters',
                 iconKey: 'filter',
+                //모든 필터를 모아보기 사용
                 toolPanel: 'agFiltersToolPanel',
               }
             ],
+            // 사이드바 오픈시 디폴트 패널ID
             defaultToolPanel: 'columns'
           }}              
+
+          
+          // 피벗 모드 비활성화 (통계/교차 테이블 모드 끄기)
           pivotMode={false} 
+          // 그리드 상단에 피벗 컬럼 영역 숨김
           suppressPivotPanel={true}
         />
       </div>
@@ -287,28 +316,46 @@ function AgGridDesign() {
 if (typeof document !== 'undefined') {
   const styleInject = document.createElement('style');
   styleInject.innerHTML = `
+    /* 오른쪽 사이드바와  330px 고정*/
     .ag-theme-balham .ag-side-bar, .ag-theme-balham .ag-tool-panel-wrapper {
       width: 330px !important;
       max-width: 330px !important;
     }
+
+    /* 사이드바 drop 영역 최소 높이 145px 변경, */
     .ag-theme-balham .ag-column-drop { 
       min-height: 145px !important; 
     }
+    /* === 3. 숨겨진 컬럼 드롭 영역 강제 표시 === */
+    /* 원래 조건에 따라 숨겨지도록(ag-hidden) 되어 있는 컬럼 드롭 영역을 */
+    /* display: flex를 주어 화면에 강제로 무조건 보이도록 설정합니다. */
+    /*
     .ag-theme-balham .ag-column-panel-column-select .ag-column-drop.ag-hidden { 
       display: flex !important; 
     }
+    
+    /* === 4. 컬럼 선택창 헤더 여백 조정 === */
+    /* 패널 최상단의 '전체 선택/검색'이 있는 헤더 영역의 안쪽 여백(Padding)을 키우고, */
+    /* 내부 요소들(체크박스, 텍스트, 검색창 등) 사이의 간격(Gap)을 8px로 넓혀 가독성을 높입니다. */
     .ag-theme-balham .ag-column-select-header {
       padding: 8px 12px !important;
       gap: 8px !important;
     }
+    
+    /* === 5. 전체 선택 체크박스 우측 여백 추가 === */
+    /* 헤더에 있는 전체 선택 체크박스와 바로 옆의 텍스트가 너무 붙어 보이지 않도록 */
+    /* 체크박스 오른쪽에 6px의 여백을 줍니다. */
     .ag-theme-balham .ag-column-select-header .ag-checkbox {
       margin-right: 6px !important;
     }
+    
+    /* === 6. 페이드인 애니메이션 정의 === */
+    /* 투명도가 0에서 1로 바뀌고, 왼쪽에서 오른쪽으로(-5px -> 0) 미세하게 이동하며 */
+    /* 부드럽게 나타나는 효과를 만듭니다. (패널이 열릴 때 등에 적용하기 위한 용도) */
     @keyframes fadeIn {
       from { opacity: 0; transform: translateX(-5px); }
       to { opacity: 1; transform: translateX(0); }
-    }
-  `;
+    }`;
   document.head.appendChild(styleInject);
 }
 

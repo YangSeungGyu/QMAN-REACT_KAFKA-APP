@@ -20,6 +20,8 @@ https://nodejs.org/ko
 5) rolldown_vite : n
  - Install with npm and start now? -> y (이건 몇번째 뜨는건지 기억안남)
 
+폴더 프로젝트로 변경해서 다시 open
+
 -> 설치 후 npm run dev로 실행
 
 

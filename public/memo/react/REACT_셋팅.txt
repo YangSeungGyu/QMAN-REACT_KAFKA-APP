@@ -1,0 +1,121 @@
+============================[라우터 셋팅]=========================
+[MainPage.jsx] 메인페이지 생성
+function MainPage() {
+  return (
+    <div>
+      메인페이지
+    </div>
+  );
+}
+export default MainPage;
+
+[vite.config.js] @경로 지정
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
+import path from 'path'// src 경로 잡기용
+
+// https://vite.dev/config/
+export default defineConfig({
+  plugins: [react()],
+     // 현재 경로의 src를 'src'라는 이름으로 매핑
+  resolve: {
+    alias: {
+      "@": path.resolve(__dirname, "./src"),
+    },
+  }
+
+  //이거 넣으니 새창으로 열어줌. 기본옵션은 아닌데 소켓이나 이런데서 window를 읽으려 하기에 설정 넣음.
+  ,define: {
+    global: 'window',
+  },
+
+})
+
+[App.jsx] 라우터 셋팅
+import {Routes, Route } from 'react-router-dom';
+import { BrowserRouter } from 'react-router-dom'
+import MainPage from '@/views/MainPage'
+import './App.css'
+
+
+function App() {
+  return (
+    <>
+      <BrowserRouter>
+        <Routes>
+            <Route path="/" element={<MainPage/>}/>
+        </Routes>
+      </BrowserRouter>
+    </>
+  )
+}
+export default App
+
+
+============================[라우터 레이아웃,서브메뉴 추가]=========================
+[서브메뉴 2개]
+function Menu01Page(){
+    console.log(Menu01Page);
+    return(
+        <>test11111111</>
+    )
+}
+export default Menu01Page;
+function Menu02Page(){
+    return(
+        <>test22222222</>
+    )
+}
+export default Menu02Page;
+
+[LayoutPage] 레이아웃 페이지 추가
+import {Outlet,Link,useLocation} from 'react-router-dom'
+function LayoutPage(){
+    return (
+        <div>
+            <header>
+                헤더
+            </header>
+            <div>
+                <ul>
+                    <li><Link to="/menu/menu01Page">메뉴1</Link></li>
+                    <li><Link to="/menu/menu02Page">메뉴2</Link></li>
+                </ul>
+            </div>
+            <div id="contents">
+                <Outlet/>
+            </div>
+            <footer>
+                푸터
+            </footer>
+        </div>
+    )
+}
+export default LayoutPage
+
+[App.jsx] 레이아웃 및 서브메뉴 설정
+import {Routes, Route } from 'react-router-dom';
+import { BrowserRouter } from 'react-router-dom'
+import MainPage from '@/views/MainPage'
+import LayoutPage from '@/views/LayoutPage'
+import Menu01Page from '@/views/menu/Menu01Page'
+import Menu02Page from '@/views/menu/Menu02Page'
+
+function App() {
+  return (
+    <>
+      <BrowserRouter>
+        <Routes>
+            <Route path="/" element={<LayoutPage/>}>
+              <Route index element={<MainPage/>}/>
+              <Route path="menu">
+                  <Route path="menu01Page" element={<Menu01Page />} />
+                  <Route path="menu02Page" element={<Menu02Page />} />
+              </Route>
+            </Route>
+        </Routes>
+      </BrowserRouter>
+    </>
+  )
+}
+export default App

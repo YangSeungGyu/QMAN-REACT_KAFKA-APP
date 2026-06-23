@@ -1,4 +1,6 @@
-import { Button, DatePicker, Space, Input, Select, Table, Divider, Modal, Card, ConfigProvider } from 'antd'; // 1. ConfigProvider 추가
+
+import {useState,useEffect} from 'react';
+import { Button, DatePicker, Space, Input, Select, Table, Divider, Modal, Card, ConfigProvider,Checkbox,Radio } from 'antd'; // 1. ConfigProvider 추가
 import dayjs from 'dayjs'; 
 
 // 2. dayjs 한글 로케일 설정
@@ -15,6 +17,11 @@ import ShowCode from '@/components/Common/showCode'; //DeleteShowCodeLine
 import sourceCode from './TestAntdUi.jsx?raw'; //DeleteShowCodeLine
 
 function TestAntdUi() {
+
+  const [check01,setCheck01] = useState(false);
+    const [check02,setCheck02] = useState(false);
+
+    const [radio01,setRadio01] = useState(false);
 
   // Table용 데이터
   const columns = [
@@ -81,6 +88,17 @@ function TestAntdUi() {
     });
   };
 
+
+  
+
+   const bt02CheckAlert = ()=>{
+            alert('check01:'+check01+',check02:'+check02);
+    }
+    
+    const bt02RadioAlert = ()=>{
+            alert('radio01:'+radio01);
+    }
+
   return (
     // 4. return 문 맨 바깥을 ConfigProvider로 감싸줍니다. 
     // 이렇게 하면 내부의 모든 DatePicker, RangePicker, 심지어 Table과 Modal까지 한글로 자동 번역됩니다.
@@ -140,6 +158,40 @@ function TestAntdUi() {
                 <Button type="primary" onClick={showAlert}>Alert</Button>
                 <Button type="primary" onClick={showConfirm}>Confirm</Button>
             </Space>
+
+            <Divider />
+            
+            <Checkbox
+                  checked={check01}
+                  onChange={(e) => setCheck01(e.target.checked)}
+              >
+              선택1
+              </Checkbox>
+              <Checkbox
+                  checked={check02}
+                  onChange={(e) => setCheck02(e.target.checked)}
+              >
+              선택2
+              </Checkbox>
+              <Button 
+                  style={{width:'80px'}}
+                  onClick={() => bt02CheckAlert()}>
+                  체크값 확인
+              </Button>
+              
+               <Divider />
+              <Radio.Group
+                  value={radio01}
+                  onChange={(e) => setRadio01(e.target.value)}
+              >
+                  <Radio value="A">AAA</Radio>
+                  <Radio value="B">BBB</Radio>
+              </Radio.Group>
+              <Button 
+                  style={{width:'80px'}}
+                  onClick={() => bt02RadioAlert()}>
+                  라디오 확인
+              </Button>
               
           </Space>
         </div>
